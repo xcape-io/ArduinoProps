@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup Label="Globals">
+    <MSBuildAllProjects>$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
+    <HasSharedItems>true</HasSharedItems>
+    <ItemsProjectGuid>{45155b06-e8aa-4ea0-8802-94310db08612}</ItemsProjectGuid>
+  </PropertyGroup>
+  <ItemDefinitionGroup>
+    <ClCompile>
+      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories);$(MSBuildThisFileDirectory)</AdditionalIncludeDirectories>
+    </ClCompile>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ProjectCapability Include="SourceItemsFromImports" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="$(MSBuildThisFileDirectory)keywords.txt" />
+    <Text Include="$(MSBuildThisFileDirectory)LICENSE.txt" />
+    <Text Include="$(MSBuildThisFileDirectory)library.properties" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="$(MSBuildThisFileDirectory)EXAMPLES.md" />
+    <None Include="$(MSBuildThisFileDirectory)examples\BlinkOnBridgeProps\BlinkOnBridgeProps.ino" />
+    <None Include="$(MSBuildThisFileDirectory)examples\BlinkOnBridgePubSub\BlinkOnBridgePubSub.ino" />
+    <None Include="$(MSBuildThisFileDirectory)examples\BlinkOnEthernetProps\BlinkOnEthernetProps.ino" />
+    <None Include="$(MSBuildThisFileDirectory)examples\BlinkOnWifiProps\BlinkOnWifiProps.ino" />
+    <None Include="$(MSBuildThisFileDirectory)LICENSE.md" />
+    <None Include="$(MSBuildThisFileDirectory)Props.md" />
+    <None Include="$(MSBuildThisFileDirectory)PropsAction.md" />
+    <None Include="$(MSBuildThisFileDirectory)PropsData.md" />
+    <None Include="$(MSBuildThisFileDirectory)PROPS_FOR_ESCAPE_ROOM_2_0.md" />
+    <None Include="$(MSBuildThisFileDirectory)README.md" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="$(MSBuildThisFileDirectory)src\ArduinoProps.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)src\BridgeProps.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)src\EthernetProps.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)src\Props.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)src\PropsAction.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)src\PropsData.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)src\WifiProps.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="$(MSBuildThisFileDirectory)src\ArduinoProps.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)src\BridgeProps.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)src\EthernetProps.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)src\Props.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)src\PropsAction.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)src\PropsData.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)src\WifiProps.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="$(MSBuildThisFileDirectory)examples-shot.png" />
+    <Image Include="$(MSBuildThisFileDirectory)install-shot.png" />
+  </ItemGroup>
+</Project>

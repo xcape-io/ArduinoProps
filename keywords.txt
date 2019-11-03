@@ -1,0 +1,59 @@
+#######################################
+# Syntax Coloring Map For PubSubClient
+#######################################
+
+#######################################
+# Datatypes (KEYWORD1)
+#######################################
+
+Props				KEYWORD1
+BridgeProps			KEYWORD1
+EthernetProps		KEYWORD1
+WifiProps			KEYWORD1
+PropsAction			KEYWORD1
+PropsData			KEYWORD1
+PropsDataDecimal	KEYWORD1
+PropsDataInteger	KEYWORD1
+PropsDataLogical	KEYWORD1
+PropsDataText		KEYWORD1
+PropsCallback			KEYWORD1
+PropsMessageReceived	KEYWORD1
+InboxMessage			KEYWORD1
+
+#######################################
+# Methods and Functions (KEYWORD2)
+#######################################
+
+begin	KEYWORD2
+addData	KEYWORD2
+loop	KEYWORD2
+run		KEYWORD2
+sendAllData		KEYWORD2
+sendDataChanges	KEYWORD2
+sendData	KEYWORD2
+sendDone	KEYWORD2
+sendMesg	KEYWORD2
+sendOmit	KEYWORD2
+sendOver	KEYWORD2
+sendProg	KEYWORD2
+sendRequ	KEYWORD2
+reset	KEYWORD2
+disable	KEYWORD2
+enable	KEYWORD2
+check	KEYWORD2
+tick	KEYWORD2
+getInterval	KEYWORD2
+fetch		KEYWORD2
+fetchChange	KEYWORD2
+setValue	KEYWORD2
+value		KEYWORD2
+onInboxMessageReceived	KEYWORD2
+setBrokerIpAddress	KEYWORD2
+checkDataChanges	KEYWORD2
+resetIntervals		KEYWORD2
+send	KEYWORD2
+
+
+#######################################
+# Constants (LITERAL1)
+#######################################
