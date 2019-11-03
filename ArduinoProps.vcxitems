@@ -19,6 +19,8 @@
     <Text Include="$(MSBuildThisFileDirectory)library.properties" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="$(MSBuildThisFileDirectory)ArduinoProps.zip" />
+    <None Include="$(MSBuildThisFileDirectory)create-library-zip.ps1" />
     <None Include="$(MSBuildThisFileDirectory)EXAMPLES.md" />
     <None Include="$(MSBuildThisFileDirectory)examples\BlinkOnBridgeProps\BlinkOnBridgeProps.ino" />
     <None Include="$(MSBuildThisFileDirectory)examples\BlinkOnBridgePubSub\BlinkOnBridgePubSub.ino" />

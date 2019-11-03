@@ -38,6 +38,8 @@
     <None Include="$(MSBuildThisFileDirectory)examples\BlinkOnWifiProps\BlinkOnWifiProps.ino">
       <Filter>Examples</Filter>
     </None>
+    <None Include="$(MSBuildThisFileDirectory)create-library-zip.ps1" />
+    <None Include="$(MSBuildThisFileDirectory)ArduinoProps.zip" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="$(MSBuildThisFileDirectory)src\ArduinoProps.cpp">
