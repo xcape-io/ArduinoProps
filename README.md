@@ -21,7 +21,6 @@ Add `#include "ArduinoProps.h"` on top of your sketch and start coding. Reading 
 |--------------------------------------------------------|
 | [This README file](README.md)                          | 
 | [Props class reference](Props.md)                      | 
-| [PropsLite class reference](PropsLite.md)              | 
 | [PropsData class reference](PropsData.md)              |
 | [PropsAction class reference](PropsAction.md)          | 
 | [ArduinoProps library examples](EXAMPLES.md)           | 
