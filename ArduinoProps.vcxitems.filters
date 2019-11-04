@@ -20,7 +20,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="$(MSBuildThisFileDirectory)LICENSE.md" />
-    <None Include="$(MSBuildThisFileDirectory)PROPS_FOR_ESCAPE_ROOM_2_0.md" />
     <None Include="$(MSBuildThisFileDirectory)README.md" />
     <None Include="$(MSBuildThisFileDirectory)Props.md" />
     <None Include="$(MSBuildThisFileDirectory)PropsAction.md" />
@@ -38,8 +37,9 @@
     <None Include="$(MSBuildThisFileDirectory)examples\BlinkOnWifiProps\BlinkOnWifiProps.ino">
       <Filter>Examples</Filter>
     </None>
-    <None Include="$(MSBuildThisFileDirectory)create-library-zip.ps1" />
     <None Include="$(MSBuildThisFileDirectory)ArduinoProps.zip" />
+    <None Include="$(MSBuildThisFileDirectory)create-library-zip.bat" />
+    <None Include="$(MSBuildThisFileDirectory)Arduino_Props.md" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="$(MSBuildThisFileDirectory)src\ArduinoProps.cpp">

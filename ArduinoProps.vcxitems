@@ -20,7 +20,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="$(MSBuildThisFileDirectory)ArduinoProps.zip" />
-    <None Include="$(MSBuildThisFileDirectory)create-library-zip.ps1" />
+    <None Include="$(MSBuildThisFileDirectory)create-library-zip.bat" />
     <None Include="$(MSBuildThisFileDirectory)EXAMPLES.md" />
     <None Include="$(MSBuildThisFileDirectory)examples\BlinkOnBridgeProps\BlinkOnBridgeProps.ino" />
     <None Include="$(MSBuildThisFileDirectory)examples\BlinkOnBridgePubSub\BlinkOnBridgePubSub.ino" />
@@ -30,7 +30,7 @@
     <None Include="$(MSBuildThisFileDirectory)Props.md" />
     <None Include="$(MSBuildThisFileDirectory)PropsAction.md" />
     <None Include="$(MSBuildThisFileDirectory)PropsData.md" />
-    <None Include="$(MSBuildThisFileDirectory)PROPS_FOR_ESCAPE_ROOM_2_0.md" />
+    <None Include="$(MSBuildThisFileDirectory)Arduino_Props.md" />
     <None Include="$(MSBuildThisFileDirectory)README.md" />
   </ItemGroup>
   <ItemGroup>

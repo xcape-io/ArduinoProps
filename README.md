@@ -17,14 +17,15 @@ Download `ArduinoProps-master.zip` from GitHub and use **Sketch > Include Librar
 
 Add `#include "ArduinoProps.h"` on top of your sketch and start coding. Reading [EXAMPLES.md](EXAMPLES.md) will be helpful.
 
-|ArduinoProps library documentation             |
-|-----------------------------------------------|
-| [This README file](README.md)                 | 
-| [Props class reference](Props.md)             | 
-| [PropsLite class reference](PropsLite.md)     | 
-| [PropsData class reference](PropsData.md)     |
-| [PropsAction class reference](PropsAction.md) | 
-| [ArduinoProps library examples](EXAMPLES.md)  | 
+|ArduinoProps library documentation                      |
+|--------------------------------------------------------|
+| [This README file](README.md)                          | 
+| [Props class reference](Props.md)                      | 
+| [PropsLite class reference](PropsLite.md)              | 
+| [PropsData class reference](PropsData.md)              |
+| [PropsAction class reference](PropsAction.md)          | 
+| [ArduinoProps library examples](EXAMPLES.md)           | 
+| [Arduino Props for Escape Room 2.0](Arduino_Props.md)  | 
 
 
 ## 2. Escape room 2.0 props with Arduino
