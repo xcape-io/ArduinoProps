@@ -11,7 +11,7 @@
 
 
 ## 1. Installation and usage
-Download `ArduinoProps-master.zip` from GitHub and use **Sketch > Include Library > Add .ZIP Library...** 
+Download [ArduinoProps.zip](https://github.com/fauresystems/ArduinoProps/raw/master/ArduinoProps.zip) from GitHub and use **Sketch > Include Library > Add .ZIP Library...** 
 
 ![](install-shot.png)
 
