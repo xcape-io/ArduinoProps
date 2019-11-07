@@ -175,8 +175,6 @@ You can use the *ArduinoProps library* with any *Nick O'Leary PubSubClient* supp
  - ESP8266
  - ESP32
 
-Please check at https://github.com/knolleary/pubsubclient
-
 
 ## 6. Advantages of Arduino Yun and Dragino Yun shield
 In escape room 2.0, props are usually powered by Arduino Yun or Arduino Mega 2560 + Dragino Yun shield (or Raspberry Pi) because they are cheap and appropriate for DIY projects. 
