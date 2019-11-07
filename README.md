@@ -159,12 +159,16 @@ More MQTT topics can be use for anything (room scenario, etc.).
 ## 5. Compatible hardware
 You can use the *ArduinoProps library* with any *Nick O'Leary PubSubClient* supported hardware. It uses the Arduino Ethernet Client api for interacting with the underlying network hardware. This means it Just Works with a growing number of boards and shields, including:
 
+ - Arduino Yún and Arduino Yún Rev 2
+ - Arduino Mega 2560 Rev3 + Dragino Yún Shield
+ - Elegoo Mega 2560 R3 + Dragino Yún Shield
+ - Arduino Uno WiFi Rev 2
+ - Arduino NANO 33 IoT
+ - Arduino MKR 1010
+ - Arduino MKR VIDOR 4000
  - Arduino Ethernet
  - Arduino Ethernet Shield
- - Arduino Yun – use the included `YunClient` in place of `EthernetClient`, and
-   be sure to do a `Bridge.begin()` first
- - Arduino WiFi Shield - if you want to send packets > 90 bytes with this shield,
-   enable the `MQTT_MAX_TRANSFER_SIZE` define in `PubSubClient.h`.
+ - Arduino WiFi Shield
  - Sparkfun WiFly Shield – [library](https://github.com/dpslwk/WiFly)
  - TI CC3000 WiFi - [library](https://github.com/sparkfun/SFE_CC3000_Library)
  - Intel Galileo/Edison
