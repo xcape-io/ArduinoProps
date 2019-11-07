@@ -38,7 +38,7 @@ How does *ArduinoProps library* use MQTT efficiently in escape rooms:
 - Every props has two MQTT topics assigned as inbox and outbox.
 - More MQTT topics can be used to share game countdown, scenario or any common useful dynamic data for the escape game.
 - Notifying the props is done by publishing a message on its inbox topic.
-- Other props of software monitor can subscribe to the props outbox topic to receive all its notifications.
+- Other props or software controllers can subscribe to the props outbox topic to receive all its notifications.
 - *ArduinoProps library* includes a ping process at application level, in LAN network the round-trip-delay is around 50 milliseconds.
 - *ArduinoProps library* is defaulted to publish QoS 0 messages and to subscribe at QoS 1.
 
@@ -57,12 +57,38 @@ Arduino YUN can be rebooted or its MCU resetted remotely with simple SSH command
 
 Moreover, SSH command can be used to remotely change the MQTT server IP address, *ArduinoProps library* read this address at sketch start.
 
-Therefore, Arduino YUN or YUN shield is the preferred solution for props with Arduino boards because it will be very easy to sustain over time and greatly facilitates fallback plans to ensure maximum uptime.
+Therefore, **Arduino YUN or YUN shield is the preferred solution for props with Arduino boards** because it will be very easy to sustain over time and greatly facilitates fallback plans to ensure maximum uptime:
+- **Arduino Yún**
+- **Arduino Yún Rev 2**
+- **Arduino Mega 2560 Rev3 + Dragino Yún Shield**
+- **Elegoo Mega 2560 R3 + Dragino Yún Shield**
+
 
 # Arduino Ethernet and Wifi
 Arduino with Ethernet or Wifi shield is suitable to build an Escape Room Props, however the sketch must be uploaded with an USB cable, so it is not convenient for props design and worse for props in production.
 
-Therefore I strongly advise Arduino YUN or YUN shield for Escape Room props.
+
+# Compatible hardware
+The library is compatible with any Arduino board with Ethernet or Wifi capability. 
+
+For Wifi hardware, only **WiFiNINA** boards will compile "as is" (Arduino Uno WiFi Rev 2, Arduino NANO 33 IoT, Arduino MKR 1010 and Arduino MKR VIDOR 4000).
+
+For others Wifi hardware, replace the `#include <WiFiNINA.h>` statement with appropriate one (`#include <ESP8266WiFi.h>` for ESP8266) in `WifiProps.h`:
+* Sparkfun WiFly Shield – <a href="https://github.com/dpslwk/WiFly" target="_blank">library</a>
+* TI CC3000 WiFi - <a href="https://github.com/sparkfun/SFE_CC3000_Library" target="_blank">library</a>
+* Intel Galileo/Edison
+* ESP8266
+* ESP32
+
+The *AduinoProps* library has been tested with:
+- Arduino Yún
+- Arduino Yún Rev 2
+- Arduino Mega 2560 Rev3 + Dragino Yún Shield
+- Elegoo Mega 2560 R3 + Dragino Yún Shield
+- Arduino Uno WiFi Rev 2
+- Arduino NANO 33 IoT
+- Arduino MKR 1010
+- Arduino MKR VIDOR 4000
 
 
 ## Author

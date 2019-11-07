@@ -33,7 +33,10 @@ The *ArduinoProps library* allows to build *escape room 2.0 props* easily with A
 
 The *ArduinoProps library* relies on *<a href="https://github.com/knolleary/pubsubclient" target="_blank">Nick O'Leary PubSubClient</a>* library for MQTT. MQTT is a lightweight publish/subscribe messaging protocol designed for M2M (machine to machine) telemetry in low bandwidth environments. 
 
-You will find Raspberry Pi libraries for escape room 2.0 props at https://github.com/fauresystems
+### Props with *Raspberry*
+Escape room 2.0 props can be powered with Raspberry Pi or any Pythonic nanocomputer using *MqttApp*, our pure Python 3 class based on <a href="https://github.com/eclipse/paho.mqtt.python" target="_blank">Eclipse Paho™ MQTT Python Client</a>.
+
+You will find Raspberry Pi libraries for escape room 2.0 props at [https://github.com/fauresystems](https://github.com/fauresystems), to build props with RPi.GPIO, Pi Hats, Guizero, Pygames, PyQt5 or Kivi. 
 
 
 ## 3. *ArduinoProps library* value for escape room 2.0
