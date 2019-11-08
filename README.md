@@ -15,6 +15,13 @@ Download [ArduinoProps.zip](https://github.com/fauresystems/ArduinoProps/raw/mas
 
 ![](install-shot.png)
 
+Download library dependencies for Library Manager:
+* ***PubSubClient***
+* ***ListLib***
+
+![](dependencies-shot.png)
+
+
 Add `#include "ArduinoProps.h"` on top of your sketch and start coding. Reading [EXAMPLES.md](EXAMPLES.md) will be helpful.
 
 |ArduinoProps library documentation                      |

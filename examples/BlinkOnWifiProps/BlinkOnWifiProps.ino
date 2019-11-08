@@ -13,8 +13,8 @@
 #include "ArduinoProps.h"
 
 // Setup your WiFi network
-const char* ssid = "";
-const char *passphrase = "";
+const char* ssid = "Livebox-54A0";
+const char *passphrase = "2ZwEbxpW5L7jthuw3P";
 
 // Builtin led is not available with the shield
 #undef LED_BUILTIN
@@ -36,18 +36,14 @@ PropsDataLogical led(u8"led");
 void clignote(); // forward
 PropsAction clignoteAction = PropsAction(1000, clignote);
 
+bool wifiBegun(false);
+
 void setup()
 {
   // can do more static IP configuration
   //WiFi.config(IPAddress(), IPAddress(), IPAddress());
   //WiFi.config(IPAddress(), IPAddress());
   //WiFi.config(IPAddress());
-
-  WiFi.begin(ssid, passphrase);
-
-  while (WiFi.status() != WL_CONNECTED) {
-    delay(500);
-  }
 
   props.addData(&clignoter);
   props.addData(&led);
@@ -61,6 +57,19 @@ void setup()
 
 void loop()
 {
+  if (!wifiBegun) {
+    WiFi.begin(ssid, passphrase);
+    delay(250); // acceptable freeze for this props (otherwise ues PropsAction)
+    if (WiFi.status() == WL_CONNECTED) {
+      wifiBegun = true;
+    } else {
+      WiFi.end();
+    }
+  } else if (wifiBegun && WiFi.status() != WL_CONNECTED) {
+    WiFi.end();
+    wifiBegun = false;
+  }
+
   props.loop();
 
   led.setValue(digitalRead(LED_BUILTIN)); // read I/O
