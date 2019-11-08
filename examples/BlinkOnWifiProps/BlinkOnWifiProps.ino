@@ -59,7 +59,7 @@ void loop()
 {
   if (!wifiBegun) {
     WiFi.begin(ssid, passphrase);
-    delay(250); // acceptable freeze for this props (otherwise ues PropsAction)
+    delay(250); // acceptable freeze for this props (otherwise use PropsAction for async-like behavior)
     if (WiFi.status() == WL_CONNECTED) {
       wifiBegun = true;
     } else {
