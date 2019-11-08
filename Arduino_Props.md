@@ -69,26 +69,24 @@ Arduino with Ethernet or Wifi shield is suitable to build an Escape Room Props, 
 
 
 # Compatible hardware
-The library is compatible with any Arduino board with Ethernet or Wifi capability. 
+*ArduinoProps library* supported harware:
+ - Arduino Yún and Arduino Yún Rev 2
+ - Arduino Mega 2560 Rev3 + Dragino Yún Shield
+ - Elegoo Mega 2560 R3 + Dragino Yún Shield
+ - Arduino Uno WiFi Rev 2
+ - Arduino NANO 33 IoT
+ - Arduino MKR 1010
+ - Arduino MKR VIDOR 4000
+ - Arduino Ethernet
+ - Arduino Ethernet Shield
 
-For Wifi hardware, only **WiFiNINA** boards will compile "as is" (Arduino Uno WiFi Rev 2, Arduino NANO 33 IoT, Arduino MKR 1010 and Arduino MKR VIDOR 4000).
-
-For others Wifi hardware, replace the `#include <WiFiNINA.h>` statement with appropriate one (`#include <ESP8266WiFi.h>` for ESP8266) in `WifiProps.h`:
-* Sparkfun WiFly Shield – <a href="https://github.com/dpslwk/WiFly" target="_blank">library</a>
-* TI CC3000 WiFi - <a href="https://github.com/sparkfun/SFE_CC3000_Library" target="_blank">library</a>
-* Intel Galileo/Edison
-* ESP8266
-* ESP32
-
-The *AduinoProps* library has been tested with:
-- Arduino Yún
-- Arduino Yún Rev 2
-- Arduino Mega 2560 Rev3 + Dragino Yún Shield
-- Elegoo Mega 2560 R3 + Dragino Yún Shield
-- Arduino Uno WiFi Rev 2
-- Arduino NANO 33 IoT
-- Arduino MKR 1010
-- Arduino MKR VIDOR 4000
+To use other WiFi hardware compatible with any *<a href="https://github.com/knolleary/pubsubclient" target="_blank">Nick O'Leary PubSubClient</a>* library you have to fork `WifiProps.h` and `WifiProps.cpp` and to replace `WiFiNINA.h` whih appropriate WiFi library (`ESP8266WiFi.h` for example):
+ - Arduino WiFi Shield
+ - Sparkfun WiFly Shield – [library](https://github.com/dpslwk/WiFly)
+ - TI CC3000 WiFi - [library](https://github.com/sparkfun/SFE_CC3000_Library)
+ - Intel Galileo/Edison
+ - ESP8266
+ - ESP32
 
 
 ## Author

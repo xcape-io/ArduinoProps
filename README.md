@@ -157,8 +157,7 @@ More MQTT topics can be use for anything (room scenario, etc.).
 
 
 ## 5. Compatible hardware
-You can use the *ArduinoProps library* with any *Nick O'Leary PubSubClient* supported hardware. It uses the Arduino Ethernet Client api for interacting with the underlying network hardware. This means it Just Works with a growing number of boards and shields, including:
-
+*ArduinoProps library* supported harware:
  - Arduino Yún and Arduino Yún Rev 2
  - Arduino Mega 2560 Rev3 + Dragino Yún Shield
  - Elegoo Mega 2560 R3 + Dragino Yún Shield
@@ -168,6 +167,8 @@ You can use the *ArduinoProps library* with any *Nick O'Leary PubSubClient* supp
  - Arduino MKR VIDOR 4000
  - Arduino Ethernet
  - Arduino Ethernet Shield
+
+To use other WiFi hardware compatible with any *<a href="https://github.com/knolleary/pubsubclient" target="_blank">Nick O'Leary PubSubClient</a>* library you have to fork `WifiProps.h` and `WifiProps.cpp` and to replace `WiFiNINA.h` whih appropriate WiFi library (`ESP8266WiFi.h` for example):
  - Arduino WiFi Shield
  - Sparkfun WiFly Shield – [library](https://github.com/dpslwk/WiFly)
  - TI CC3000 WiFi - [library](https://github.com/sparkfun/SFE_CC3000_Library)
