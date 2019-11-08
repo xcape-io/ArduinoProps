@@ -71,8 +71,7 @@ Arduino with Ethernet or Wifi shield is suitable to build an Escape Room Props, 
 # Compatible hardware
 *ArduinoProps library* supported harware:
  - Arduino Yún and Arduino Yún Rev 2
- - Arduino Mega 2560 Rev3 + Dragino Yún Shield
- - Elegoo Mega 2560 R3 + Dragino Yún Shield
+ - Any Arduino + Dragino Yún Shield (tested with Elegoo Mega 2560 R3)
  - Arduino Uno WiFi Rev 2
  - Arduino NANO 33 IoT
  - Arduino MKR 1010

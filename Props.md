@@ -321,8 +321,7 @@ See [EXAMPLES.md](EXAMPLES.md) for an adaptation of the Blink example (https://w
 ## 7. Compatible hardware
 *Props library* supported harware:
  - Arduino Yún and Arduino Yún Rev 2
- - Arduino Mega 2560 Rev3 + Dragino Yún Shield
- - Elegoo Mega 2560 R3 + Dragino Yún Shield
+ - Any Arduino + Dragino Yún Shield (tested with Elegoo Mega 2560 R3)
  - Arduino Uno WiFi Rev 2
  - Arduino NANO 33 IoT
  - Arduino MKR 1010
