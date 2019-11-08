@@ -38,7 +38,7 @@ Add `#include "ArduinoProps.h"` on top of your sketch and start coding. Reading 
 
 The *ArduinoProps library* allows to build *escape room 2.0 props* easily with Arduino and particularly with Arduino Yun or Arduino Mega 2560 + Dragino Yun shield however it works with Ethernet and Wifi shields too.
 
-The *ArduinoProps library* relies on *<a href="https://github.com/knolleary/pubsubclient" target="_blank">Nick O'Leary PubSubClient</a>* library for MQTT. MQTT is a lightweight publish/subscribe messaging protocol designed for M2M (machine to machine) telemetry in low bandwidth environments. 
+The *ArduinoProps library* relies on *<a href="https://github.com/knolleary/pubsubclient" target="_blank">Nick O'Leary PubSubClient</a>***** library for MQTT. MQTT is a lightweight publish/subscribe messaging protocol designed for M2M (machine to machine) telemetry in low bandwidth environments. 
 
 ### Props with *Raspberry*
 Escape room 2.0 props can be powered with Raspberry Pi or any Pythonic nanocomputer using *MqttApp*, our pure Python 3 class based on <a href="https://github.com/eclipse/paho.mqtt.python" target="_blank">Eclipse Paho™ MQTT Python Client</a>.
@@ -169,7 +169,7 @@ More MQTT topics can be use for anything (room scenario, etc.).
  - Any Arduino + Dragino Yún Shield (tested with Elegoo Mega 2560 R3)
  - Arduino Uno WiFi Rev 2
  - Arduino NANO 33 IoT
- - Arduino MKR 1010
+ - Arduino MKR WiFi 1010
  - Arduino MKR VIDOR 4000
  - Arduino Ethernet
  - Arduino Ethernet Shield

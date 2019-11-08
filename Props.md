@@ -110,7 +110,7 @@ PropsDataLogical led(u8"led");
 void clignote(); // forward
 PropsAction clignoteAction = PropsAction(1000, clignote);
 ```
-The *AduinoProps* library uses **<a href="https://github.com/arduino-libraries/WiFiNINA" target="_blank">WiFiNINA</a>** WiFi library for **Arduino Uno WiFi Rev 2**, **Arduino NANO 33 IoT**, **Arduino MKR 1010** and **Arduino MKR VIDOR 4000**. 
+The *AduinoProps* library uses **<a href="https://github.com/arduino-libraries/WiFiNINA" target="_blank">WiFiNINA</a>** WiFi library for **Arduino Uno WiFi Rev 2**, **Arduino NANO 33 IoT**, **Arduino MKR WiFi 1010** and **Arduino MKR VIDOR 4000**. 
 
 Create *WifiProps* instance with MQTT parameters, then create *PropsData* instances and  *PropsActions*.
 
@@ -324,7 +324,7 @@ See [EXAMPLES.md](EXAMPLES.md) for an adaptation of the Blink example (https://w
  - Any Arduino + Dragino Yún Shield (tested with Elegoo Mega 2560 R3)
  - Arduino Uno WiFi Rev 2
  - Arduino NANO 33 IoT
- - Arduino MKR 1010
+ - Arduino MKR WiFi 1010
  - Arduino MKR VIDOR 4000
  - Arduino Ethernet
  - Arduino Ethernet Shield
