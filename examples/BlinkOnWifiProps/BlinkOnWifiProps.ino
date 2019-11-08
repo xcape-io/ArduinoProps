@@ -13,8 +13,8 @@
 #include "ArduinoProps.h"
 
 // Setup your WiFi network
-const char* ssid = "Livebox-54A0";
-const char *passphrase = "2ZwEbxpW5L7jthuw3P";
+const char* ssid = "";
+const char *passphrase = "";
 
 // Builtin led is not available with the shield
 #undef LED_BUILTIN
