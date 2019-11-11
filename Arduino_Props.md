@@ -62,6 +62,8 @@ Therefore, **Arduino YUN or YUN shield is the preferred solution for props with 
 - **Arduino Yún Rev 2**
 - **Arduino Mega 2560 Rev3 + Dragino Yún Shield**
 - **Elegoo Mega 2560 R3 + Dragino Yún Shield**
+- **Arduino Uno R3 + Dragino Yún Shield**
+- **Arduino Due + Dragino Yún Shield**
 
 
 # Arduino Ethernet and Wifi
