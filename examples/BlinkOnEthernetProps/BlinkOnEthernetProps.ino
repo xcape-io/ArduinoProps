@@ -14,8 +14,8 @@
 #include <IPAddress.h>
 #include "ArduinoProps.h"
 
-byte mac[] = { 0xFC, 0xFA, 0xEA, 0x00, 0x00, 0x02 }; //<<< MAKE SURE IT'S UNIQUE IN YOUR NETWORK!!!
-String ip = "192.168.1.19"; //<<< ENTER YOUR IP ADDRESS HERE ("" for DHCP)
+byte mac[] = { 0x46, 0x4F, 0xEA, 0x10, 0x20, 0x02 }; //<<< MAKE SURE IT'S UNIQUE IN YOUR NETWORK!!! and not a reserved MAC
+String ip = ""; //<<< ENTER YOUR IP ADDRESS HERE ("" for DHCP)
 
 // Builtin led is not available with the shield
 #undef LED_BUILTIN
@@ -53,7 +53,7 @@ void setup()
 
   delay(1500); // time for shield stuff
 
-  // can do more static IP configuration
+  // can do more static IP configuration, must be called after Ethernet.begin()
   //Ethernet.setSubnetMask(IPAddress(255, 255, 255, 0));
   //Ethernet.setGatewayIP(IPAddress(192, 168, 1, 1));
   //Ethernet.setDnsServerIP(IPAddress(192, 168, 1, 1));
