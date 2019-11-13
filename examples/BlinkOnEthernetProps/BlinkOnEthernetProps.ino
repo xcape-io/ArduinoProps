@@ -39,11 +39,6 @@ PropsAction clignoteAction = PropsAction(1000, clignote);
 
 void setup()
 {
-  // can do more static IP configuration
-  //Ethernet.setSubnetMask(IPAddress());
-  //Ethernet.setGatewayIP(IPAddress());
-  //Ethernet.setDnsServerIP(IPAddress());
-
   IPAddress ipa;
   if (!ipa.fromString(ip)) {
     // attempt a DHCP connection:
@@ -55,7 +50,13 @@ void setup()
   else {
     Ethernet.begin(mac, ipa);
   }
+
   delay(1500); // time for shield stuff
+
+  // can do more static IP configuration
+  //Ethernet.setSubnetMask(IPAddress(255, 255, 255, 0));
+  //Ethernet.setGatewayIP(IPAddress(192, 168, 1, 1));
+  //Ethernet.setDnsServerIP(IPAddress(192, 168, 1, 1));
 
   props.addData(&clignoter);
   props.addData(&led);
