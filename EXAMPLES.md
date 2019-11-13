@@ -157,6 +157,8 @@ The library comes with a number of example sketches. See **File > Examples > Ard
 
 Sketch with *WifiProps* differs slightly from code with *BridgeProps*.
 
+Please update the WiFiNINA firmware: [WiFiNINA firmware update](WifiNinaFirmware.md).
+
 
 ## 4. *BlinkOnBridgePubSub*: the Blink example on props using *PubSubClient* directly
 

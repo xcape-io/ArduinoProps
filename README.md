@@ -32,6 +32,7 @@ Add `#include "ArduinoProps.h"` on top of your sketch and start coding. Reading 
 | [PropsAction class reference](PropsAction.md)          | 
 | [ArduinoProps library examples](EXAMPLES.md)           | 
 | [Arduino Props for Escape Room 2.0](Arduino_Props.md)  | 
+| [WiFiNINA firmware update](WifiNinaFirmware.md)        | 
 
 
 ## 2. Escape room 2.0 props with Arduino
@@ -173,6 +174,9 @@ More MQTT topics can be use for anything (room scenario, etc.).
  - Arduino MKR VIDOR 4000
  - Arduino Ethernet
  - Arduino Ethernet Shield
+ 
+For WiFi props, please update the WiFiNINA firmware: [WiFiNINA firmware update](WifiNinaFirmware.md).
+
 
 To use other WiFi hardware compatible with any *<a href="https://github.com/knolleary/pubsubclient" target="_blank">Nick O'Leary PubSubClient</a>* library you have to fork `WifiProps.h` and `WifiProps.cpp` and to replace `WiFiNINA.h` whih appropriate WiFi library (`ESP8266WiFi.h` for example):
  - Arduino WiFi Shield

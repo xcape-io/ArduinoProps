@@ -40,6 +40,7 @@
     <None Include="$(MSBuildThisFileDirectory)ArduinoProps.zip" />
     <None Include="$(MSBuildThisFileDirectory)create-library-zip.bat" />
     <None Include="$(MSBuildThisFileDirectory)Arduino_Props.md" />
+    <None Include="$(MSBuildThisFileDirectory)WifiNinaFirmware.md" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="$(MSBuildThisFileDirectory)src\ArduinoProps.cpp">

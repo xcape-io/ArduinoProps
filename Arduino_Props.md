@@ -81,6 +81,8 @@ Arduino with Ethernet or Wifi shield is suitable to build an Escape Room Props, 
  - Arduino Ethernet
  - Arduino Ethernet Shield
 
+For WiFi props, please update the WiFiNINA firmware: [WiFiNINA firmware update](WifiNinaFirmware.md).
+
 To use other WiFi hardware compatible with any *<a href="https://github.com/knolleary/pubsubclient" target="_blank">Nick O'Leary PubSubClient</a>* library you have to fork `WifiProps.h` and `WifiProps.cpp` and to replace `WiFiNINA.h` whih appropriate WiFi library (`ESP8266WiFi.h` for example):
  - Arduino WiFi Shield
  - Sparkfun WiFly Shield – [library](https://github.com/dpslwk/WiFly)

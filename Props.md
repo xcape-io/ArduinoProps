@@ -112,6 +112,8 @@ PropsAction clignoteAction = PropsAction(1000, clignote);
 ```
 The *AduinoProps* library uses **<a href="https://github.com/arduino-libraries/WiFiNINA" target="_blank">WiFiNINA</a>** WiFi library for **Arduino Uno WiFi Rev 2**, **Arduino NANO 33 IoT**, **Arduino MKR WiFi 1010** and **Arduino MKR VIDOR 4000**. 
 
+Please update the WiFiNINA firmware: [WiFiNINA firmware update](WifiNinaFirmware.md).
+
 Create *WifiProps* instance with MQTT parameters, then create *PropsData* instances and  *PropsActions*.
 
 #### MQTT topics
@@ -328,6 +330,8 @@ See [EXAMPLES.md](EXAMPLES.md) for an adaptation of the Blink example (https://w
  - Arduino MKR VIDOR 4000
  - Arduino Ethernet
  - Arduino Ethernet Shield
+
+For WiFi props, please update the WiFiNINA firmware: [WiFiNINA firmware update](WifiNinaFirmware.md).
 
 To use other WiFi hardware compatible with any *<a href="https://github.com/knolleary/pubsubclient" target="_blank">Nick O'Leary PubSubClient</a>* library you have to fork `WifiProps.h` and `WifiProps.cpp` and to replace `WiFiNINA.h` whih appropriate WiFi library (`ESP8266WiFi.h` for example):
  - Arduino WiFi Shield
