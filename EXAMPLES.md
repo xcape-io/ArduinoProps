@@ -172,6 +172,49 @@ Sketch with *WifiProps* differs slightly from code with *BridgeProps*.
 Uupdating WiFiNINA firmware is easy: [WiFiNINA firmware update](help/WifiNinaFirmware.md).
 
 
+#### WiFi connection is done in loop():
+To properly handle WiFi disconnections, the connection state must be tested and managed in the loop:
+```csharp
+void loop()
+{
+  if (!wifiBegun) {
+    WiFi.begin(ssid, passphrase);
+    Serial.println(WiFi.firmwareVersion());
+    delay(250); // acceptable freeze for this props (otherwise use PropsAction for async-like behavior)
+    // do static IP configuration disabling the dhcp client, must be called after every WiFi.begin()
+    String fv = WiFi.firmwareVersion();
+    if (fv.startsWith("1.0")) {
+      Serial.println("Please upgrade the firmware for static IP");
+      // see https://github.com/fauresystems/ArduinoProps/blob/master/WifiNinaFirmware.md
+    }
+    else {
+      //WiFi.config(IPAddress(192, 168, 1, 21), // local_ip
+      //	IPAddress(192, 168, 1, 1),  // dns_server
+      //	IPAddress(192, 168, 1, 1),  // gateway
+      //	IPAddress(255, 255, 255, 0)); // subnet
+    }
+    if (WiFi.status() == WL_CONNECTED) {
+      wifiBegun = true;
+      Serial.println(WiFi.localIP());
+      Serial.println(WiFi.subnetMask());
+      Serial.println(WiFi.gatewayIP());
+    } else {
+      WiFi.end();
+    }
+  } else if (wifiBegun && WiFi.status() != WL_CONNECTED) {
+    WiFi.end();
+    wifiBegun = false;
+  }
+
+  props.loop();
+
+  led.setValue(digitalRead(LED_BUILTIN)); // read I/O
+
+  clignoteAction.check(); // do your stuff, don't freeze the loop with delay() calls
+}
+```
+
+
 ## 4. *BlinkOnBridgePubSub*: the Blink example on props using *PubSubClient* directly
 
 Using *PubSubClient* directly does not save much memory and makes the sketch code less readable, the processing code will be a bit lost in the MQTT code
@@ -413,11 +456,10 @@ Global variables use 1013 bytes (39%) of dynamic memory, which leaves 1547 bytes
 
 ```
 
-Only 1 KBytes less than BlinkOnBridgeProps on Arduino Yun, and the sketch is much less readable.
 
 ## Author
 
-**Marie FAURE** (Oct 18th, 2019)
+**Marie FAURE** (Nov 15th, 2019)
 * company: FAURE SYSTEMS SAS
 * mail: *dev at faure dot systems*
 * github: <a href="https://github.com/fauresystems?tab=repositories" target="_blank">fauresystems</a>
