@@ -12,18 +12,17 @@
     <Filter Include="Examples">
       <UniqueIdentifier>{a17437ae-fae9-404e-b013-d8b8094f7732}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Help">
+      <UniqueIdentifier>{5f7b209e-a331-4095-bf45-013b0c4639aa}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <Text Include="$(MSBuildThisFileDirectory)library.properties" />
     <Text Include="$(MSBuildThisFileDirectory)keywords.txt" />
-    <Text Include="$(MSBuildThisFileDirectory)LICENSE.txt" />
   </ItemGroup>
   <ItemGroup>
     <None Include="$(MSBuildThisFileDirectory)LICENSE.md" />
     <None Include="$(MSBuildThisFileDirectory)README.md" />
-    <None Include="$(MSBuildThisFileDirectory)Props.md" />
-    <None Include="$(MSBuildThisFileDirectory)PropsAction.md" />
-    <None Include="$(MSBuildThisFileDirectory)PropsData.md" />
     <None Include="$(MSBuildThisFileDirectory)EXAMPLES.md" />
     <None Include="$(MSBuildThisFileDirectory)examples\BlinkOnBridgeProps\BlinkOnBridgeProps.ino">
       <Filter>Examples</Filter>
@@ -39,8 +38,22 @@
     </None>
     <None Include="$(MSBuildThisFileDirectory)ArduinoProps.zip" />
     <None Include="$(MSBuildThisFileDirectory)create-library-zip.bat" />
-    <None Include="$(MSBuildThisFileDirectory)Arduino_Props.md" />
-    <None Include="$(MSBuildThisFileDirectory)WifiNinaFirmware.md" />
+    <None Include="$(MSBuildThisFileDirectory)help\Arduino_Props.md">
+      <Filter>Help</Filter>
+    </None>
+    <None Include="$(MSBuildThisFileDirectory)help\Props.md">
+      <Filter>Help</Filter>
+    </None>
+    <None Include="$(MSBuildThisFileDirectory)help\PropsAction.md">
+      <Filter>Help</Filter>
+    </None>
+    <None Include="$(MSBuildThisFileDirectory)help\PropsData.md">
+      <Filter>Help</Filter>
+    </None>
+    <None Include="$(MSBuildThisFileDirectory)help\WifiNinaFirmware.md">
+      <Filter>Help</Filter>
+    </None>
+    <None Include="$(MSBuildThisFileDirectory)LICENSE" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="$(MSBuildThisFileDirectory)src\ArduinoProps.cpp">
@@ -89,7 +102,32 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <Image Include="$(MSBuildThisFileDirectory)examples-shot.png" />
-    <Image Include="$(MSBuildThisFileDirectory)install-shot.png" />
+    <Image Include="$(MSBuildThisFileDirectory)help\dependencies-shot.png">
+      <Filter>Help</Filter>
+    </Image>
+    <Image Include="$(MSBuildThisFileDirectory)help\examples-shot.png">
+      <Filter>Help</Filter>
+    </Image>
+    <Image Include="$(MSBuildThisFileDirectory)help\install-shot.png">
+      <Filter>Help</Filter>
+    </Image>
+    <Image Include="$(MSBuildThisFileDirectory)help\wifinina-firmware-1.png">
+      <Filter>Help</Filter>
+    </Image>
+    <Image Include="$(MSBuildThisFileDirectory)help\wifinina-firmware-2.png">
+      <Filter>Help</Filter>
+    </Image>
+    <Image Include="$(MSBuildThisFileDirectory)help\wifinina-firmware-3.png">
+      <Filter>Help</Filter>
+    </Image>
+    <Image Include="$(MSBuildThisFileDirectory)help\wifinina-firmware-4.png">
+      <Filter>Help</Filter>
+    </Image>
+    <Image Include="$(MSBuildThisFileDirectory)help\wifinina-firmware-5.png">
+      <Filter>Help</Filter>
+    </Image>
+    <Image Include="$(MSBuildThisFileDirectory)help\wifinina-firmware-6.png">
+      <Filter>Help</Filter>
+    </Image>
   </ItemGroup>
 </Project>

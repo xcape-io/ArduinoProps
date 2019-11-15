@@ -5,7 +5,7 @@
    simple MQTT props. Avoid delay() calls (except short ones) in loop() to
    ensure CPU for MQTT protocol. Use PropsAction checks instead.
 
-   Copy and change it to build your fist Arduino connected props, you will
+   Copy and change it to build your first Arduino connected props, you will
    only be limited by your imagination.
 
    Requirements: install ArduinoProps.zip library.
@@ -60,20 +60,19 @@ void loop()
     delay(250); // acceptable freeze for this props (otherwise use PropsAction for async-like behavior)
     // do static IP configuration disabling the dhcp client, must be called after every WiFi.begin()
     String fv = WiFi.firmwareVersion();
-	if (fv.startsWith("1.0")) {
-		Serial.println("Please upgrade the firmware for static IP");
-		// see https://github.com/fauresystems/ArduinoProps/blob/master/WifiNinaFirmware.md
-	}
-	else {
-		//WiFi.config(IPAddress(192, 168, 1, 21), // local_ip
-		//	IPAddress(192, 168, 1, 1),  // dns_server
-		//	IPAddress(192, 168, 1, 1),  // gateway
-		//	IPAddress(255, 255, 255, 0)); // subnet
-		//WiFi.setHostname("wifiprops");
-	}
+    if (fv.startsWith("1.0")) {
+      Serial.println("Please upgrade the firmware for static IP");
+      // see https://github.com/fauresystems/ArduinoProps/blob/master/WifiNinaFirmware.md
+    }
+    else {
+      //WiFi.config(IPAddress(192, 168, 1, 21), // local_ip
+      //	IPAddress(192, 168, 1, 1),  // dns_server
+      //	IPAddress(192, 168, 1, 1),  // gateway
+      //	IPAddress(255, 255, 255, 0)); // subnet
+    }
     if (WiFi.status() == WL_CONNECTED) {
-    wifiBegun = true;
-    Serial.println(WiFi.localIP());
+      wifiBegun = true;
+      Serial.println(WiFi.localIP());
       Serial.println(WiFi.subnetMask());
       Serial.println(WiFi.gatewayIP());
     } else {

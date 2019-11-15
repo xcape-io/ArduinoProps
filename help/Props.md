@@ -3,7 +3,7 @@
 *Props* is a base class for 3 connected props, depending on their network interface:
 * ***BridgeProps*** for Yun board and Yun shield
 * ***EthernetProps*** for Ethernet shield
-* ***WifiProps*** for Wifi shield
+* ***WifiProps*** for WiFiNINA boards
 
 *Props* class reference:
 1. Define the *Props*
@@ -131,7 +131,7 @@ Room 2.0 *outbox* topic:
 format:  Room/[escape room name]/Props/[props name]/outbox
 example: u8"Room/Demoniak/Props/Arduino Contrôleur/outbox"
 ```
-See [README.md](README.md): **4. Application protocol for escape room 2.0 props**.
+See [README.md](../README.md): **4. Application protocol for escape room 2.0 props**.
 
 #### *PropsData* instances
 *PropsData* provides a facility to monitor data sent into MQTT outbox.
@@ -312,7 +312,7 @@ void updateBrokerAdressFromFile(const char* broker_file, BridgeProps* props)
 ## 6. Examples
 The library comes with a number of example sketches. See **File > Examples > ArduinoProps** within the Arduino IDE application.
 
-See [EXAMPLES.md](EXAMPLES.md) for an adaptation of the Blink example (https://www.arduino.cc/en/tutorial/blink) as a simple MQTT props:
+See [EXAMPLES.md](../EXAMPLES.md) for an adaptation of the Blink example (https://www.arduino.cc/en/tutorial/blink) as a simple MQTT props:
 
 1. **BlinkOnBridgeProps**: the Blink example on a Yun props with *ArduinoProps library*
 2. **BlinkOnEthernetProps**: the Blink example on an Ethernet props with *ArduinoProps library*

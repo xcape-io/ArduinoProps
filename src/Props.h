@@ -18,7 +18,7 @@
 
 #include <BridgeClient.h>
 #include <PubSubClient.h>
-#include <SimpleList.h>
+#include <ListLib.h>
 #include "PropsAction.h"
 #include "PropsData.h"
 
@@ -54,8 +54,9 @@ class Props
     Props(const char*, const char*, const char*, const char*, const int=1883);
 	virtual void begin(void(*)(String) = NULL) = 0;
     void addData(PropsData*);
-    void loop();
+	void loop();
 	void resetIntervals(const int changes, const int silent);
+	void resetMcu();
 	void sendAllData();
     void sendDataChanges();
     void sendData(String); // only in outbox
@@ -86,7 +87,7 @@ class Props
     unsigned long _nextReconAttempt;
     uint8_t _payloadMax;
     PropsAction _sendDataAction;
-    SimpleList<PropsData*> _dataTable;
+	List<PropsData*> _dataTable;
 };
 
 #endif

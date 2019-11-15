@@ -2,7 +2,7 @@
 
 *PropsData* tracks data changes and provides escape room 2.0 propocol `DATA` ready string format.
 
-See **4. Application protocol for escape room 2.0 props** in [README.md](README.md).
+See **4. Application protocol for escape room 2.0 props** in [README.md](../README.md).
 
 *PropsData* is an interface (base class) implemented by 4 classes:
 * ***PropsDataDecimal*** 

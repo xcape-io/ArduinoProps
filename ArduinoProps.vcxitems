@@ -15,7 +15,6 @@
   </ItemGroup>
   <ItemGroup>
     <Text Include="$(MSBuildThisFileDirectory)keywords.txt" />
-    <Text Include="$(MSBuildThisFileDirectory)LICENSE.txt" />
     <Text Include="$(MSBuildThisFileDirectory)library.properties" />
   </ItemGroup>
   <ItemGroup>
@@ -26,13 +25,14 @@
     <None Include="$(MSBuildThisFileDirectory)examples\BlinkOnBridgePubSub\BlinkOnBridgePubSub.ino" />
     <None Include="$(MSBuildThisFileDirectory)examples\BlinkOnEthernetProps\BlinkOnEthernetProps.ino" />
     <None Include="$(MSBuildThisFileDirectory)examples\BlinkOnWifiProps\BlinkOnWifiProps.ino" />
+    <None Include="$(MSBuildThisFileDirectory)help\Arduino_Props.md" />
+    <None Include="$(MSBuildThisFileDirectory)help\Props.md" />
+    <None Include="$(MSBuildThisFileDirectory)help\PropsAction.md" />
+    <None Include="$(MSBuildThisFileDirectory)help\PropsData.md" />
+    <None Include="$(MSBuildThisFileDirectory)help\WifiNinaFirmware.md" />
+    <None Include="$(MSBuildThisFileDirectory)LICENSE" />
     <None Include="$(MSBuildThisFileDirectory)LICENSE.md" />
-    <None Include="$(MSBuildThisFileDirectory)Props.md" />
-    <None Include="$(MSBuildThisFileDirectory)PropsAction.md" />
-    <None Include="$(MSBuildThisFileDirectory)PropsData.md" />
-    <None Include="$(MSBuildThisFileDirectory)Arduino_Props.md" />
     <None Include="$(MSBuildThisFileDirectory)README.md" />
-    <None Include="$(MSBuildThisFileDirectory)WifiNinaFirmware.md" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="$(MSBuildThisFileDirectory)src\ArduinoProps.cpp" />
@@ -53,7 +53,14 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)src\WifiProps.h" />
   </ItemGroup>
   <ItemGroup>
-    <Image Include="$(MSBuildThisFileDirectory)examples-shot.png" />
-    <Image Include="$(MSBuildThisFileDirectory)install-shot.png" />
+    <Image Include="$(MSBuildThisFileDirectory)help\dependencies-shot.png" />
+    <Image Include="$(MSBuildThisFileDirectory)help\examples-shot.png" />
+    <Image Include="$(MSBuildThisFileDirectory)help\install-shot.png" />
+    <Image Include="$(MSBuildThisFileDirectory)help\wifinina-firmware-1.png" />
+    <Image Include="$(MSBuildThisFileDirectory)help\wifinina-firmware-2.png" />
+    <Image Include="$(MSBuildThisFileDirectory)help\wifinina-firmware-3.png" />
+    <Image Include="$(MSBuildThisFileDirectory)help\wifinina-firmware-4.png" />
+    <Image Include="$(MSBuildThisFileDirectory)help\wifinina-firmware-5.png" />
+    <Image Include="$(MSBuildThisFileDirectory)help\wifinina-firmware-6.png" />
   </ItemGroup>
 </Project>

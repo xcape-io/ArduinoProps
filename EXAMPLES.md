@@ -6,16 +6,20 @@ An adaptation of the internal led Blink example (https://www.arduino.cc/en/tutor
 3. **BlinkOnWifiProps**: the Blink example on a Wifi props with *ArduinoProps library*
 4. **BlinkOnBridgePubSub**: the Blink example on props using *PubSubClient* directly
 
-MQTT messages are received asynchronously therefore to keep the sketch responsive to MQTT commands, calls to delay() should be avoided (except short ones, say < 100milliseconds).
+MQTT messages are received asynchronously therefore to keep the sketch responsive to MQTT commands, calls to delay() should be avoided (except short ones, say < 100 milliseconds).
+
+With *Props* class, the props code is more readable because all MQTT *PubSubClient* stuff are hidden in *Props* calls, therefore the props code is easier to write and maintain.
 
 Asynchronous-like behavior is obtained using *PropsAction*, *TimedAction* or *VariableTimedAction*.
 
-*Copy and change any of these sketches to build your own Arduino connected props, you will only be limited by your imagination.*
+***Copy and change any of these sketches to build your own Arduino connected props, you will only be limited by your imagination.***
 
 
 ## 1. *BlinkOnBridgeProps*: the Blink example on a Yun props with *ArduinoProps library*
 
-With *Props* class, the code is the most readable. All MQTT stuff are hidden in *Props* calls, your processing code is easier to write and maintain.
+The library comes with a number of example sketches. See **File > Examples > ArduinoProps** within the Arduino IDE application after installing the *ArduinoProps* library from the  `.zip` file.
+
+![](help/examples-shot.png)
 
 ```csharp
 /* BlinkOnBridgeProps.ino
@@ -25,7 +29,7 @@ With *Props* class, the code is the most readable. All MQTT stuff are hidden in 
    simple MQTT props. Avoid delay() calls (except short ones) in loop() to
    ensure CPU for MQTT protocol. Use PropsAction checks instead.
 
-   Copy and change it to build your fist Arduino connected props, you will
+   Copy and change it to build your first Arduino connected props, you will
    only be limited by your imagination.
 
    Requirements: install ArduinoProps.zip library.
@@ -132,15 +136,15 @@ void updateBrokerAdressFromFile(const char* broker_file, BridgeProps* props)
 
 ### Memory imprint on Arduino Yun: 
 ```bash
-The sketch uses 16720 bytes (58%) of the program storage space. The maximum is 28672 bytes.
-Global variables use 1122 bytes (43%) of dynamic memory, which leaves 1438 bytes for local variables. The maximum is 2560 bytes.
+The sketch uses 16752 bytes (58%) of the program storage space. The maximum is 28672 bytes.
+Global variables use 1120 bytes (43%) of dynamic memory, which leaves 1438 bytes for local variables. The maximum is 2560 bytes.
 
 ```
 
-### Memory imprint on *Dragino Yun + Arduino Mega 2560: 
+### Memory imprint on Dragino Yun + Arduino Mega 2560: 
 ```bash
-The sketch uses 14030 bytes (5%) of the program storage space. The maximum is 258048 bytes.
-Global variables use 982 bytes (11%) of dynamic memory, which leaves 7210 bytes for local variables. The maximum is 8192 bytes.
+The sketch uses 14060 bytes (5%) of the program storage space. The maximum is 258048 bytes.
+Global variables use 980 bytes (11%) of dynamic memory, which leaves 7210 bytes for local variables. The maximum is 8192 bytes.
 
 ```
 
@@ -149,15 +153,23 @@ Global variables use 982 bytes (11%) of dynamic memory, which leaves 7210 bytes 
 
 Sketch with *EthernetProps* differs slightly from code with *BridgeProps*.
 
-The library comes with a number of example sketches. See **File > Examples > ArduinoProps** within the Arduino IDE application after installing the *ArduinoProps* library from the  `.zip` file.
+#### Pay atention to the board MAC address:
+MAC adresses are hardware identifiers on the network so they must be unique.
 
-![](examples-shot.png)
+A good practice is to increment only the byte at the very right (`0x03`) when adding a new Arduino Ethernet on your network.
+
+```csharp
+byte mac[] = { 0x46, 0x4F, 0xEA, 0x10, 0x20, 0x03 }; //<<< MAKE SURE IT'S UNIQUE IN YOUR NETWORK!!! and not a reserved MAC
+
+```
+
 
 ## 3. *BlinkOnWifiProps*: the Blink example on a Wifi props with *ArduinoProps library*
 
 Sketch with *WifiProps* differs slightly from code with *BridgeProps*.
 
-Please update the WiFiNINA firmware: [WiFiNINA firmware update](WifiNinaFirmware.md).
+#### The board WiFiNINA firmware must be recent (> 1.0):
+Uupdating WiFiNINA firmware is easy: [WiFiNINA firmware update](help/WifiNinaFirmware.md).
 
 
 ## 4. *BlinkOnBridgePubSub*: the Blink example on props using *PubSubClient* directly
@@ -401,6 +413,7 @@ Global variables use 1013 bytes (39%) of dynamic memory, which leaves 1547 bytes
 
 ```
 
+Only 1 KBytes less than BlinkOnBridgeProps on Arduino Yun, and the sketch is much less readable.
 
 ## Author
 

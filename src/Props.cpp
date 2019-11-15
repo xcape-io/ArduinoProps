@@ -10,6 +10,9 @@
 
 #include "Props.h"
 #include <Process.h>
+#if defined(__AVR__)
+#include <avr/wdt.h>
+#endif
 
 void PropsCallback::run(char* topic, byte* payload, unsigned int len)
 {
@@ -57,7 +60,7 @@ Props::Props(const char* client_id, const char* in_box, const char* out_box, con
 
 void Props::addData(PropsData* d)
 {
-  _dataTable.push_back(d);
+  _dataTable.Add(d);
 }
 
 void Props::loop()
@@ -95,12 +98,22 @@ void Props::checkDataChanges()
   if (_dataSentCount > (_maximumSilentPeriod * 1000 / _sendDataAction.getInterval())) _dataSentCount = 0;
 }
 
+void Props::resetMcu()
+{
+#if defined(ARDUINO_ARCH_SAMD)
+	NVIC_SystemReset();
+#elif defined(__AVR__)
+	wdt_enable(WDTO_15MS);
+	while (true);
+#endif
+}
+
 void Props::sendAllData()
 {
   String data("DATA "), str;
-  for (SimpleList<PropsData*>::iterator itr = _dataTable.begin(); itr != _dataTable.end(); ++itr) {
-    str = (*itr)->fetch();
-    send(&data, &str);
+  for (int i = 0; i < _dataTable.Count(); i++) {
+	  str = _dataTable[i]->fetch();
+	  send(&data, &str);
   }
 
   if (data.length() > 5) {
@@ -111,9 +124,9 @@ void Props::sendAllData()
 void Props::sendDataChanges()
 {
   String data("DATA "), str;
-  for (SimpleList<PropsData*>::iterator itr = _dataTable.begin(); itr != _dataTable.end(); ++itr) {
-    str = (*itr)->fetchChange();
-    send(&data, &str);
+  for (int i = 0; i < _dataTable.Count(); i++) {
+	  str = _dataTable[i]->fetchChange();
+	  send(&data, &str);
   }
 
   if (data.length() > 5) {

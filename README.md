@@ -11,35 +11,45 @@
 
 
 ## 1. Installation and usage
+
+### Prepare Arduino IDE
 Download [ArduinoProps.zip](https://github.com/fauresystems/ArduinoProps/raw/master/ArduinoProps.zip) from GitHub and use **Sketch > Include Library > Add .ZIP Library...** 
 
-![](install-shot.png)
+![](help/install-shot.png)
 
 Download library dependencies for Library Manager:
 * ***PubSubClient***
 * ***ListLib***
 
-![](dependencies-shot.png)
+![](help/dependencies-shot.png)
 
+### Start coding your own props
+Add `#include "ArduinoProps.h"` on top of your sketch and start coding.
 
-Add `#include "ArduinoProps.h"` on top of your sketch and start coding. Reading [EXAMPLES.md](EXAMPLES.md) will be helpful.
+A fork of one the examples is the fastest way to create your own props. 
 
-|ArduinoProps library documentation                      |
-|--------------------------------------------------------|
-| [This README file](README.md)                          | 
-| [Props class reference](Props.md)                      | 
-| [PropsData class reference](PropsData.md)              |
-| [PropsAction class reference](PropsAction.md)          | 
-| [ArduinoProps library examples](EXAMPLES.md)           | 
-| [Arduino Props for Escape Room 2.0](Arduino_Props.md)  | 
-| [WiFiNINA firmware update](WifiNinaFirmware.md)        | 
+### Find help in the documentation
+
+Reading [EXAMPLES.md](EXAMPLES.md) will be helpful.
+
+|ArduinoProps library documentation                           |
+|-------------------------------------------------------------|
+| [This README file](README.md)                               | 
+| [Props class reference](help/Props.md)                      | 
+| [PropsData class reference](help/PropsData.md)              |
+| [PropsAction class reference](help/PropsAction.md)          | 
+| [ArduinoProps library examples](EXAMPLES.md)                | 
+| [Arduino Props for Escape Room 2.0](help/Arduino_Props.md)  | 
+| [WiFiNINA firmware update](help/WifiNinaFirmware.md)        | 
 
 
 ## 2. Escape room 2.0 props with Arduino
 
 The *ArduinoProps library* allows to build *escape room 2.0 props* easily with Arduino and particularly with Arduino Yun or Arduino Mega 2560 + Dragino Yun shield however it works with Ethernet and Wifi shields too.
 
-The *ArduinoProps library* relies on *<a href="https://github.com/knolleary/pubsubclient" target="_blank">Nick O'Leary PubSubClient</a>***** library for MQTT. MQTT is a lightweight publish/subscribe messaging protocol designed for M2M (machine to machine) telemetry in low bandwidth environments. 
+The *ArduinoProps library* relies on *<a href="https://github.com/knolleary/pubsubclient" target="_blank">Nick O'Leary PubSubClient</a>***** library for MQTT. MQTT is a lightweight
+![](help/install-shot.png)
+ publish/subscribe messaging protocol designed for M2M (machine to machine) telemetry in low bandwidth environments. 
 
 ### Props with *Raspberry*
 Escape room 2.0 props can be powered with Raspberry Pi or any Pythonic nanocomputer using *MqttApp*, our pure Python 3 class based on <a href="https://github.com/eclipse/paho.mqtt.python" target="_blank">Eclipse Paho™ MQTT Python Client</a>.
@@ -61,7 +71,7 @@ Props receives commands in its inbox MQTT topic.
 
 Props can subscribe to any other MQTT topic to receive othe information, for example the escape game scenario (English/French/Kids) or the game clock countdown.
 
-### Escape room structured MQTT topics
+#### Escape room structured MQTT topics
 If you're running our Escape Room control software *Room 2.0* to supervise the escape room in real-time you have to respect its syntax for inbox/outbnox MQTT topics: 
 ```csharp
 Room/[escape room name]/Props/[propsname]/inbox|outbox
@@ -175,7 +185,7 @@ More MQTT topics can be use for anything (room scenario, etc.).
  - Arduino Ethernet
  - Arduino Ethernet Shield
  
-For WiFi props, please update the WiFiNINA firmware: [WiFiNINA firmware update](WifiNinaFirmware.md).
+For WiFi props, please update the WiFiNINA firmware: [WiFiNINA firmware update](help/WifiNinaFirmware.md).
 
 
 To use other WiFi hardware compatible with any *<a href="https://github.com/knolleary/pubsubclient" target="_blank">Nick O'Leary PubSubClient</a>* library you have to fork `WifiProps.h` and `WifiProps.cpp` and to replace `WiFiNINA.h` whih appropriate WiFi library (`ESP8266WiFi.h` for example):

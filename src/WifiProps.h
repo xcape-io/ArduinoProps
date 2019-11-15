@@ -5,7 +5,7 @@
   Editor:  https://github.com/fauresystems
   License: MIT License (c) Marie Faure <dev at faure dot systems>
 
-  Class Props for Arduino with Wifi shield.
+  Class Props for Arduino with WiFiNINA.
 */
 #ifndef WIFIPROPS_H
 #define WIFIPROPS_H

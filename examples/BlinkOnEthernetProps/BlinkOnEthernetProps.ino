@@ -5,7 +5,7 @@
    simple MQTT props. Avoid delay() calls (except short ones) in loop() to
    ensure CPU for MQTT protocol. Use PropsAction checks instead.
 
-   Copy and change it to build your fist Arduino connected props, you will
+   Copy and change it to build your first Arduino connected props, you will
    only be limited by your imagination.
 
    Requirements: install ArduinoProps.zip library.
@@ -52,7 +52,7 @@ void setup()
   }
 
   delay(1500); // time for shield stuff
-
+  
   // can do more static IP configuration, must be called after Ethernet.begin()
   //Ethernet.setSubnetMask(IPAddress(255, 255, 255, 0));
   //Ethernet.setGatewayIP(IPAddress(192, 168, 1, 1));
