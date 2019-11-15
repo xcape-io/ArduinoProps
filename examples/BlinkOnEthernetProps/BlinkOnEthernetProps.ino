@@ -52,7 +52,7 @@ void setup()
   }
 
   delay(1500); // time for shield stuff
-  
+
   // can do more static IP configuration, must be called after Ethernet.begin()
   //Ethernet.setSubnetMask(IPAddress(255, 255, 255, 0));
   //Ethernet.setGatewayIP(IPAddress(192, 168, 1, 1));
@@ -91,6 +91,10 @@ void InboxMessage::run(String a) {
   {
     props.sendAllData();
     props.sendDone(a);
+  }
+  else if (a == u8"reset-mcu")
+  {
+    props.resetMcu();
   }
   else if (a == "clignoter:1")
   {

@@ -105,6 +105,10 @@ void InboxMessage::run(String a) {
     props.sendAllData();
     props.sendDone(a);
   }
+  else if (a == u8"reset-mcu")
+  {
+    props.resetMcu();
+  }
   else if (a == "clignoter:1")
   {
     clignoter.setValue(true);
