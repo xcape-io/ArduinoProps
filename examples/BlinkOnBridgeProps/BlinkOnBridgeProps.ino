@@ -8,7 +8,8 @@
    Copy and change it to build your first Arduino connected props, you will
    only be limited by your imagination.
 
-   Requirements: install ArduinoProps.zip library.
+   Requirements: 
+   - install ArduinoProps.zip library and dependencies (https://github.com/fauresystems/ArduinoProps)
 */
 #include <Bridge.h>
 #include "ArduinoProps.h"
