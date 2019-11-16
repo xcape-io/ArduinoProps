@@ -102,7 +102,7 @@ void Props::resetMcu()
 {
 #if defined(ARDUINO_ARCH_SAMD)
 	NVIC_SystemReset();
-#elif defined(ARDUINO_ARCH_AVR)
+#elif defined(ARDUINO_ARCH_AVR) || defined(__AVR__)
 	wdt_enable(WDTO_15MS);
 	while (true);
 #endif
