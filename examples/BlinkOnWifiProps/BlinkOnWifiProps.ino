@@ -32,6 +32,7 @@ WifiProps props(u8"Arduino Contrôleur", // as MQTT client id, should be unique 
 
 PropsDataLogical clignoter(u8"clignote", u8"oui", u8"non", true);
 PropsDataLogical led(u8"led");
+PropsDataText rssi(u8"rssi");
 
 void clignote(); // forward
 PropsAction clignoteAction = PropsAction(1000, clignote);
@@ -44,7 +45,8 @@ void setup()
 
   props.addData(&clignoter);
   props.addData(&led);
-
+  props.addData(&rssi);
+  
   props.begin(InboxMessage::run);
 
   pinMode(LED_BUILTIN, OUTPUT); // initialize digital pin LED_BUILTIN as an output
@@ -84,6 +86,8 @@ void loop()
   }
 
   props.loop();
+
+  rssi.setValue(WiFi.RSSI() + String(" dBm")); // https://www.metageek.com/training/resources/understanding-rssi.html
 
   led.setValue(digitalRead(LED_BUILTIN)); // read I/O
 
