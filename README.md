@@ -47,7 +47,7 @@ Reading [EXAMPLES.md](EXAMPLES.md) will be helpful.
 
 The *ArduinoProps library* allows to build *escape room 2.0 props* easily with Arduino and particularly with Arduino Yun or Arduino Mega 2560 + Dragino Yun shield however it works with Ethernet and Wifi shields too.
 
-The *ArduinoProps library* relies on *<a href="https://github.com/knolleary/pubsubclient" target="_blank">Nick O'Leary PubSubClient</a>***** library for MQTT. MQTT is a lightweight
+The *ArduinoProps library* relies on *<a href="https://github.com/knolleary/pubsubclient" target="_blank">Nick O'Leary PubSubClient</a>* library for MQTT. MQTT is a lightweight
 ![](help/install-shot.png)
  publish/subscribe messaging protocol designed for M2M (machine to machine) telemetry in low bandwidth environments. 
 
@@ -211,7 +211,7 @@ You can build escape room 2.0 Arduino-based props just with Nick O'Leary PubSubC
 With *ArduinoProps library*:
 - create connected props quickly thanks to the application protocol and examples
 - targetted for escape room props, *ArduinoProps library* can be used for any IoT project
-- re-use your code when creating new escape rooms****
+- re-use your code when creating new escape rooms
 - rely on *ArduinoProps library* robustness: for example, ***the library handles the Arduino Yun Bridge transfer size limitation by smartly splitting large messages (only) when necessary***.
 
 **Note:** sending too large messages to Arduino Bridge breaks the Arduino sketch. *ArduinoProps library* prevents this crash case.

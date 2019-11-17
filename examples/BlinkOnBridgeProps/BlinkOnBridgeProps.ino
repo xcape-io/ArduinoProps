@@ -8,7 +8,7 @@
    Copy and change it to build your first Arduino connected props, you will
    only be limited by your imagination.
 
-   Requirements: 
+   Requirements:
    - install ArduinoProps.zip library and dependencies (https://github.com/fauresystems/ArduinoProps)
 */
 #include <Bridge.h>
@@ -26,9 +26,13 @@ BridgeProps props(u8"Arduino Contrôleur", // as MQTT client id, should be uniqu
 
 PropsDataLogical clignoter(u8"clignote", u8"oui", u8"non", true);
 PropsDataLogical led(u8"led");
+PropsDataText rssi(u8"rssi");
 
 void clignote(); // forward
 PropsAction clignoteAction = PropsAction(1000, clignote);
+
+void lireRssi(); // forward
+PropsAction lireRssiAction = PropsAction(30000, lireRssi);
 
 void setup()
 {
@@ -37,10 +41,13 @@ void setup()
 
   props.addData(&clignoter);
   props.addData(&led);
+  props.addData(&rssi);
 
   props.begin(InboxMessage::run);
 
   pinMode(LED_BUILTIN, OUTPUT); // initialize digital pin LED_BUILTIN as an output
+
+  lireRssi();
 
   // At this point, the broker is not connected yet
 }
@@ -52,6 +59,7 @@ void loop()
   led.setValue(digitalRead(LED_BUILTIN)); // read I/O
 
   clignoteAction.check(); // do your stuff, don't freeze the loop with delay() calls
+  lireRssiAction.check();
 }
 
 void clignote()
@@ -60,6 +68,20 @@ void clignote()
     led.setValue(!led.value());
     digitalWrite(LED_BUILTIN, led.value() ? HIGH : LOW);
   }
+}
+
+void lireRssi()
+{
+  Process _process;
+  _process.runShellCommand("cat /proc/net/wireless | awk 'NR==3 {print $4}'");
+  while (_process.running());
+  String b;
+  while (_process.available() > 0) {
+    char c = _process.read();
+    b += c;
+  }
+  b.trim();
+  rssi.setValue(b + " dBm");
 }
 
 void InboxMessage::run(String a) {
