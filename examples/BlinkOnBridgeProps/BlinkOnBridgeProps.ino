@@ -72,7 +72,7 @@ void clignote()
 
 void lireRssi()
 {
-  Process _process;
+  Process _process; // a process call takes about 50 milliseconds
   _process.runShellCommand("cat /proc/net/wireless | awk 'NR==3 {print $4}'");
   while (_process.running());
   String b;
