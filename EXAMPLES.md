@@ -463,4 +463,4 @@ Global variables use 1013 bytes (39%) of dynamic memory, which leaves 1547 bytes
 * company: FAURE SYSTEMS SAS
 * mail: *dev at faure dot systems*
 * github: <a href="https://github.com/fauresystems?tab=repositories" target="_blank">fauresystems</a>
-* web: <a href="https://www.live-escape.net/" target="_blank">Live Escape Grenoble</a>
+* web: <a href="https://faure.systems/" target="_blank">Faure Systems</a>
