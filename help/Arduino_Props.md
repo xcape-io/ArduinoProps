@@ -71,7 +71,7 @@ Therefore, **Arduino YUN or YUN shield is the preferred solution for props with 
 
 
 # Arduino Ethernet and Wifi
-Arduino with Ethernet or Wifi shield is suitable to build an Escape Room Props, however the sketch must be uploaded with an USB cable, so it is not convenient for props design and worse for props in production.
+Arduino with Ethernet or Wifi shield is suitable to build an Escape Room Props, however the sketch must be uploaded with an USB cable, so it is not convenient for props design and worse for props in production, which can lead to an unexpected significant increase in TCO.
 
 
 # Compatible hardware
