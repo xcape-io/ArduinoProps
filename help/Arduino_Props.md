@@ -20,7 +20,9 @@ Escape game are opened 7 days a week and particularly booked during weekends and
 
 Escape Room Props operation and performance impact directly escape game customer experience. Therefore notifications must be processed in human-scale real-time, automatically or manually by a non-technological user (the game master).
 
-Escape Room Props TCO (Total Cost of Ownership) must be affordable by escape games (SOHO costs for small businesses), processing is usually supported by Arduino or Raspberry boards. IT professional 24/7 support must be avoided for cost reasons. Therefore props code must be the most reliable.
+Escape Room Props TCO (Total Cost of Ownership) must be affordable by escape games (SOHO costs for small businesses), processing is usually supported by Arduino or Raspberry boards.
+![TCO](tco.jpg)
+IT professional 24/7 support must be avoided for cost reasons. Therefore props code must be the most reliable.
 
 
 # *ArduinoProps library* for escape room 2.0

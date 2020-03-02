@@ -1,4 +1,4 @@
-# ArduinoProps library
+﻿# ArduinoProps library
 1. Installation and usage
 2. Escape room 2.0 props with Arduino
 3. *ArduinoProps library* value for escape room 2.0
@@ -182,13 +182,12 @@ More MQTT topics can be use for anything (room scenario, etc.).
  - Arduino NANO 33 IoT
  - Arduino MKR WiFi 1010
  - Arduino MKR VIDOR 4000
- - Arduino Ethernet
- - Arduino Ethernet Shield
+ - Any Arduino  + Ethernet Shield
  
 For WiFi props, please update the WiFiNINA firmware: [WiFiNINA firmware update](help/WifiNinaFirmware.md).
 
 
-To use other WiFi hardware compatible with any *<a href="https://github.com/knolleary/pubsubclient" target="_blank">Nick O'Leary PubSubClient</a>* library you have to fork `WifiProps.h` and `WifiProps.cpp` and to replace `WiFiNINA.h` whih appropriate WiFi library (`ESP8266WiFi.h` for example):
+To use other WiFi hardware compatible with any *<a href="https://github.com/knolleary/pubsubclient" target="_blank">Nick O'Leary PubSubClient</a>* library you have to fork `WifiProps.h` and `WifiProps.cpp` and to replace `WiFiNINA.h` with appropriate WiFi library (`ESP8266WiFi.h` for example):
  - Arduino WiFi Shield
  - Sparkfun WiFly Shield – [library](https://github.com/dpslwk/WiFly)
  - TI CC3000 WiFi - [library](https://github.com/sparkfun/SFE_CC3000_Library)
