@@ -24,12 +24,12 @@ BridgeProps props(u8"Arduino Blink", // as MQTT client id, should be unique per 
                   "192.168.1.53", // your MQTT server IP address
                   1883); // your MQTT server port;
 
-PropsDataLogical blinking(u8"blink", u8"yes", u8"no", true);
+PropsDataLogical clignoter(u8"clignote", u8"oui", u8"non", true);
 PropsDataLogical led(u8"led");
 PropsDataText rssi(u8"rssi");
 
 void clignote(); // forward
-PropsAction blinkingAction = PropsAction(1000, clignote);
+PropsAction clignoteAction = PropsAction(1000, clignote);
 
 void lireRssi(); // forward
 PropsAction lireRssiAction = PropsAction(30000, lireRssi);
@@ -39,7 +39,7 @@ void setup()
   Bridge.begin();
   //updateBrokerAdressFromFile("/root/broker", &props); // if you're running our Escape Room control software (Room 2.0)
 
-  props.addData(&blinking);
+  props.addData(&clignoter);
   props.addData(&led);
   props.addData(&rssi);
 
@@ -58,13 +58,13 @@ void loop()
 
   led.setValue(digitalRead(LED_BUILTIN)); // read I/O
 
-  blinkingAction.check(); // do your stuff, don't freeze the loop with delay() calls
+  clignoteAction.check(); // do your stuff, don't freeze the loop with delay() calls
   lireRssiAction.check();
 }
 
 void clignote()
 {
-  if (blinking.value()) {
+  if (clignoter.value()) {
     led.setValue(!led.value());
     digitalWrite(LED_BUILTIN, led.value() ? HIGH : LOW);
   }
@@ -95,16 +95,16 @@ void InboxMessage::run(String a) {
   {
     props.resetMcu(); // we prefer SSH command: echo %BROKER%> /root/broker && reset-mcu
   }
-  else if (a == "blink:1")
+  else if (a == "clignoter:1")
   {
-    blinking.setValue(true);
+    clignoter.setValue(true);
 
     props.sendAllData(); // all data change, we don't have to be selctive then
     props.sendDone(a); // acknowledge props command action
   }
-  else if (a == "blink:0")
+  else if (a == "clignoter:0")
   {
-    blinking.setValue(false);
+    clignoter.setValue(false);
 
     props.sendAllData(); // all data change, we don't have to be selctive then
     props.sendDone(a); // acknowledge props command action
