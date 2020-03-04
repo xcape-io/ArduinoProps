@@ -17,10 +17,6 @@
 const char* ssid = "";
 const char *passphrase = "";
 
-// Builtin led is not available with the shield
-#undef LED_BUILTIN
-#define LED_BUILTIN 8
-
 // If you're running xcape.io Room software you have to respect props inbox/outbox
 // topicw syntax: Room/[escape room name]/Props/[propsname]/inbox|outbox
 // https://xcape.io/go/room
@@ -30,6 +26,10 @@ WifiProps props(u8"Arduino Blink", // as MQTT client id, should be unique per cl
                   u8"Room/My room/Props/Arduino Blink/outbox",
                   "192.168.1.53", // your MQTT server IP address
                   1883); // your MQTT server port;
+
+// Builtin led is not available with the shield
+#undef LED_BUILTIN
+#define LED_BUILTIN 8
 
 PropsDataLogical clignoter(u8"clignote", u8"oui", u8"non", true);
 PropsDataLogical led(u8"led");
