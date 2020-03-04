@@ -10,14 +10,14 @@
 #include <PubSubClient.h>
 #include <VariableTimedAction.h>
 
-#define BROKER          "192.168.1.42" // your MQTT server IP address
-#define PROPS_NAME      u8"Arduino Contrôleur" // as MQTT client id, should be unique per client for given broker
+// If you're running xcape.io Room software you have to respect props inbox/outbox
+// topicw syntax: Room/[escape room name]/Props/[propsname]/inbox|outbox
+// https://xcape.io/go/room
 
-// If you're running our Escape Room control software (Room 2.0) you have to respect
-// props inbox/outbox syntax Room/[escape room name]/Props/[propsname]/inbox|outbox
-// https://live-escape.net/go/room
-#define PROPS_INBOX     u8"Room/Demoniak/Props/Arduino Contrôleur/inbox"
-#define PROPS_OUTBOX    u8"Room/Demoniak/Props/Arduino Contrôleur/outbox"
+#define BROKER          "192.168.1.53" // your MQTT server IP address
+#define PROPS_NAME      u8"Arduino Blink" // as MQTT client id, should be unique per client for given broker
+#define PROPS_INBOX     u8"Room/My room/Props/Arduino Blink/inbox"
+#define PROPS_OUTBOX    u8"Room/My room/Props/Arduino Blink/outbox"
 
 // Yun can store broker IP address in Linino file systems, and updatred with ssh command
 #define YUN_BROKER_FILE "/root/broker"

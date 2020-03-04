@@ -22,15 +22,15 @@ String ip = ""; //<<< ENTER YOUR IP ADDRESS HERE ("" for DHCP)
 #undef LED_BUILTIN
 #define LED_BUILTIN 8
 
-// If you're running our Escape Room control software (Room 2.0) you have to respect
-// prpos inbox/outbox syntax Room/[escape room name]/Props/[propsname]/inbox|outbox
-// https://live-escape.net/go/room
+// If you're running xcape.io Room software you have to respect props inbox/outbox
+// topicw syntax: Room/[escape room name]/Props/[propsname]/inbox|outbox
+// https://xcape.io/go/room
 
-EthernetProps props(u8"Arduino Contrôleur", // as MQTT client id, should be unique per client for given broker
-                    u8"Room/Demoniak/Props/Arduino Contrôleur/inbox",
-                    u8"Room/Demoniak/Props/Arduino Contrôleur/outbox",
-                    "192.168.1.42", // your MQTT server IP address
-                    1883); // your MQTT server port;
+EthernetProps props(u8"Arduino Blink", // as MQTT client id, should be unique per client for given broker
+                  u8"Room/My room/Props/Arduino Blink/inbox",
+                  u8"Room/My room/Props/Arduino Blink/outbox",
+                  "192.168.1.53", // your MQTT server IP address
+                  1883); // your MQTT server port;
 
 PropsDataLogical clignoter(u8"clignote", u8"oui", u8"non", true);
 PropsDataLogical led(u8"led");
