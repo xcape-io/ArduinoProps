@@ -15,13 +15,6 @@
 #include <IPAddress.h>
 #include "ArduinoProps.h"
 
-byte mac[] = { 0x46, 0x4F, 0xEA, 0x10, 0x20, 0x02 }; //<<< MAKE SURE IT'S UNIQUE IN YOUR NETWORK!!! and not a reserved MAC
-String ip = ""; //<<< ENTER YOUR IP ADDRESS HERE ("" for DHCP)
-
-// Builtin led is not available with the shield
-#undef LED_BUILTIN
-#define LED_BUILTIN 8
-
 // If you're running xcape.io Room software you have to respect props inbox/outbox
 // topicw syntax: Room/[escape room name]/Props/[propsname]/inbox|outbox
 // https://xcape.io/go/room
@@ -31,6 +24,13 @@ EthernetProps props(u8"Arduino Blink", // as MQTT client id, should be unique pe
                   u8"Room/My room/Props/Arduino Blink/outbox",
                   "192.168.1.53", // your MQTT server IP address
                   1883); // your MQTT server port;
+
+byte mac[] = { 0x46, 0x4F, 0xEA, 0x10, 0x20, 0x02 }; //<<< MAKE SURE IT'S UNIQUE IN YOUR NETWORK!!! and not a reserved MAC
+String ip = "192.168.1.19"; //<<< ENTER YOUR IP ADDRESS HERE ("" for DHCP)
+
+// Builtin led is not available with the shield
+#undef LED_BUILTIN
+#define LED_BUILTIN 8
 
 PropsDataLogical clignoter(u8"clignote", u8"oui", u8"non", true);
 PropsDataLogical led(u8"led");
