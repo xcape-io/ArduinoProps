@@ -21,8 +21,9 @@ void BridgeProps::begin(void(*on_message)(String))
   if (on_message) onInboxMessageReceived = on_message;
 }
 
-void BridgeProps::setBrokerIpAddress(IPAddress ip)
+void BridgeProps::setBrokerIpAddress(IPAddress ip, uint16_t port)
 {
 	_brokerIpAddress = ip;
+    _client.setServer(_brokerIpAddress, port);
 }
 

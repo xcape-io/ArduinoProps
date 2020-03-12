@@ -19,7 +19,7 @@ class BridgeProps : public Props
   public:
     BridgeProps(const char*, const char*, const char*, const char*, const int);
     void begin(void(*)(String) = NULL);
-	void setBrokerIpAddress(IPAddress);
+	void setBrokerIpAddress(IPAddress, uint16_t port = 1883);
 
   private:
     BridgeClient _bridgeClient;
