@@ -27,7 +27,7 @@ class WifiProps : public Props
     void begin(void(*)(String) = NULL);
 
 private:
-	WiFiClient _wifiClient;
+    WiFiClient _wifiClient;
 };
 
 #endif

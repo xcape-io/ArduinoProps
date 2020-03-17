@@ -23,7 +23,7 @@ class EthernetProps : public Props
     void begin(void(*)(String) = NULL);
 
   private:
-	  EthernetClient _ethernetClient;
+      EthernetClient _ethernetClient;
 };
 
 #endif

@@ -101,10 +101,10 @@ void Props::checkDataChanges()
 void Props::resetMcu()
 {
 #if defined(ARDUINO_ARCH_SAMD)
-	NVIC_SystemReset();
+    NVIC_SystemReset();
 #elif defined(ARDUINO_ARCH_AVR) || defined(__AVR__)
-	wdt_enable(WDTO_15MS);
-	while (true);
+    wdt_enable(WDTO_15MS);
+    while (true);
 #endif
 }
 
@@ -112,8 +112,8 @@ void Props::sendAllData()
 {
   String data("DATA "), str;
   for (int i = 0; i < _dataTable.Count(); i++) {
-	  str = _dataTable[i]->fetch();
-	  send(&data, &str);
+      str = _dataTable[i]->fetch();
+      send(&data, &str);
   }
 
   if (data.length() > 5) {
@@ -125,8 +125,8 @@ void Props::sendDataChanges()
 {
   String data("DATA "), str;
   for (int i = 0; i < _dataTable.Count(); i++) {
-	  str = _dataTable[i]->fetchChange();
-	  send(&data, &str);
+      str = _dataTable[i]->fetchChange();
+      send(&data, &str);
   }
 
   if (data.length() > 5) {
@@ -190,10 +190,10 @@ void Props::sendRequ(String action, char* topic) {
 
 void Props::resetIntervals(const int changes, const int silent)
 {
-	_nextReconAttempt = 0;
-	_dataSentCount = 0;
-	_maximumSilentPeriod = silent; // seconds
-	_sendDataAction.reset(changes); // milliseconds
+    _nextReconAttempt = 0;
+    _dataSentCount = 0;
+    _maximumSilentPeriod = silent; // seconds
+    _sendDataAction.reset(changes); // milliseconds
 }
 
 

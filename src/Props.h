@@ -52,12 +52,12 @@ class Props
 {
   public:
     Props(const char*, const char*, const char*, const char*, const int=1883);
-	virtual void begin(void(*)(String) = NULL) = 0;
+    virtual void begin(void(*)(String) = NULL) = 0;
     void addData(PropsData*);
-	void loop();
-	void resetIntervals(const int changes, const int silent);
-	void resetMcu();
-	void sendAllData();
+    void loop();
+    void resetIntervals(const int changes, const int silent);
+    void resetMcu();
+    void sendAllData();
     void sendDataChanges();
     void sendData(String); // only in outbox
     void sendDone(String);
@@ -67,7 +67,7 @@ class Props
     void sendOver(String);
     void sendProg(String);
     void sendRequ(String);
-	void sendRequ(String, char*);
+    void sendRequ(String, char*);
 
     static void (*onInboxMessageReceived)(String);
 
@@ -87,7 +87,7 @@ class Props
     unsigned long _nextReconAttempt;
     uint8_t _payloadMax;
     PropsAction _sendDataAction;
-	List<PropsData*> _dataTable;
+    List<PropsData*> _dataTable;
 };
 
 #endif

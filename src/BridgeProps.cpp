@@ -11,7 +11,7 @@
 #include "BridgeProps.h"
 
 BridgeProps::BridgeProps(const char* client_id, const char* in_box, const char* out_box, const char* broker, const int port)
-	: Props(client_id, in_box, out_box, broker, port)
+    : Props(client_id, in_box, out_box, broker, port)
 {
   _client.setClient(_bridgeClient);
 }
@@ -23,7 +23,7 @@ void BridgeProps::begin(void(*on_message)(String))
 
 void BridgeProps::setBrokerIpAddress(IPAddress ip, uint16_t port)
 {
-	_brokerIpAddress = ip;
+    _brokerIpAddress = ip;
     _client.setServer(_brokerIpAddress, port);
 }
 
