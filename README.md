@@ -129,7 +129,7 @@ DATA messages when many I/O like on Arduino Mega 2560 and MESG information messa
 
 ## 4. Application protocol for escape room 2.0 props
 
-A *level 7* protocol (*application level*) is necessary for connected props to report data and to be controlled for the escape room automation and game play.
+A *level 7* [protocol](https://github.com/xcape-io/PyProps/blob/master/PROTOCOL.md) (*application level*) is necessary for connected props to report data and to be controlled for the escape room automation and game play.
 
 We have defined a simple human-readable text protocol. Messages are encoded in UTF-8, in Arduino sketches use:
 ```csharp
