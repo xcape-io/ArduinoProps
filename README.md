@@ -103,7 +103,7 @@ And on Yun this same code line can switch MQTT server IP address (can be helpful
 ### Simple human-readable text protocol  
 An escape room 2.0 is typically centrally controlled from a Windows PC which provides the Game Master with monitoring and control information as well as some automation.
 
-To unifiy escape room 2.0 development, *ArduinoProps library* provides a simple protocol between props and room controller at application level:
+To unifiy escape room 2.0 development, *ArduinoProps library* provides a simple [protocol](https://github.com/xcape-io/PyProps/blob/master/PROTOCOL.md) between props and room controller at application level:
 ```csharp
     DATA -> send variables to control
     MESG -> send text to display in control
