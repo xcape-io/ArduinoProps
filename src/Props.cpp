@@ -173,11 +173,11 @@ void Props::sendOmit(String action) {
 }
 
 void Props::sendOver(String challenge) {
-  _client.publish(outbox, String("OMIT " + challenge).c_str());
+  _client.publish(outbox, String("OVER " + challenge).c_str());
 }
 
 void Props::sendProg(String program) {
-  _client.publish(outbox, String("PROGRAM " + program).c_str());
+  _client.publish(outbox, String("PROG " + program).c_str());
 }
 
 void Props::sendRequ(String request) {
@@ -185,7 +185,7 @@ void Props::sendRequ(String request) {
 }
 
 void Props::sendRequ(String action, char* topic) {
-  _client.publish(topic, String("OMIT " + action).c_str());
+  _client.publish(topic, String("REQU " + action).c_str());
 }
 
 void Props::resetIntervals(const int changes, const int silent)

@@ -107,9 +107,9 @@ To unifiy escape room 2.0 development, *ArduinoProps library* provides a simple 
 ```csharp
     DATA -> send variables to control
     MESG -> send text to display in control
-    DONE -> acknowledge a command has been performed
-    OMIT -> acknowledge a command has been ignored
-    OVER -> notify a challenge is over
+    DONE -> acknowledge that a command has been performed
+    OMIT -> acknowledge that a command has been ignored
+    OVER -> notify that a challenge is over
     REQU -> request a command to another props
     PROG -> request a control program
 ```
