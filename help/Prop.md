@@ -1,28 +1,28 @@
-# *Props* class reference
+# *Prop* class reference
 
-*Props* is a base class for 3 connected props, depending on their network interface:
-* ***BridgeProps*** for Yun board and Yun shield
-* ***EthernetProps*** for Ethernet shield
-* ***WifiProps*** for WiFiNINA boards
+*Prop* is a base class for 3 connected prop, depending on their network interface:
+* ***BridgeProp*** for Yun board and Yun shield
+* ***EthernetProp*** for Ethernet shield
+* ***WifiProp*** for WiFiNINA boards
 
-*Props* class reference:
-1. Define the *Props*
-    * Defining a *BridgeProps*
-    * Defining an *EthernetProps*
-    * Defining a *WifiProps*
-2. Setup the *Props*
+*Prop* class reference:
+1. Define the *Prop*
+    * Defining a *BridgeProp*
+    * Defining an *EthernetProp*
+    * Defining a *WifiProp*
+2. Setup the *Prop*
     * Change timings
 3. Call in sketch *loop()*
 4. Implement `InboxMessage::run()` callback
-5. Update broker address from SSH (*BridgeProps*)
+5. Update broker address from SSH (*BridgeProp*)
 6. Examples
 7. Compatible hardware
 
 
-## 1. Defines the *Props*
-Defining a Bridge (Yun), Ethernet or Wifi *Props* is slighlty different.
+## 1. Defines the *Prop*
+Defining a Bridge (Yun), Ethernet or Wifi *Prop* is slighlty different.
 
-### Defining a *BridgeProps*
+### Defining a *BridgeProp*
 ```csharp
 #include <Bridge.h>
 #include "ArduinoProps.h"
@@ -31,23 +31,23 @@ Defining a Bridge (Yun), Ethernet or Wifi *Props* is slighlty different.
 // prpos inbox/outbox syntax Room/[escape room name]/Props/[propsname]/inbox|outbox
 // https://live-escape.net/go/room
 
-BridgeProps props(u8"Arduino Contrôleur", // as MQTT client id, should be unique per client for given broker
+BridgeProp prop(u8"Arduino Contrôleur", // as MQTT client id, should be unique per client for given broker
                   u8"Room/Demoniak/Props/Arduino Contrôleur/inbox",
                   u8"Room/Demoniak/Props/Arduino Contrôleur/outbox",
                   "192.168.1.42", // your MQTT server IP address
                   1883); // your MQTT server port;
 
-PropsDataLogical clignoter(u8"clignote", u8"oui", u8"non", true);
-PropsDataLogical led(u8"led");
+PropDataLogical clignoter(u8"clignote", u8"oui", u8"non", true);
+PropDataLogical led(u8"led");
 
 void clignote(); // forward
-PropsAction clignoteAction = PropsAction(1000, clignote);
+PropAction clignoteAction = PropAction(1000, clignote);
 ```
-Create *BridgeProps* instance with MQTT parameters, then create *PropsData* instances and  *PropsActions*.
+Create *BridgeProp* instance with MQTT parameters, then create *PropData* instances and  *PropsActions*.
 
 The *Bridge* instance is created by `#include <Bridge.h>`.
 
-### Defining an *EthernetProps*
+### Defining an *EthernetProp*
 ```csharp
 #include <Ethernet.h>
 #include <IPAddress.h>
@@ -64,25 +64,25 @@ String ip = "192.168.1.19"; //<<< ENTER YOUR IP ADDRESS HERE ("" for DHCP)
 // prpos inbox/outbox syntax Room/[escape room name]/Props/[propsname]/inbox|outbox
 // https://live-escape.net/go/room
 
-EthernetProps props(u8"Arduino Contrôleur", // as MQTT client id, should be unique per client for given broker
+EthernetProp prop(u8"Arduino Contrôleur", // as MQTT client id, should be unique per client for given broker
                     u8"Room/Demoniak/Props/Arduino Contrôleur/inbox",
                     u8"Room/Demoniak/Props/Arduino Contrôleur/outbox",
                     "192.168.1.42", // your MQTT server IP address
                     1883); // your MQTT server port;
 
-PropsDataLogical clignoter(u8"clignote", u8"oui", u8"non", true);
-PropsDataLogical led(u8"led");
+PropDataLogical clignoter(u8"clignote", u8"oui", u8"non", true);
+PropDataLogical led(u8"led");
 
 void clignote(); // forward
-PropsAction clignoteAction = PropsAction(1000, clignote);
+PropAction clignoteAction = PropAction(1000, clignote);
 ```
 Create MAC address (which must be unique, it's the hardware ID in the netwprk).
 
-Create *EthernetProps* instance with MQTT parameters, then create *PropsData* instances and  *PropsActions*.
+Create *EthernetProp* instance with MQTT parameters, then create *PropData* instances and  *PropsActions*.
 
 The *Ethernet* instance is created by `#include <Ethernet.h>`.
 
-### Defining a *WifiProps*
+### Defining a *WifiProp*
 ```csharp
 #include "ArduinoProps.h"
 
@@ -98,69 +98,69 @@ const char *passphrase = "";
 // prpos inbox/outbox syntax Room/[escape room name]/Props/[propsname]/inbox|outbox
 // https://live-escape.net/go/room
 
-WifiProps props(u8"Arduino Contrôleur", // as MQTT client id, should be unique per client for given broker
+WifiProp prop(u8"Arduino Contrôleur", // as MQTT client id, should be unique per client for given broker
                 u8"Room/Demoniak/Props/Arduino Contrôleur/inbox",
                 u8"Room/Demoniak/Props/Arduino Contrôleur/outbox",
                 "192.168.1.42", // your MQTT server IP address
                 1883); // your MQTT server port;
 
-PropsDataLogical clignoter(u8"clignote", u8"oui", u8"non", true);
-PropsDataLogical led(u8"led");
+PropDataLogical clignoter(u8"clignote", u8"oui", u8"non", true);
+PropDataLogical led(u8"led");
 
 void clignote(); // forward
-PropsAction clignoteAction = PropsAction(1000, clignote);
+PropAction clignoteAction = PropAction(1000, clignote);
 ```
 The *AduinoProps* library uses **<a href="https://github.com/arduino-libraries/WiFiNINA" target="_blank">WiFiNINA</a>** WiFi library for **Arduino Uno WiFi Rev 2**, **Arduino NANO 33 IoT**, **Arduino MKR WiFi 1010** and **Arduino MKR VIDOR 4000**. 
 
 Please update the WiFiNINA firmware: [WiFiNINA firmware update](WifiNinaFirmware.md).
 
-Create *WifiProps* instance with MQTT parameters, then create *PropsData* instances and  *PropsActions*.
+Create *WifiProp* instance with MQTT parameters, then create *PropData* instances and  *PropsActions*.
 
 #### MQTT topics
-The props listens to the *inbox* topic for command messages and send data and messages into the *outbox* topic. 
+The prop listens to the *inbox* topic for command messages and send data and messages into the *outbox* topic. 
 
 If you're running Live Escape Room 2.0 control software, you have to respect *inbox*/*outbox* syntax:
 
 Room 2.0 *inbox* topic:
 ```csharp
-format:  Room/[escape room name]/Props/[props name]/inbox
+format:  Room/[escape room name]/Props/[prop name]/inbox
 example: u8"Room/Demoniak/Props/Arduino Contrôleur/inbox"
 ```
 Room 2.0 *outbox* topic:
 ```csharp
-format:  Room/[escape room name]/Props/[props name]/outbox
+format:  Room/[escape room name]/Props/[prop name]/outbox
 example: u8"Room/Demoniak/Props/Arduino Contrôleur/outbox"
 ```
-See [README.md](../README.md): **4. Application protocol for escape room 2.0 props**.
+See [README.md](../README.md): **4. Application protocol for escape room 2.0 prop**.
 
-#### *PropsData* instances
-*PropsData* provides a facility to monitor data sent into MQTT outbox.
+#### *PropData* instances
+*PropData* provides a facility to monitor data sent into MQTT outbox.
 
-See [PropsData.md](PropsData.md) for *PropsData* reference.
+See [PropData.md](PropData.md) for *PropData* reference.
 
-#### *PropsAction* instances
-To maintain a non-blocking asynchronous behavior of your props, use *PropsAction* objects to trigger action periodically.
+#### *PropAction* instances
+To maintain a non-blocking asynchronous behavior of your prop, use *PropAction* objects to trigger action periodically.
 
 Reading I/O and simple computing (arithmetics) can be done at every sketch loop but long computing have to run periodically.
 
 For example, to blink a led, don't block the skecth with a `delay(1000)` call to switch the output: instead, ***check if 1 second is elapsed to switch the output***.
 
-See [PropsAction.md](PropsData.md) for *PropsAction* reference.
+See [PropAction.md](PropData.md) for *PropAction* reference.
 
 
-## 2. Setup the *Props*
+## 2. Setup the *Prop*
 `InboxMessage::run` is the callback executed when a message is received in the MQTT inbox.
 ```csharp
 void setup()
 {
   // CODE TO BEGIN THE INTERNET CONNECTION
-  ... see below the different code for BridgeProps, EthenetProps and WifiProps
+  ... see below the different code for BridgeProp, EthenetProps and WifiProp
 
   // SAME CODE FOR ALL PROPS
-  props.addData(&clignoter);
-  props.addData(&led);
+  prop.addData(&clignoter);
+  prop.addData(&led);
 
-  props.begin(InboxMessage::run);
+  prop.begin(InboxMessage::run);
 
   pinMode(LED_BUILTIN, OUTPUT); // initialize digital pin LED_BUILTIN as an output
 
@@ -169,20 +169,20 @@ void setup()
 
 ```
 
-*BridgeProps*, *EthenetProps* and *WifiProps* has the exactly same setup:
+*BridgeProp*, *EthenetProps* and *WifiProp* has the exactly same setup:
 
-- add *PropsData* references to the props
-- call `props.begin(InboxMessage::run)`
+- add *PropData* references to the prop
+- call `prop.begin(InboxMessage::run)`
 
 The setup code is slighlty different to start the network client (bridge, ethernet of wifi):
 ```csharp
 void setup()
 {
-#if defined(BRIDGEPROPS_H)
+#if defined(BRIDGEPROP_H)
   Bridge.begin();
-  updateBrokerAdressFromFile("/root/broker", &props); // if you're running our Escape Room control software (Room 2.0)
+  updateBrokerAdressFromFile("/root/broker", &prop); // if you're running our Escape Room control software (Room 2.0)
 
-#elif defined(ETHERNETPROPS_H)
+#elif defined(ETHERNETPROP_H)
   // can do more static IP configuration
   //Ethernet.setSubnetMask(IPAddress());
   //Ethernet.setGatewayIP(IPAddress());
@@ -201,7 +201,7 @@ void setup()
   }
   delay(1500); // time for shield stuff
 
-#elif defined(WIFIPROPS_H)  
+#elif defined(WIFIPROP_H)  
     // can do more static IP configuration
   //WiFi.config(IPAddress(), IPAddress(), IPAddress());
   //WiFi.config(IPAddress(), IPAddress());
@@ -221,11 +221,11 @@ void setup()
 ### Change timings
 Default timings are:
 * check data changes every 400 milliseconds
-* *Props* remains silent for up to 30 seconds
+* *Prop* remains silent for up to 30 seconds
 
 Timings can be changed anywhere in the code with `resetIntervals()`:
 ```csharp
-  props.resetIntervals(250, 15); // check data changes every 250 milliseconds, silent up to 15 seconds
+  prop.resetIntervals(250, 15); // check data changes every 250 milliseconds, silent up to 15 seconds
 ```
 
 
@@ -233,7 +233,7 @@ Timings can be changed anywhere in the code with `resetIntervals()`:
 ```csharp
 void loop()
 {
-  props.loop();
+  prop.loop();
 
   led.setValue(digitalRead(LED_BUILTIN)); // read I/O
 
@@ -243,7 +243,7 @@ void loop()
 ```
 Couldn't be more simple!
 
-Just call `props.loop()` when entering the sketch `loop()`, it will maintain MQTT broker connection and run callback when receiving MQTT messages.
+Just call `prop.loop()` when entering the sketch `loop()`, it will maintain MQTT broker connection and run callback when receiving MQTT messages.
 
 
 ## 4. Implement `InboxMessage::run()` callback
@@ -255,40 +255,40 @@ void InboxMessage::run(String a) {
 
   if (a == u8"app:startup")
   {
-    props.sendAllData();
-    props.sendDone(a);
+    prop.sendAllData();
+    prop.sendDone(a);
   }
   else if (a == "clignoter:1")
   {
     clignoter.setValue(true);
 
-    props.sendAllData(); // all data change, we don't have to be selctive then
-    props.sendDone(a); // acknowledge props command action
+    prop.sendAllData(); // all data change, we don't have to be selctive then
+    prop.sendDone(a); // acknowledge prop command action
   }
   else if (a == "clignoter:0")
   {
     clignoter.setValue(false);
 
-    props.sendAllData(); // all data change, we don't have to be selctive then
-    props.sendDone(a); // acknowledge props command action
+    prop.sendAllData(); // all data change, we don't have to be selctive then
+    prop.sendDone(a); // acknowledge prop command action
   }
   else
   {
-    // acknowledge omition of the props command
-    props.sendOmit(a);
+    // acknowledge omition of the prop command
+    prop.sendOmit(a);
   }
 }
 ```
 
 
-## 5. Update broker address from SSH (*BridgeProps*)
+## 5. Update broker address from SSH (*BridgeProp*)
 Room 2.0 use a SSH command to change remotely the broker IP address (in /root/broker file) and to relaunch to sketch:
 ```bash
 ssh 'echo 192.168.1.14> /root/broker && reset-mcu'
 ```
-On the *BridgeProps* you can read the broker IP address from Linino filesystem with this code:
+On the *BridgeProp* you can read the broker IP address from Linino filesystem with this code:
 ```csharp
-void updateBrokerAdressFromFile(const char* broker_file, BridgeProps* props)
+void updateBrokerAdressFromFile(const char* broker_file, BridgeProp* prop)
 {
   // broker IP address is stored in Linino file systems and updated with ssh command by Room 2.0
   IPAddress ip;
@@ -304,7 +304,7 @@ void updateBrokerAdressFromFile(const char* broker_file, BridgeProps* props)
   }
   b.trim();
 
-  if (ip.fromString(b.c_str())) props->setBrokerIpAddress(ip);
+  if (ip.fromString(b.c_str())) prop->setBrokerIpAddress(ip);
 }
 ```
 
@@ -312,12 +312,12 @@ void updateBrokerAdressFromFile(const char* broker_file, BridgeProps* props)
 ## 6. Examples
 The library comes with a number of example sketches. See **File > Examples > ArduinoProps** within the Arduino IDE application.
 
-See [EXAMPLES.md](../EXAMPLES.md) for an adaptation of the Blink example (https://www.arduino.cc/en/tutorial/blink) as a simple MQTT props:
+See [EXAMPLES.md](../EXAMPLES.md) for an adaptation of the Blink example (https://www.arduino.cc/en/tutorial/blink) as a simple MQTT prop:
 
-1. **BlinkOnBridgeProps**: the Blink example on a Yun props with *ArduinoProps library*
-2. **BlinkOnEthernetProps**: the Blink example on an Ethernet props with *ArduinoProps library*
-3. **BlinkOnWifiProps**: the Blink example on a Wifi props with *ArduinoProps library*
-4. **BlinkOnBridgePubSub**: the Blink example on props using *PubSubClient* directly
+1. **BlinkOnBridgeProps**: the Blink example on a Yun prop with *ArduinoProps library*
+2. **BlinkOnEthernetProps**: the Blink example on an Ethernet prop with *ArduinoProps library*
+3. **BlinkOnWifiProps**: the Blink example on a Wifi prop with *ArduinoProps library*
+4. **BlinkOnBridgePubSub**: the Blink example on prop using *PubSubClient* directly
 
 
 ## 7. Compatible hardware
@@ -331,9 +331,9 @@ See [EXAMPLES.md](../EXAMPLES.md) for an adaptation of the Blink example (https:
  - Arduino Ethernet
  - Arduino Ethernet Shield
 
-For WiFi props, please update the WiFiNINA firmware: [WiFiNINA firmware update](WifiNinaFirmware.md).
+For WiFi prop, please update the WiFiNINA firmware: [WiFiNINA firmware update](WifiNinaFirmware.md).
 
-To use other WiFi hardware compatible with any *<a href="https://github.com/knolleary/pubsubclient" target="_blank">Nick O'Leary PubSubClient</a>* library you have to fork `WifiProps.h` and `WifiProps.cpp` and to replace `WiFiNINA.h` whih appropriate WiFi library (`ESP8266WiFi.h` for example):
+To use other WiFi hardware compatible with any *<a href="https://github.com/knolleary/pubsubclient" target="_blank">Nick O'Leary PubSubClient</a>* library you have to fork `WifiProp.h` and `WifiProp.cpp` and to replace `WiFiNINA.h` whih appropriate WiFi library (`ESP8266WiFi.h` for example):
  - Arduino WiFi Shield
  - Sparkfun WiFly Shield – [library](https://github.com/dpslwk/WiFly)
  - TI CC3000 WiFi - [library](https://github.com/sparkfun/SFE_CC3000_Library)

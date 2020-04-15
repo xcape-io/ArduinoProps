@@ -5,10 +5,10 @@
   Editor:  https://github.com/fauresystems
   License: MIT License (c) Marie Faure <dev at faure dot systems>
 
-  Base class to make props sketch for Escape Room 2.0 (connected).
+  Base class to make prop sketch for Escape Room 2.0 (connected).
 */
 
-#include "Props.h"
+#include "Prop.h"
 #include <Process.h>
 #if defined(__AVR__)
 #include <avr/wdt.h>
@@ -58,7 +58,7 @@ Props::Props(const char* client_id, const char* in_box, const char* out_box, con
   _sendDataAction.reset(400); // check data changes every 400 milliseconds
 }
 
-void Props::addData(PropsData* d)
+void Props::addData(PropData* d)
 {
   _dataTable.Add(d);
 }

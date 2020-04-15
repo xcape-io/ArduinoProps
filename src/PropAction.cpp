@@ -1,5 +1,5 @@
 /*
-  Name:    PropsAction.h
+  Name:    PropAction.h
   Created: 29/10/2019 09:20:31
   Author:  Marie Faure <dev at faure dot systems>
   Editor:  https://github.com/fauresystems
@@ -8,9 +8,9 @@
   Provide an easy way of triggering functions at a set _interval.
 */
 
-#include "PropsAction.h"
+#include "PropAction.h"
 
-PropsAction::PropsAction() 
+PropAction::PropAction() 
 {
   _active = true;
   _previous = 0;
@@ -18,7 +18,7 @@ PropsAction::PropsAction()
   _execute = NULL;
 }
 
-PropsAction::PropsAction(unsigned long intervl, void (*function)()) 
+PropAction::PropAction(unsigned long intervl, void (*function)()) 
 {
   _active = true;
   _previous = 0;
@@ -26,24 +26,24 @@ PropsAction::PropsAction(unsigned long intervl, void (*function)())
   _execute = function;
 }
 
-void PropsAction::reset(unsigned long intervl) 
+void PropAction::reset(unsigned long intervl) 
 {
   _active = true;
   _previous = 0;
   _interval = intervl;
 }
 
-void PropsAction::disable()
+void PropAction::disable()
 {
   _active = false;
 }
 
-void PropsAction::enable()
+void PropAction::enable()
 {
   _active = true;
 }
 
-void PropsAction::check() {
+void PropAction::check() {
   if (_active && (millis() - _previous >= _interval))
   {
     _previous = millis();
@@ -51,7 +51,7 @@ void PropsAction::check() {
   }
 }
 
-bool PropsAction::tick() {
+bool PropAction::tick() {
   if (_active && (millis() - _previous >= _interval))
   {
     _previous = millis();
@@ -60,7 +60,7 @@ bool PropsAction::tick() {
   return false;
 }
 
-unsigned long PropsAction::getInterval() 
+unsigned long PropAction::getInterval() 
 {
   return _interval;
 }

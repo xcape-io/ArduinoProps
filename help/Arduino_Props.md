@@ -1,8 +1,8 @@
 # Arduino Props for Escape Room 2.0
 
-The *ArduinoProps library* for Arduino has been designed to build *escape room 2.0 props*.
+The *ArduinoProps library* for Arduino has been designed to build *escape room 2.0 prop*.
 
-Specificities of props for escape rooms:
+Specificities of prop for escape rooms:
 - very high uptime (near 100%)
 - fast problem fixing
 - real-time (human scale) notification and control 
@@ -15,7 +15,7 @@ Benefits and specificities of the *ArduinoProps library*
 - constant sustaining of Arduino code (YUN)
 - real-time notification, monitoring and control (human scale)
 
-# Escape room 2.0 constraints on props
+# Escape room 2.0 constraints on prop
 Escape game are opened 7 days a week and particularly booked during weekends and usually until midnight. Therefore their uptime must be close to 100% and incidents must be worked-around immediately by the game master (manual commands).
 
 Escape Room Props operation and performance impact directly escape game customer experience. Therefore notifications must be processed in human-scale real-time, automatically or manually by a non-technological user (the game master).
@@ -24,7 +24,7 @@ Escape Room Props TCO (Total Cost of Ownership) must be affordable by escape gam
 
 ![TCO](tco.jpg)
 
-IT professional 24/7 support must be avoided for cost reasons. Therefore props code must be the most reliable.
+IT professional 24/7 support must be avoided for cost reasons. Therefore prop code must be the most reliable.
 
 
 # *ArduinoProps library* for escape room 2.0
@@ -39,10 +39,10 @@ IT professional 24/7 support must be avoided for cost reasons. Therefore props c
 
 How does *ArduinoProps library* use MQTT efficiently in escape rooms:
 
-- Every props has two MQTT topics assigned as inbox and outbox.
+- Every prop has two MQTT topics assigned as inbox and outbox.
 - More MQTT topics can be used to share game countdown, scenario or any common useful dynamic data for the escape game.
-- Notifying the props is done by publishing a message on its inbox topic.
-- Other props or software controllers can subscribe to the props outbox topic to receive all its notifications.
+- Notifying the prop is done by publishing a message on its inbox topic.
+- Other prop or software controllers can subscribe to the prop outbox topic to receive all its notifications.
 - *ArduinoProps library* includes a ping process at application level, in LAN network the round-trip-delay is around 50 milliseconds.
 - *ArduinoProps library* is defaulted to publish QoS 0 messages and to subscribe at QoS 1.
 
@@ -61,7 +61,7 @@ Arduino YUN can be rebooted or its MCU resetted remotely with simple SSH command
 
 Moreover, SSH command can be used to remotely change the MQTT server IP address, *ArduinoProps library* read this address at sketch start.
 
-Therefore, **Arduino YUN or YUN shield is the preferred solution for props with Arduino boards** because it will be very easy to sustain over time and greatly facilitates fallback plans to ensure maximum uptime:
+Therefore, **Arduino YUN or YUN shield is the preferred solution for prop with Arduino boards** because it will be very easy to sustain over time and greatly facilitates fallback plans to ensure maximum uptime:
 - **Arduino Yún**
 - **Arduino Yún Rev 2**
 - **Arduino Mega 2560 Rev3 + Dragino Yún Shield**
@@ -71,7 +71,7 @@ Therefore, **Arduino YUN or YUN shield is the preferred solution for props with 
 
 
 # Arduino Ethernet and Wifi
-Arduino with Ethernet or Wifi shield is suitable to build an Escape Room Props, however the sketch must be uploaded with an USB cable, so it is not convenient for props design and worse for props in production, which can lead to an unexpected significant increase in TCO.
+Arduino with Ethernet or Wifi shield is suitable to build an Escape Room Props, however the sketch must be uploaded with an USB cable, so it is not convenient for prop design and worse for prop in production, which can lead to an unexpected significant increase in TCO.
 
 
 # Compatible hardware
@@ -85,9 +85,9 @@ Arduino with Ethernet or Wifi shield is suitable to build an Escape Room Props, 
  - Arduino Ethernet
  - Arduino Ethernet Shield
 
-For WiFi props, please update the WiFiNINA firmware: [WiFiNINA firmware update](WifiNinaFirmware.md).
+For WiFi prop, please update the WiFiNINA firmware: [WiFiNINA firmware update](WifiNinaFirmware.md).
 
-To use other WiFi hardware compatible with any *<a href="https://github.com/knolleary/pubsubclient" target="_blank">Nick O'Leary PubSubClient</a>* library you have to fork `WifiProps.h` and `WifiProps.cpp` and to replace `WiFiNINA.h` whih appropriate WiFi library (`ESP8266WiFi.h` for example):
+To use other WiFi hardware compatible with any *<a href="https://github.com/knolleary/pubsubclient" target="_blank">Nick O'Leary PubSubClient</a>* library you have to fork `WifiProp.h` and `WifiProp.cpp` and to replace `WiFiNINA.h` whih appropriate WiFi library (`ESP8266WiFi.h` for example):
  - Arduino WiFi Shield
  - Sparkfun WiFly Shield – [library](https://github.com/dpslwk/WiFly)
  - TI CC3000 WiFi - [library](https://github.com/sparkfun/SFE_CC3000_Library)

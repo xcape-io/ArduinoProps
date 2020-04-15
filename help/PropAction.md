@@ -1,11 +1,11 @@
-# *PropsAction* class reference
+# *PropAction* class reference
 
-*PropsAction* brings asynchronous-like behavior to sketch `loop()`.
+*PropAction* brings asynchronous-like behavior to sketch `loop()`.
 
 
 ## Constructors
-* `PropsAction()`
-* `PropsAction(unsigned long interval, void (*function)())`
+* `PropAction()`
+* `PropAction(unsigned long interval, void (*function)())`
 
 `function` is the callback executed at every `interval` milliseconds.
 
@@ -30,9 +30,9 @@ void clignote()
 }
 ```
 
-### Create a *PropsAction* instance
+### Create a *PropAction* instance
 ```csharp
-PropsAction clignoteAction = PropsAction(1000, clignote); // interval every 1000 milliseconds
+PropAction clignoteAction = PropAction(1000, clignote); // interval every 1000 milliseconds
 ```
 
 ### Call the instance `check()` method ine the sketch `loop()`

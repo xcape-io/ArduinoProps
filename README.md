@@ -1,8 +1,8 @@
 ﻿# ArduinoProps library
 1. Installation and usage
-2. Escape room 2.0 props with Arduino
+2. Escape room 2.0 prop with Arduino
 3. *ArduinoProps library* value for escape room 2.0
-4. Application protocol for escape room 2.0 props
+4. Application protocol for escape room 2.0 prop
 5. Compatible hardware
 6. Advantages of Arduino Yun and Dragino Yun shield
 7. Advantages of the *ArduinoProps library*
@@ -23,10 +23,10 @@ Download library dependencies for Library Manager:
 
 ![](help/dependencies-shot.png)
 
-### Start coding your own props
+### Start coding your own prop
 Add `#include "ArduinoProps.h"` on top of your sketch and start coding.
 
-A fork of one the examples is the fastest way to create your own props. 
+A fork of one the examples is the fastest way to create your own prop. 
 
 ### Find help in the documentation
 
@@ -35,34 +35,34 @@ Reading [EXAMPLES.md](EXAMPLES.md) will be helpful.
 |ArduinoProps library documentation                           |
 |-------------------------------------------------------------|
 | [This README file](README.md)                               | 
-| [Props class reference](help/Props.md)                      | 
-| [PropsData class reference](help/PropsData.md)              |
-| [PropsAction class reference](help/PropsAction.md)          | 
+| [Props class reference](help/Prop.md)                      | 
+| [PropData class reference](help/PropData.md)              |
+| [PropAction class reference](help/PropAction.md)          | 
 | [ArduinoProps library examples](EXAMPLES.md)                | 
 | [Arduino Props for Escape Room 2.0](help/Arduino_Props.md)  | 
 | [WiFiNINA firmware update](help/WifiNinaFirmware.md)        | 
 
 
-## 2. Escape room 2.0 props with Arduino
+## 2. Escape room 2.0 prop with Arduino
 
-The *ArduinoProps library* allows to build *escape room 2.0 props* easily with Arduino and particularly with Arduino Yun or Arduino Mega 2560 + Dragino Yun shield however it works with Ethernet and Wifi shields too.
+The *ArduinoProps library* allows to build *escape room 2.0 prop* easily with Arduino and particularly with Arduino Yun or Arduino Mega 2560 + Dragino Yun shield however it works with Ethernet and Wifi shields too.
 
 The *ArduinoProps library* relies on *<a href="https://github.com/knolleary/pubsubclient" target="_blank">Nick O'Leary PubSubClient</a>* library for MQTT. MQTT is a lightweight
 ![](help/install-shot.png)
  publish/subscribe messaging protocol designed for M2M (machine to machine) telemetry in low bandwidth environments. 
 
 ### Props with *Raspberry*
-Escape room 2.0 props can be powered with Raspberry Pi or any Pythonic nanocomputer using *MqttApp*, our pure Python 3 class based on <a href="https://github.com/eclipse/paho.mqtt.python" target="_blank">Eclipse Paho™ MQTT Python Client</a>.
+Escape room 2.0 prop can be powered with Raspberry Pi or any Pythonic nanocomputer using *MqttApp*, our pure Python 3 class based on <a href="https://github.com/eclipse/paho.mqtt.python" target="_blank">Eclipse Paho™ MQTT Python Client</a>.
 
-You will find Raspberry Pi libraries for escape room 2.0 props at [https://github.com/fauresystems](https://github.com/fauresystems), to build props with RPi.GPIO, Pi Hats, Guizero, Pygames, PyQt5 or Kivi. 
+You will find Raspberry Pi libraries for escape room 2.0 prop at [https://github.com/fauresystems](https://github.com/fauresystems), to build prop with RPi.GPIO, Pi Hats, Guizero, Pygames, PyQt5 or Kivi. 
 
 
 ## 3. *ArduinoProps library* value for escape room 2.0
-*Nick O'Leary PubSubClient* library is sufficient to write escape room 2.0 props Arduino code.
+*Nick O'Leary PubSubClient* library is sufficient to write escape room 2.0 prop Arduino code.
 
-The *ArduinoProps library* relies on *Nick O'Leary PubSubClient* for MQTT messaging and provides a framework and protocol for helping and accelerating the coding of Arduino props. If you will help build simple and complex props with reliable code.
+The *ArduinoProps library* relies on *Nick O'Leary PubSubClient* for MQTT messaging and provides a framework and protocol for helping and accelerating the coding of Arduino prop. If you will help build simple and complex prop with reliable code.
 
-Since 2016, *ArduinoProps library* is used extensively in many escape rooms with up to 20 props per room (which is no limit at all), with a high level of availability and sustainability.
+Since 2016, *ArduinoProps library* is used extensively in many escape rooms with up to 20 prop per room (which is no limit at all), with a high level of availability and sustainability.
 
 ### Inbox/oubox messaging  
 Instead of usual MQTT topic structure which sends every data value in a different topic for every variable, *ArduinoProps library* sends data via a unique outbox topic. 
@@ -83,9 +83,9 @@ example:
 MQTT supports UTF-8 encoding.
  
 ### Sending messages only when appropriate  
-Usually Arduino IoT sketches send MQTT data for every variable at every loop. When the loop is fast, you can get tons of useless messages, and usually a sleeping delay is added at every loop to slow down the message flow ; this can slow down significantly the props response time to human supervision and automation commands. 
+Usually Arduino IoT sketches send MQTT data for every variable at every loop. When the loop is fast, you can get tons of useless messages, and usually a sleeping delay is added at every loop to slow down the message flow ; this can slow down significantly the prop response time to human supervision and automation commands. 
 
-While Arduino sketch is sending a message it isn't doing props sensor/actuator processing, and it takes about 20 to 40 milliseconds to send a message. With too many messsages it's too much processing time wasted.
+While Arduino sketch is sending a message it isn't doing prop sensor/actuator processing, and it takes about 20 to 40 milliseconds to send a message. With too many messsages it's too much processing time wasted.
 
 *ArduinoProps library* sends all data periodically every 30 seconds (default parameter) and sends data changes over a period of time you choose (typical 400 milliseconds for real-time behavior, but you may choose every 100 milliseconds, 1 or 3 seconds: your choice for your application).
 
@@ -103,14 +103,14 @@ And on Yun this same code line can switch MQTT server IP address (can be helpful
 ### Simple human-readable text protocol  
 An escape room 2.0 is typically centrally controlled from a Windows PC which provides the Game Master with monitoring and control information as well as some automation.
 
-To unifiy escape room 2.0 development, *ArduinoProps library* provides a simple [protocol](https://github.com/xcape-io/PyProps/blob/master/PROTOCOL.md) between props and room controller at application level:
+To unifiy escape room 2.0 development, *ArduinoProps library* provides a simple [protocol](https://github.com/xcape-io/PyProps/blob/master/PROTOCOL.md) between prop and room controller at application level:
 ```csharp
     DATA -> send variables to control
     MESG -> send text to display in control
     DONE -> acknowledge that a command has been performed
     OMIT -> acknowledge that a command has been ignored
     OVER -> notify that a challenge is over
-    REQU -> request a command to another props
+    REQU -> request a command to another prop
     PROG -> request a control program
 ```
 
@@ -127,9 +127,9 @@ DATA messages when many I/O like on Arduino Mega 2560 and MESG information messa
 
 *ArduinoProps library* seamlessly splits long messages smartly when required.
 
-## 4. Application protocol for escape room 2.0 props
+## 4. Application protocol for escape room 2.0 prop
 
-A *level 7* [protocol](https://github.com/xcape-io/PyProps/blob/master/PROTOCOL.md) (*application level*) is necessary for connected props to report data and to be controlled for the escape room automation and game play.
+A *level 7* [protocol](https://github.com/xcape-io/PyProps/blob/master/PROTOCOL.md) (*application level*) is necessary for connected prop to report data and to be controlled for the escape room automation and game play.
 
 We have defined a simple human-readable text protocol. Messages are encoded in UTF-8, in Arduino sketches use:
 ```csharp
@@ -148,7 +148,7 @@ Props connection state is handled in the outbox topic:
 
 More MQTT topics can be use for anything (room scenario, etc.).
 
-#### Messages sent from the Arduino props are formatted
+#### Messages sent from the Arduino prop are formatted
 ```csharp
     DATA sensor=24.26 light=on challenge=pinball
     MESG Warning: sensor not detected
@@ -159,7 +159,7 @@ More MQTT topics can be use for anything (room scenario, etc.).
     PROG audio-final:start
 ```
 
-#### Message received by the Arduino props have no particular format
+#### Message received by the Arduino prop have no particular format
 ```csharp
     power:1                  for example to power on the room 
     porte-salon:ouvrir       for example to open a door
@@ -169,7 +169,7 @@ More MQTT topics can be use for anything (room scenario, etc.).
     
 #### @PING-PONG special messages
 ```csharp
-    @PING is received in inbox then the props sends just PONG in outbox
+    @PING is received in inbox then the prop sends just PONG in outbox
     -> so the escape room controller can monitor response time at application level
 ```
 
@@ -184,10 +184,10 @@ More MQTT topics can be use for anything (room scenario, etc.).
  - Arduino MKR VIDOR 4000
  - Any Arduino  + Ethernet Shield
  
-For WiFi props, please update the WiFiNINA firmware: [WiFiNINA firmware update](help/WifiNinaFirmware.md).
+For WiFi prop, please update the WiFiNINA firmware: [WiFiNINA firmware update](help/WifiNinaFirmware.md).
 
 
-To use other WiFi hardware compatible with any *<a href="https://github.com/knolleary/pubsubclient" target="_blank">Nick O'Leary PubSubClient</a>* library you have to fork `WifiProps.h` and `WifiProps.cpp` and to replace `WiFiNINA.h` with appropriate WiFi library (`ESP8266WiFi.h` for example):
+To use other WiFi hardware compatible with any *<a href="https://github.com/knolleary/pubsubclient" target="_blank">Nick O'Leary PubSubClient</a>* library you have to fork `WifiProp.h` and `WifiProp.cpp` and to replace `WiFiNINA.h` with appropriate WiFi library (`ESP8266WiFi.h` for example):
  - Arduino WiFi Shield
  - Sparkfun WiFly Shield – [library](https://github.com/dpslwk/WiFly)
  - TI CC3000 WiFi - [library](https://github.com/sparkfun/SFE_CC3000_Library)
@@ -197,19 +197,19 @@ To use other WiFi hardware compatible with any *<a href="https://github.com/knol
 
 
 ## 6. Advantages of Arduino Yun and Dragino Yun shield
-In escape room 2.0, props are usually powered by Arduino Yun or Arduino Mega 2560 + Dragino Yun shield (or Raspberry Pi) because they are cheap and appropriate for DIY projects. 
+In escape room 2.0, prop are usually powered by Arduino Yun or Arduino Mega 2560 + Dragino Yun shield (or Raspberry Pi) because they are cheap and appropriate for DIY projects. 
 
-***The advantage of Yun versus Ethernet/Wifi shields is that you can upload sketches remotely to the micro-controller during the whole props lifetime*** (no need to open boxes and break walls to plug an USB cable when a sketch modification is required).
+***The advantage of Yun versus Ethernet/Wifi shields is that you can upload sketches remotely to the micro-controller during the whole prop lifetime*** (no need to open boxes and break walls to plug an USB cable when a sketch modification is required).
 
 Arduino Mega 2560 + Dragino Yun shield offers much more memory and many more pins thann an Arduino Yun for same price.
 
 
 ## 7. Advantages of the *ArduinoProps library*
-You can build escape room 2.0 Arduino-based props just with Nick O'Leary PubSubClient library for MQTT. 
+You can build escape room 2.0 Arduino-based prop just with Nick O'Leary PubSubClient library for MQTT. 
 
 With *ArduinoProps library*:
-- create connected props quickly thanks to the application protocol and examples
-- targetted for escape room props, *ArduinoProps library* can be used for any IoT project
+- create connected prop quickly thanks to the application protocol and examples
+- targetted for escape room prop, *ArduinoProps library* can be used for any IoT project
 - re-use your code when creating new escape rooms
 - rely on *ArduinoProps library* robustness: for example, ***the library handles the Arduino Yun Bridge transfer size limitation by smartly splitting large messages (only) when necessary***.
 
@@ -219,7 +219,7 @@ With *ArduinoProps library*:
 
 
 ## 8. Limitations due to *PubSubClient*
-These limitations are not an issue for escape room props:
+These limitations are not an issue for escape room prop:
  - It can only publish QoS 0 messages. 
  - It can subscribe at QoS 0 or QoS 1.
  - The keepalive interval is set to 15 seconds by default. This is configurable
@@ -232,12 +232,12 @@ These limitations are not an issue for escape room props:
 
 The library comes with a number of example sketches. See **File > Examples > ArduinoProps** within the Arduino IDE application.
 
-See [EXAMPLES.md](EXAMPLES.md) for an adaptation of the Blink example (https://www.arduino.cc/en/tutorial/blink) as a simple MQTT props:
+See [EXAMPLES.md](EXAMPLES.md) for an adaptation of the Blink example (https://www.arduino.cc/en/tutorial/blink) as a simple MQTT prop:
 
-1. **BlinkOnBridgeProps**: the Blink example on a Yun props with *ArduinoProps library*
-2. **BlinkOnEthernetProps**: the Blink example on an Ethernet props with *ArduinoProps library*
-3. **BlinkOnWifiProps**: the Blink example on a Wifi props with *ArduinoProps library*
-4. **BlinkOnBridgePubSub**: the Blink example on props using *PubSubClient* directly
+1. **BlinkOnBridgeProp**: the Blink example on a Yun prop with *ArduinoProps library*
+2. **BlinkOnEthernetProp**: the Blink example on an Ethernet prop with *ArduinoProps library*
+3. **BlinkOnWifiProp**: the Blink example on a Wifi prop with *ArduinoProps library*
+4. **BlinkOnBridgePubSub**: the Blink example on prop using *PubSubClient* directly
 
 
 ## Author

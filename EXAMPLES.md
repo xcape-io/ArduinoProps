@@ -1,35 +1,35 @@
 # ArduinoProps library examples
-An adaptation of the internal led Blink example (https://www.arduino.cc/en/tutorial/blink) as a simple MQTT props. 
+An adaptation of the internal led Blink example (https://www.arduino.cc/en/tutorial/blink) as a simple MQTT prop. 
 
-1. **BlinkOnBridgeProps**: the Blink example on a Yun props with *ArduinoProps library*
-2. **BlinkOnEthernetProps**: the Blink example on an Ethernet props with *ArduinoProps library*
-3. **BlinkOnWifiProps**: the Blink example on a Wifi props with *ArduinoProps library*
-4. **BlinkOnBridgePubSub**: the Blink example on props using *PubSubClient* directly
+1. **BlinkOnBridgeProp**: the Blink example on a Yun prop with *ArduinoProps library*
+2. **BlinkOnEthernetProp**: the Blink example on an Ethernet prop with *ArduinoProps library*
+3. **BlinkOnWifiProp**: the Blink example on a Wifi prop with *ArduinoProps library*
+4. **BlinkOnBridgePubSub**: the Blink example on prop using *PubSubClient* directly
 
 MQTT messages are received asynchronously therefore to keep the sketch responsive to MQTT commands, calls to delay() should be avoided (except short ones, say < 100 milliseconds).
 
-With *Props* class, the props code is more readable because all MQTT *PubSubClient* stuff are hidden in *Props* calls, therefore the props code is easier to write and maintain.
+With *Prop* class, the prop code is more readable because all MQTT *PubSubClient* stuff are hidden in *Prop* calls, therefore the prop code is easier to write and maintain.
 
-Asynchronous-like behavior is obtained using *PropsAction*, *TimedAction* or *VariableTimedAction*.
+Asynchronous-like behavior is obtained using *PropAction*, *TimedAction* or *VariableTimedAction*.
 
-***Copy and change any of these sketches to build your own Arduino connected props, you will only be limited by your imagination.***
+***Copy and change any of these sketches to build your own Arduino connected prop, you will only be limited by your imagination.***
 
 
-## 1. *BlinkOnBridgeProps*: the Blink example on a Yun props with *ArduinoProps library*
+## 1. *BlinkOnBridgeProp*: the Blink example on a Yun prop with *ArduinoProps library*
 
 The library comes with a number of example sketches. See **File > Examples > ArduinoProps** within the Arduino IDE application after installing the *ArduinoProps* library from the  `.zip` file.
 
 ![](help/examples-shot.png)
 
 ```csharp
-/* BlinkOnBridgeProps.ino
+/* BlinkOnBridgeProp.ino
    MIT License (c) Marie Faure <dev at faure dot systems>
 
    Adapt the Blink example (https://www.arduino.cc/en/tutorial/blink) as a
-   simple MQTT props. Avoid delay() calls (except short ones) in loop() to
-   ensure CPU for MQTT protocol. Use PropsAction checks instead.
+   simple MQTT prop. Avoid delay() calls (except short ones) in loop() to
+   ensure CPU for MQTT protocol. Use PropAction checks instead.
 
-   Copy and change it to build your first Arduino connected props, you will
+   Copy and change it to build your first Arduino connected prop, you will
    only be limited by your imagination.
 
    Requirements: install ArduinoProps.zip library.
@@ -38,30 +38,30 @@ The library comes with a number of example sketches. See **File > Examples > Ard
 #include "ArduinoProps.h"
 
 // If you're running our Escape Room control software (Room 2.0) you have to respect
-// prpos inbox/outbox syntax Room/[escape room name]/Props/[propsname]/inbox|outbox
+// prpos inbox/outbox syntax Room/[escape room name]/Props/[prop name]/inbox|outbox
 // https://live-escape.net/go/room
 
-BridgeProps props(u8"Arduino Contrôleur", // as MQTT client id, should be unique per client for given broker
+BridgeProp prop(u8"Arduino Contrôleur", // as MQTT client id, should be unique per client for given broker
                   u8"Room/Demoniak/Props/Arduino Contrôleur/inbox",
                   u8"Room/Demoniak/Props/Arduino Contrôleur/outbox",
                   "192.168.1.42", // your MQTT server IP address
                   1883); // your MQTT server port;
 
-PropsDataLogical clignoter(u8"clignote", u8"oui", u8"non", true);
-PropsDataLogical led(u8"led");
+PropDataLogical clignoter(u8"clignote", u8"oui", u8"non", true);
+PropDataLogical led(u8"led");
 
 void clignote(); // forward
-PropsAction clignoteAction = PropsAction(1000, clignote);
+PropAction clignoteAction = PropAction(1000, clignote);
 
 void setup()
 {
   Bridge.begin();
-  //updateBrokerAdressFromFile("/root/broker", &props); // if you're running our Escape Room control software (Room 2.0)
+  //updateBrokerAdressFromFile("/root/broker", &prop); // if you're running our Escape Room control software (Room 2.0)
 
-  props.addData(&clignoter);
-  props.addData(&led);
+  prop.addData(&clignoter);
+  prop.addData(&led);
 
-  props.begin(InboxMessage::run);
+  prop.begin(InboxMessage::run);
 
   pinMode(LED_BUILTIN, OUTPUT); // initialize digital pin LED_BUILTIN as an output
 
@@ -70,7 +70,7 @@ void setup()
 
 void loop()
 {
-  props.loop();
+  prop.loop();
 
   led.setValue(digitalRead(LED_BUILTIN)); // read I/O
 
@@ -89,31 +89,31 @@ void InboxMessage::run(String a) {
 
   if (a == u8"app:startup")
   {
-    props.sendAllData();
-    props.sendDone(a);
+    prop.sendAllData();
+    prop.sendDone(a);
   }
   else if (a == "clignoter:1")
   {
     clignoter.setValue(true);
 
-    props.sendAllData(); // all data change, we don't have to be selctive then
-    props.sendDone(a); // acknowledge props command action
+    prop.sendAllData(); // all data change, we don't have to be selctive then
+    prop.sendDone(a); // acknowledge prop command action
   }
   else if (a == "clignoter:0")
   {
     clignoter.setValue(false);
 
-    props.sendAllData(); // all data change, we don't have to be selctive then
-    props.sendDone(a); // acknowledge props command action
+    prop.sendAllData(); // all data change, we don't have to be selctive then
+    prop.sendDone(a); // acknowledge prop command action
   }
   else
   {
-    // acknowledge omition of the props command
-    props.sendOmit(a);
+    // acknowledge omition of the prop command
+    prop.sendOmit(a);
   }
 }
 
-void updateBrokerAdressFromFile(const char* broker_file, BridgeProps* props)
+void updateBrokerAdressFromFile(const char* broker_file, BridgeProp* prop)
 {
   // broker IP address is stored in Linino file systems and updated with ssh command by Room 2.0
   IPAddress ip;
@@ -129,7 +129,7 @@ void updateBrokerAdressFromFile(const char* broker_file, BridgeProps* props)
   }
   b.trim();
 
-  if (ip.fromString(b.c_str())) props->setBrokerIpAddress(ip);
+  if (ip.fromString(b.c_str())) prop->setBrokerIpAddress(ip);
 }
 
 ```
@@ -149,9 +149,9 @@ Global variables use 980 bytes (11%) of dynamic memory, which leaves 7210 bytes 
 ```
 
 
-## 2. *BlinkOnEthernetProps*: the Blink example on an Ethernet props with *ArduinoProps library*
+## 2. *BlinkOnEthernetProp*: the Blink example on an Ethernet prop with *ArduinoProps library*
 
-Sketch with *EthernetProps* differs slightly from code with *BridgeProps*.
+Sketch with *EthernetProp* differs slightly from code with *BridgeProp*.
 
 #### Pay atention to the board MAC address:
 MAC adresses are hardware identifiers on the network so they must be unique.
@@ -164,9 +164,9 @@ byte mac[] = { 0x46, 0x4F, 0xEA, 0x10, 0x20, 0x03 }; //<<< MAKE SURE IT'S UNIQUE
 ```
 
 
-## 3. *BlinkOnWifiProps*: the Blink example on a Wifi props with *ArduinoProps library*
+## 3. *BlinkOnWifiProp*: the Blink example on a Wifi prop with *ArduinoProps library*
 
-Sketch with *WifiProps* differs slightly from code with *BridgeProps*.
+Sketch with *WifiProp* differs slightly from code with *BridgeProp*.
 
 #### The board WiFiNINA firmware must be recent (> 1.0):
 Uupdating WiFiNINA firmware is easy: [WiFiNINA firmware update](help/WifiNinaFirmware.md).
@@ -180,7 +180,7 @@ void loop()
   if (!wifiBegun) {
     WiFi.begin(ssid, passphrase);
     Serial.println(WiFi.firmwareVersion());
-    delay(250); // acceptable freeze for this props (otherwise use PropsAction for async-like behavior)
+    delay(250); // acceptable freeze for this prop (otherwise use PropAction for async-like behavior)
     // do static IP configuration disabling the dhcp client, must be called after every WiFi.begin()
     String fv = WiFi.firmwareVersion();
     if (fv.startsWith("1.0")) {
@@ -206,7 +206,7 @@ void loop()
     wifiBegun = false;
   }
 
-  props.loop();
+  prop.loop();
 
   led.setValue(digitalRead(LED_BUILTIN)); // read I/O
 
@@ -215,7 +215,7 @@ void loop()
 ```
 
 
-## 4. *BlinkOnBridgePubSub*: the Blink example on props using *PubSubClient* directly
+## 4. *BlinkOnBridgePubSub*: the Blink example on prop using *PubSubClient* directly
 
 Using *PubSubClient* directly does not save much memory and makes the sketch code less readable, the processing code will be a bit lost in the MQTT code
 
@@ -230,7 +230,7 @@ However, this can help in special cases.
  License:	MIT License (c) Marie Faure <dev at faure dot systems>
 
  Adapt the Blink example (https://www.arduino.cc/en/tutorial/blink) as a
- simple MQTT props with PubSubClient.
+ simple MQTT prop with PubSubClient.
 */
 #include <Bridge.h>
 #include <BridgeClient.h>
@@ -239,13 +239,13 @@ However, this can help in special cases.
 #include <VariableTimedAction.h>
 
 #define BROKER          "192.168.1.42" // your MQTT server IP address
-#define PROPS_NAME      u8"Arduino Contrôleur" // as MQTT client id, should be unique per client for given broker
+#define PROP_NAME      u8"Arduino Contrôleur" // as MQTT client id, should be unique per client for given broker
 
 // If you're running our Escape Room control software (Room 2.0) you have to respect
-// props inbox/outbox syntax Room/[escape room name]/Props/[propsname]/inbox|outbox
+// prop inbox/outbox syntax Room/[escape room name]/Props/[prop name]/inbox|outbox
 // https://github.com/fauresystems/escape-room#room-control-software
-#define PROPS_INBOX     u8"Room/Demoniak/Props/Arduino Contrôleur/inbox"
-#define PROPS_OUTBOX    u8"Room/Demoniak/Props/Arduino Contrôleur/outbox"
+#define PROP_INBOX     u8"Room/Demoniak/Props/Arduino Contrôleur/inbox"
+#define PROP_OUTBOX    u8"Room/Demoniak/Props/Arduino Contrôleur/outbox"
 
 // Yun can store broker IP address in Linino file systems, and updatred with ssh command
 #define YUN_BROKER_FILE "/root/broker"
@@ -346,10 +346,10 @@ void loop()
 	{
 		lastReconnection += 5000L;
 
-		if (_client.connect(PROPS_NAME, PROPS_OUTBOX, 2, true, "DISCONNECTED"))
+		if (_client.connect(PROP_NAME, PROP_OUTBOX, 2, true, "DISCONNECTED"))
 		{
-			_client.publish(PROPS_OUTBOX, "CONNECTED", true);
-			_client.subscribe(PROPS_INBOX, 1); // max QoS is 1 for PubSubClient subsciption
+			_client.publish(PROP_OUTBOX, "CONNECTED", true);
+			_client.subscribe(PROP_INBOX, 1); // max QoS is 1 for PubSubClient subsciption
 			lastReconnection = 0L;
 		}
 	}
@@ -371,7 +371,7 @@ void publishAll()
 	buf += u8" clignote=" + (blinking.blink ? String("oui") : String("non"));
 	blink_ref = blinking.blink;
 
-	_client.publish(PROPS_OUTBOX, buf.c_str());
+	_client.publish(PROP_OUTBOX, buf.c_str());
 }
 
 void publishChanges()
@@ -393,13 +393,13 @@ void publishChanges()
 	}
 
 	if (buf.length() > 4)
-		_client.publish(PROPS_OUTBOX, buf.c_str());
+		_client.publish(PROP_OUTBOX, buf.c_str());
 }
 
 void publishDone(String a)
 {
 	a = "DONE " + a;
-	_client.publish(PROPS_OUTBOX, a.c_str());
+	_client.publish(PROP_OUTBOX, a.c_str());
 }
 
 void onInboxMessage(String a) {
@@ -415,7 +415,7 @@ void onInboxMessage(String a) {
 		blinking.blink = true;
 
 		publishAll(); // all data change, we don't have to be selctive then
-		publishDone(a); // acknowledge props command action
+		publishDone(a); // acknowledge prop command action
 	}
 	else if (a == "clignoter:0")
 	{
@@ -423,12 +423,12 @@ void onInboxMessage(String a) {
 		blinking.blink = false;
 
 		publishAll(); // all data change, we don't have to be selctive then
-		publishDone(a); // acknowledge props command action
+		publishDone(a); // acknowledge prop command action
 	}
 	else
 	{
-		// acknowledge omition of the props command
-		_client.publish(PROPS_OUTBOX, String("OMIT " + a).c_str());
+		// acknowledge omition of the prop command
+		_client.publish(PROP_OUTBOX, String("OMIT " + a).c_str());
 	}
 }
 
@@ -440,7 +440,7 @@ void callback(char* topic, byte* payload, unsigned int len)
 		memcpy(p, payload, len);
 		p[len] = '\0';
 		if (String(p) == "@PING")
-			_client.publish(PROPS_OUTBOX, "PONG");
+			_client.publish(PROP_OUTBOX, "PONG");
 		else
 			onInboxMessage(p);
 		free(p);

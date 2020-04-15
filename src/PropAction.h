@@ -1,5 +1,5 @@
 /*
-  Name:		 PropsAction.h
+  Name:		 PropAction.h
   Created: 29/10/2019 09:20:31
   Author:  Marie Faure <dev at faure dot systems>
   Editor:  https://github.com/fauresystems
@@ -19,11 +19,11 @@
 
 class Props;
 
-class PropsAction {
+class PropAction {
 
   public:
-    PropsAction();
-    PropsAction(unsigned long interval, void (*function)());
+    PropAction();
+    PropAction(unsigned long interval, void (*function)());
 
     void reset(unsigned long interval);
     void disable();

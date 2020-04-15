@@ -1,11 +1,11 @@
-/* BlinkOnWifiProps.ino
+/* BlinkOnWifiProp.ino
    MIT License (c) Marie Faure <dev at faure dot systems>
 
    Adapt the Blink example (https://www.arduino.cc/en/tutorial/blink) as a
-   simple MQTT props. Avoid delay() calls (except short ones) in loop() to
-   ensure CPU for MQTT protocol. Use PropsAction checks instead.
+   simple MQTT prop. Avoid delay() calls (except short ones) in loop() to
+   ensure CPU for MQTT protocol. Use PropAction checks instead.
 
-   Copy and change it to build your first Arduino connected props, you will
+   Copy and change it to build your first Arduino connected prop, you will
    only be limited by your imagination.
 
    Requirements: 
@@ -17,11 +17,11 @@
 const char* ssid = "";
 const char *passphrase = "";
 
-// If you're running xcape.io Room software you have to respect props inbox/outbox
+// If you're running xcape.io Room software you have to respect prop inbox/outbox
 // topicw syntax: Room/[escape room name]/Props/[propsname]/inbox|outbox
 // https://xcape.io/go/room
 
-WifiProps props(u8"Arduino Blink", // as MQTT client id, should be unique per client for given broker
+WifiProp prop(u8"Arduino Blink", // as MQTT client id, should be unique per client for given broker
                   u8"Room/My room/Props/Arduino Blink/inbox",
                   u8"Room/My room/Props/Arduino Blink/outbox",
                   "192.168.1.53", // your MQTT server IP address
@@ -31,12 +31,12 @@ WifiProps props(u8"Arduino Blink", // as MQTT client id, should be unique per cl
 #undef LED_BUILTIN
 #define LED_BUILTIN 8
 
-PropsDataLogical clignoter(u8"clignote", u8"oui", u8"non", true);
-PropsDataLogical led(u8"led");
-PropsDataText rssi(u8"rssi");
+PropDataLogical clignoter(u8"clignote", u8"oui", u8"non", true);
+PropDataLogical led(u8"led");
+PropDataText rssi(u8"rssi");
 
 void clignote(); // forward
-PropsAction clignoteAction = PropsAction(1000, clignote);
+PropAction clignoteAction = PropAction(1000, clignote);
 
 bool wifiBegun(false);
 
@@ -44,11 +44,11 @@ void setup()
 {
   Serial.begin(9600);
 
-  props.addData(&clignoter);
-  props.addData(&led);
-  props.addData(&rssi);
+  prop.addData(&clignoter);
+  prop.addData(&led);
+  prop.addData(&rssi);
   
-  props.begin(InboxMessage::run);
+  prop.begin(InboxMessage::run);
 
   pinMode(LED_BUILTIN, OUTPUT); // initialize digital pin LED_BUILTIN as an output
 
@@ -60,7 +60,7 @@ void loop()
   if (!wifiBegun) {
     WiFi.begin(ssid, passphrase);
     Serial.println(WiFi.firmwareVersion());
-    delay(250); // acceptable freeze for this props (otherwise use PropsAction for async-like behavior)
+    delay(250); // acceptable freeze for this prop (otherwise use PropAction for async-like behavior)
     // do static IP configuration disabling the dhcp client, must be called after every WiFi.begin()
     String fv = WiFi.firmwareVersion();
     if (fv.startsWith("1.0")) {
@@ -86,7 +86,7 @@ void loop()
     wifiBegun = false;
   }
 
-  props.loop();
+  prop.loop();
 
   rssi.setValue(WiFi.RSSI() + String(" dBm")); // https://www.metageek.com/training/resources/understanding-rssi.html
 
@@ -107,30 +107,30 @@ void InboxMessage::run(String a) {
 
   if (a == u8"app:startup")
   {
-    props.sendAllData();
-    props.sendDone(a);
+    prop.sendAllData();
+    prop.sendDone(a);
   }
   else if (a == u8"reset-mcu")
   {
-    props.resetMcu();
+    prop.resetMcu();
   }
   else if (a == "clignoter:1")
   {
     clignoter.setValue(true);
 
-    props.sendAllData(); // all data change, we don't have to be selctive then
-    props.sendDone(a); // acknowledge props command action
+    prop.sendAllData(); // all data change, we don't have to be selctive then
+    prop.sendDone(a); // acknowledge prop command action
   }
   else if (a == "clignoter:0")
   {
     clignoter.setValue(false);
 
-    props.sendAllData(); // all data change, we don't have to be selctive then
-    props.sendDone(a); // acknowledge props command action
+    prop.sendAllData(); // all data change, we don't have to be selctive then
+    prop.sendDone(a); // acknowledge prop command action
   }
   else
   {
-    // acknowledge omition of the props command
-    props.sendOmit(a);
+    // acknowledge omition of the prop command
+    prop.sendOmit(a);
   }
 }

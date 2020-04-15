@@ -1,14 +1,14 @@
 /*
-  Name:    Props.h
+  Name:    Prop.h
   Created: 29/10/2019 09:20:31
   Author:  Marie Faure <dev at faure dot systems>
   Editor:  https://github.com/fauresystems
   License: MIT License (c) Marie Faure <dev at faure dot systems>
 
-  Base class to make props sketch for Escape Room 2.0 (connected).
+  Base class to make prop sketch for Escape Room 2.0 (connected).
 */
-#ifndef PROPS_H
-#define PROPS_H
+#ifndef PROP_H
+#define PROP_H
 
 #if defined(ARDUINO) && ARDUINO >= 100
 #include "arduino.h"
@@ -19,8 +19,8 @@
 #include <BridgeClient.h>
 #include <PubSubClient.h>
 #include <ListLib.h>
-#include "PropsAction.h"
-#include "PropsData.h"
+#include "PropAction.h"
+#include "PropData.h"
 
 #ifndef MQTT_MAX_PACKET_SIZE
 #define MQTT_MAX_PACKET_SIZE 128 // Bridge tranfer stuff (see PubSubClient)
@@ -53,7 +53,7 @@ class Props
   public:
     Props(const char*, const char*, const char*, const char*, const int=1883);
     virtual void begin(void(*)(String) = NULL) = 0;
-    void addData(PropsData*);
+    void addData(PropData*);
     void loop();
     void resetIntervals(const int changes, const int silent);
     void resetMcu();
@@ -86,8 +86,8 @@ class Props
     uint8_t _maximumSilentPeriod;
     unsigned long _nextReconAttempt;
     uint8_t _payloadMax;
-    PropsAction _sendDataAction;
-    List<PropsData*> _dataTable;
+    PropAction _sendDataAction;
+    List<PropData*> _dataTable;
 };
 
 #endif

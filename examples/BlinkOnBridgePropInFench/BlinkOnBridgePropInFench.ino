@@ -1,11 +1,11 @@
-/* BlinkOnBridgeProps.ino
+/* BlinkOnBridgeProp.ino
    MIT License (c) Marie Faure <dev at faure dot systems>
 
    Adapt the Blink example (https://www.arduino.cc/en/tutorial/blink) as a
-   simple MQTT props. Avoid delay() calls (except short ones) in loop() to
-   ensure CPU for MQTT protocol. Use PropsAction checks instead.
+   simple MQTT prop. Avoid delay() calls (except short ones) in loop() to
+   ensure CPU for MQTT protocol. Use PropAction checks instead.
 
-   Copy and change it to build your first Arduino connected props, you will
+   Copy and change it to build your first Arduino connected prop, you will
    only be limited by your imagination.
 
    Requirements:
@@ -14,36 +14,36 @@
 #include <Bridge.h>
 #include "ArduinoProps.h"
 
-// If you're running xcape.io Room software you have to respect props inbox/outbox
-// topicw syntax: Room/[escape room name]/Props/[propsname]/inbox|outbox
+// If you're running xcape.io Room software you have to respect prop inbox/outbox
+// topicw syntax: Room/[escape room name]/Props/[propname]/inbox|outbox
 // https://xcape.io/go/room
 
-BridgeProps props(u8"Arduino Blink", // as MQTT client id, should be unique per client for given broker
+BridgeProp prop(u8"Arduino Blink", // as MQTT client id, should be unique per client for given broker
                   u8"Room/My room/Props/Arduino Blink/inbox",
                   u8"Room/My room/Props/Arduino Blink/outbox",
                   "192.168.1.53", // your MQTT server IP address
                   1883); // your MQTT server port;
 
-PropsDataLogical blinking(u8"blink", u8"yes", u8"no", true);
-PropsDataLogical led(u8"led");
-PropsDataText rssi(u8"rssi");
+PropDataLogical clignoter(u8"clignote", u8"oui", u8"non", true);
+PropDataLogical led(u8"led");
+PropDataText rssi(u8"rssi");
 
 void clignote(); // forward
-PropsAction blinkingAction = PropsAction(1000, clignote);
+PropAction clignoteAction = PropAction(1000, clignote);
 
 void lireRssi(); // forward
-PropsAction lireRssiAction = PropsAction(30000, lireRssi);
+PropAction lireRssiAction = PropAction(30000, lireRssi);
 
 void setup()
 {
   Bridge.begin();
-  //updateBrokerAdressFromFile("/root/broker", &props); // if you're running our Escape Room control software (Room 2.0)
+  //updateBrokerAdressFromFile("/root/broker", &prop); // if you're running our Escape Room control software (Room 2.0)
 
-  props.addData(&blinking);
-  props.addData(&led);
-  props.addData(&rssi);
+  prop.addData(&clignoter);
+  prop.addData(&led);
+  prop.addData(&rssi);
 
-  props.begin(InboxMessage::run);
+  prop.begin(InboxMessage::run);
 
   pinMode(LED_BUILTIN, OUTPUT); // initialize digital pin LED_BUILTIN as an output
 
@@ -54,17 +54,17 @@ void setup()
 
 void loop()
 {
-  props.loop();
+  prop.loop();
 
   led.setValue(digitalRead(LED_BUILTIN)); // read I/O
 
-  blinkingAction.check(); // do your stuff, don't freeze the loop with delay() calls
+  clignoteAction.check(); // do your stuff, don't freeze the loop with delay() calls
   lireRssiAction.check();
 }
 
 void clignote()
 {
-  if (blinking.value()) {
+  if (clignoter.value()) {
     led.setValue(!led.value());
     digitalWrite(LED_BUILTIN, led.value() ? HIGH : LOW);
   }
@@ -88,35 +88,35 @@ void InboxMessage::run(String a) {
 
   if (a == u8"app:startup")
   {
-    props.sendAllData();
-    props.sendDone(a);
+    prop.sendAllData();
+    prop.sendDone(a);
   }
   else if (a == u8"reset-mcu")
   {
-    props.resetMcu(); // we prefer SSH command: echo %BROKER%> /root/broker && reset-mcu
+    prop.resetMcu(); // we prefer SSH command: echo %BROKER%> /root/broker && reset-mcu
   }
-  else if (a == "blink:1")
+  else if (a == "clignoter:1")
   {
-    blinking.setValue(true);
+    clignoter.setValue(true);
 
-    props.sendAllData(); // all data change, we don't have to be selctive then
-    props.sendDone(a); // acknowledge props command action
+    prop.sendAllData(); // all data change, we don't have to be selctive then
+    prop.sendDone(a); // acknowledge prop command action
   }
-  else if (a == "blink:0")
+  else if (a == "clignoter:0")
   {
-    blinking.setValue(false);
+    clignoter.setValue(false);
 
-    props.sendAllData(); // all data change, we don't have to be selctive then
-    props.sendDone(a); // acknowledge props command action
+    prop.sendAllData(); // all data change, we don't have to be selctive then
+    prop.sendDone(a); // acknowledge prop command action
   }
   else
   {
-    // acknowledge omition of the props command
-    props.sendOmit(a);
+    // acknowledge omition of the prop command
+    prop.sendOmit(a);
   }
 }
 
-void updateBrokerAdressFromFile(const char* broker_file, BridgeProps* props)
+void updateBrokerAdressFromFile(const char* broker_file, BridgeProp* prop)
 {
   // broker IP address is stored in Linino file systems and updated with ssh command by Room 2.0
   IPAddress ip;
@@ -132,5 +132,5 @@ void updateBrokerAdressFromFile(const char* broker_file, BridgeProps* props)
   }
   b.trim();
 
-  if (ip.fromString(b.c_str())) props->setBrokerIpAddress(ip);
+  if (ip.fromString(b.c_str())) prop->setBrokerIpAddress(ip);
 }

@@ -7,15 +7,15 @@
 #######################################
 
 Props				KEYWORD1
-BridgeProps			KEYWORD1
-EthernetProps		KEYWORD1
-WifiProps			KEYWORD1
-PropsAction			KEYWORD1
-PropsData			KEYWORD1
-PropsDataDecimal	KEYWORD1
-PropsDataInteger	KEYWORD1
-PropsDataLogical	KEYWORD1
-PropsDataText		KEYWORD1
+BridgeProp			KEYWORD1
+EthernetProp		KEYWORD1
+WifiProp			KEYWORD1
+PropAction			KEYWORD1
+PropData			KEYWORD1
+PropDataDecimal	KEYWORD1
+PropDataInteger	KEYWORD1
+PropDataLogical	KEYWORD1
+PropDataText		KEYWORD1
 PropsCallback			KEYWORD1
 PropsMessageReceived	KEYWORD1
 InboxMessage			KEYWORD1

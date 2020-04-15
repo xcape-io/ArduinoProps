@@ -1,11 +1,11 @@
 /*
-  Name:		PropsData.h
+  Name:		PropData.h
   Created: 29/10/2019 09:20:31
   Author:  Marie Faure <dev at faure dot systems>
   Editor:  https://github.com/fauresystems
   License: MIT License (c) Marie Faure <dev at faure dot systems>
 
-  Variable wrapper for connected props.
+  Variable wrapper for connected prop.
 */
 #ifndef PROPSDATA_H
 #define PROPSDATA_H
@@ -19,17 +19,17 @@
 #include <inttypes.h>
 #include <WString.h>
 
-class PropsData
+class PropData
 {
   public:
     virtual String fetch() = 0;
     virtual String fetchChange() = 0;
 };
 
-class PropsDataDecimal : public PropsData
+class PropDataDecimal : public PropData
 {
   public:
-    PropsDataDecimal(const char *, uint8_t digits = 2, double precision = 0.1, double initial = 0);
+    PropDataDecimal(const char *, uint8_t digits = 2, double precision = 0.1, double initial = 0);
     String fetch();
     String fetchChange();
     void setValue(const double);
@@ -42,10 +42,10 @@ class PropsDataDecimal : public PropsData
     uint8_t _digits;
 };
 
-class PropsDataInteger : public PropsData
+class PropDataInteger : public PropData
 {
   public:
-    PropsDataInteger(const char *, double precision = 0.1, long initial = 0);
+    PropDataInteger(const char *, double precision = 0.1, long initial = 0);
     String fetch();
     String fetchChange();
     void setValue(const long);
@@ -57,10 +57,10 @@ class PropsDataInteger : public PropsData
     double _precision;
 };
 
-class PropsDataLogical : public PropsData
+class PropDataLogical : public PropData
 {
   public:
-    PropsDataLogical(const char *, const char *trueval = NULL, const char *falseval = NULL, bool initial = false);
+    PropDataLogical(const char *, const char *trueval = NULL, const char *falseval = NULL, bool initial = false);
     String fetch();
     String fetchChange();
     void setValue(const bool);
@@ -73,10 +73,10 @@ class PropsDataLogical : public PropsData
     const char *_falseString;
 };
 
-class PropsDataText : public PropsData
+class PropDataText : public PropData
 {
   public:
-    PropsDataText(const char *);
+    PropDataText(const char *);
     String fetch();
     String fetchChange();
     void setValue(String);

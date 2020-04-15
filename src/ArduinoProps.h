@@ -5,7 +5,7 @@
   Editor:  https://github.com/fauresystems
   License: MIT License (c) Marie Faure <dev at faure dot systems>
 
-  Library to make props sketch for Escape Room 2.0 (connected props).
+  Library to make prop sketch for Escape Room 2.0 (connected prop).
 */
 
 #ifndef _ArduinoProps_h
@@ -17,10 +17,10 @@
 #include "WProgram.h"
 #endif
 
-#include "BridgeProps.h"
-#include "EthernetProps.h"
-#include "WifiProps.h"
-#include "PropsAction.h"
-#include "PropsData.h"
+#include "BridgeProp.h"
+#include "EthernetProp.h"
+#include "WifiProp.h"
+#include "PropAction.h"
+#include "PropData.h"
 
 #endif

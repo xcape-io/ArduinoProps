@@ -1,11 +1,11 @@
-/* BlinkOnEthernetProps.ino
+/* BlinkOnEthernetProp.ino
    MIT License (c) Marie Faure <dev at faure dot systems>
 
    Adapt the Blink example (https://www.arduino.cc/en/tutorial/blink) as a
-   simple MQTT props. Avoid delay() calls (except short ones) in loop() to
-   ensure CPU for MQTT protocol. Use PropsAction checks instead.
+   simple MQTT prop. Avoid delay() calls (except short ones) in loop() to
+   ensure CPU for MQTT protocol. Use PropAction checks instead.
 
-   Copy and change it to build your first Arduino connected props, you will
+   Copy and change it to build your first Arduino connected prop, you will
    only be limited by your imagination.
 
    Requirements: 
@@ -15,11 +15,11 @@
 #include <IPAddress.h>
 #include "ArduinoProps.h"
 
-// If you're running xcape.io Room software you have to respect props inbox/outbox
+// If you're running xcape.io Room software you have to respect prop inbox/outbox
 // topicw syntax: Room/[escape room name]/Props/[propsname]/inbox|outbox
 // https://xcape.io/go/room
 
-EthernetProps props(u8"Arduino Blink", // as MQTT client id, should be unique per client for given broker
+EthernetProp prop(u8"Arduino Blink", // as MQTT client id, should be unique per client for given broker
                   u8"Room/My room/Props/Arduino Blink/inbox",
                   u8"Room/My room/Props/Arduino Blink/outbox",
                   "192.168.1.53", // your MQTT server IP address
@@ -32,11 +32,11 @@ String ip = "192.168.1.19"; //<<< ENTER YOUR IP ADDRESS HERE ("" for DHCP)
 #undef LED_BUILTIN
 #define LED_BUILTIN 8
 
-PropsDataLogical clignoter(u8"clignote", u8"oui", u8"non", true);
-PropsDataLogical led(u8"led");
+PropDataLogical clignoter(u8"clignote", u8"oui", u8"non", true);
+PropDataLogical led(u8"led");
 
 void clignote(); // forward
-PropsAction clignoteAction = PropsAction(1000, clignote);
+PropAction clignoteAction = PropAction(1000, clignote);
 
 void setup()
 {
@@ -59,10 +59,10 @@ void setup()
   //Ethernet.setGatewayIP(IPAddress(192, 168, 1, 1));
   //Ethernet.setDnsServerIP(IPAddress(192, 168, 1, 1));
 
-  props.addData(&clignoter);
-  props.addData(&led);
+  prop.addData(&clignoter);
+  prop.addData(&led);
 
-  props.begin(InboxMessage::run);
+  prop.begin(InboxMessage::run);
 
   pinMode(LED_BUILTIN, OUTPUT); // initialize digital pin LED_BUILTIN as an output
 
@@ -71,7 +71,7 @@ void setup()
 
 void loop()
 {
-  props.loop();
+  prop.loop();
 
   led.setValue(digitalRead(LED_BUILTIN)); // read I/O
 
@@ -90,30 +90,30 @@ void InboxMessage::run(String a) {
 
   if (a == u8"app:startup")
   {
-    props.sendAllData();
-    props.sendDone(a);
+    prop.sendAllData();
+    prop.sendDone(a);
   }
   else if (a == u8"reset-mcu")
   {
-    props.resetMcu();
+    prop.resetMcu();
   }
   else if (a == "clignoter:1")
   {
     clignoter.setValue(true);
 
-    props.sendAllData(); // all data change, we don't have to be selctive then
-    props.sendDone(a); // acknowledge props command action
+    prop.sendAllData(); // all data change, we don't have to be selctive then
+    prop.sendDone(a); // acknowledge prop command action
   }
   else if (a == "clignoter:0")
   {
     clignoter.setValue(false);
 
-    props.sendAllData(); // all data change, we don't have to be selctive then
-    props.sendDone(a); // acknowledge props command action
+    prop.sendAllData(); // all data change, we don't have to be selctive then
+    prop.sendDone(a); // acknowledge prop command action
   }
   else
   {
-    // acknowledge omition of the props command
-    props.sendOmit(a);
+    // acknowledge omition of the prop command
+    prop.sendOmit(a);
   }
 }

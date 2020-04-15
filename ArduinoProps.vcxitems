@@ -21,10 +21,11 @@
     <None Include="$(MSBuildThisFileDirectory)ArduinoProps.zip" />
     <None Include="$(MSBuildThisFileDirectory)create-library-zip.bat" />
     <None Include="$(MSBuildThisFileDirectory)EXAMPLES.md" />
-    <None Include="$(MSBuildThisFileDirectory)examples\BlinkOnBridgeProps\BlinkOnBridgeProps.ino" />
+    <None Include="$(MSBuildThisFileDirectory)examples\BlinkOnBridgePropInFench\BlinkOnBridgePropInFench.ino" />
+    <None Include="$(MSBuildThisFileDirectory)examples\BlinkOnBridgeProp\BlinkOnBridgeProp.ino" />
     <None Include="$(MSBuildThisFileDirectory)examples\BlinkOnBridgePubSub\BlinkOnBridgePubSub.ino" />
-    <None Include="$(MSBuildThisFileDirectory)examples\BlinkOnEthernetProps\BlinkOnEthernetProps.ino" />
-    <None Include="$(MSBuildThisFileDirectory)examples\BlinkOnWifiProps\BlinkOnWifiProps.ino" />
+    <None Include="$(MSBuildThisFileDirectory)examples\BlinkOnEthernetProp\BlinkOnEthernetProp.ino" />
+    <None Include="$(MSBuildThisFileDirectory)examples\BlinkOnWifiProp\BlinkOnWifiProp.ino" />
     <None Include="$(MSBuildThisFileDirectory)help\Arduino_Props.md" />
     <None Include="$(MSBuildThisFileDirectory)help\Props.md" />
     <None Include="$(MSBuildThisFileDirectory)help\PropsAction.md" />
@@ -36,21 +37,21 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="$(MSBuildThisFileDirectory)src\ArduinoProps.cpp" />
-    <ClCompile Include="$(MSBuildThisFileDirectory)src\BridgeProps.cpp" />
-    <ClCompile Include="$(MSBuildThisFileDirectory)src\EthernetProps.cpp" />
-    <ClCompile Include="$(MSBuildThisFileDirectory)src\Props.cpp" />
-    <ClCompile Include="$(MSBuildThisFileDirectory)src\PropsAction.cpp" />
-    <ClCompile Include="$(MSBuildThisFileDirectory)src\PropsData.cpp" />
-    <ClCompile Include="$(MSBuildThisFileDirectory)src\WifiProps.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)src\BridgeProp.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)src\EthernetProp.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)src\Prop.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)src\PropAction.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)src\PropData.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)src\WifiProp.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="$(MSBuildThisFileDirectory)src\ArduinoProps.h" />
-    <ClInclude Include="$(MSBuildThisFileDirectory)src\BridgeProps.h" />
-    <ClInclude Include="$(MSBuildThisFileDirectory)src\EthernetProps.h" />
-    <ClInclude Include="$(MSBuildThisFileDirectory)src\Props.h" />
-    <ClInclude Include="$(MSBuildThisFileDirectory)src\PropsAction.h" />
-    <ClInclude Include="$(MSBuildThisFileDirectory)src\PropsData.h" />
-    <ClInclude Include="$(MSBuildThisFileDirectory)src\WifiProps.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)src\BridgeProp.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)src\EthernetProp.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)src\Prop.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)src\PropAction.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)src\PropData.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)src\WifiProp.h" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="$(MSBuildThisFileDirectory)help\dependencies-shot.png" />

@@ -2,7 +2,7 @@
    MIT License (c) Marie Faure <dev at faure dot systems>
 
    Adapt the Blink example (https://www.arduino.cc/en/tutorial/blink) as a
-   simple MQTT props with PubSubClient.
+   simple MQTT prop with PubSubClient.
 */
 #include <Bridge.h>
 #include <BridgeClient.h>
@@ -10,14 +10,14 @@
 #include <PubSubClient.h>
 #include <VariableTimedAction.h>
 
-// If you're running xcape.io Room software you have to respect props inbox/outbox
+// If you're running xcape.io Room software you have to respect prop inbox/outbox
 // topicw syntax: Room/[escape room name]/Props/[propsname]/inbox|outbox
 // https://xcape.io/go/room
 
 #define BROKER          "192.168.1.53" // your MQTT server IP address
-#define PROPS_NAME      u8"Arduino Blink" // as MQTT client id, should be unique per client for given broker
-#define PROPS_INBOX     u8"Room/My room/Props/Arduino Blink/inbox"
-#define PROPS_OUTBOX    u8"Room/My room/Props/Arduino Blink/outbox"
+#define PROP_NAME      u8"Arduino Blink" // as MQTT client id, should be unique per client for given broker
+#define PROP_INBOX     u8"Room/My room/Props/Arduino Blink/inbox"
+#define PROP_OUTBOX    u8"Room/My room/Props/Arduino Blink/outbox"
 
 // Yun can store broker IP address in Linino file systems, and updatred with ssh command
 #define YUN_BROKER_FILE "/root/broker"
@@ -118,10 +118,10 @@ void loop()
 	{
 		lastReconnection += 5000L;
 
-		if (_client.connect(PROPS_NAME, PROPS_OUTBOX, 2, true, "DISCONNECTED"))
+		if (_client.connect(PROP_NAME, PROP_OUTBOX, 2, true, "DISCONNECTED"))
 		{
-			_client.publish(PROPS_OUTBOX, "CONNECTED", true);
-			_client.subscribe(PROPS_INBOX, 1); // max QoS is 1 for PubSubClient subsciption
+			_client.publish(PROP_OUTBOX, "CONNECTED", true);
+			_client.subscribe(PROP_INBOX, 1); // max QoS is 1 for PubSubClient subsciption
 			lastReconnection = 0L;
 		}
 	}
@@ -143,7 +143,7 @@ void publishAll()
 	buf += u8" clignote=" + (blinking.blink ? String("oui") : String("non"));
 	blink_ref = blinking.blink;
 
-	_client.publish(PROPS_OUTBOX, buf.c_str());
+	_client.publish(PROP_OUTBOX, buf.c_str());
 }
 
 void publishChanges()
@@ -165,13 +165,13 @@ void publishChanges()
 	}
 
 	if (buf.length() > 4)
-		_client.publish(PROPS_OUTBOX, buf.c_str());
+		_client.publish(PROP_OUTBOX, buf.c_str());
 }
 
 void publishDone(String a)
 {
 	a = "DONE " + a;
-	_client.publish(PROPS_OUTBOX, a.c_str());
+	_client.publish(PROP_OUTBOX, a.c_str());
 }
 
 void onInboxMessage(String a) {
@@ -187,7 +187,7 @@ void onInboxMessage(String a) {
 		blinking.blink = true;
 
 		publishAll(); // all data change, we don't have to be selctive then
-		publishDone(a); // acknowledge props command action
+		publishDone(a); // acknowledge prop command action
 	}
 	else if (a == "clignoter:0")
 	{
@@ -195,12 +195,12 @@ void onInboxMessage(String a) {
 		blinking.blink = false;
 
 		publishAll(); // all data change, we don't have to be selctive then
-		publishDone(a); // acknowledge props command action
+		publishDone(a); // acknowledge prop command action
 	}
 	else
 	{
-		// acknowledge omition of the props command
-		_client.publish(PROPS_OUTBOX, String("OMIT " + a).c_str());
+		// acknowledge omition of the prop command
+		_client.publish(PROP_OUTBOX, String("OMIT " + a).c_str());
 	}
 }
 
@@ -212,7 +212,7 @@ void callback(char* topic, byte* payload, unsigned int len)
 		memcpy(p, payload, len);
 		p[len] = '\0';
 		if (String(p) == "@PING")
-			_client.publish(PROPS_OUTBOX, "PONG");
+			_client.publish(PROP_OUTBOX, "PONG");
 		else
 			onInboxMessage(p);
 		free(p);
