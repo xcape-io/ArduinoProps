@@ -35,7 +35,7 @@ Reading [EXAMPLES.md](EXAMPLES.md) will be helpful.
 |ArduinoProps library documentation                           |
 |-------------------------------------------------------------|
 | [This README file](README.md)                               | 
-| [Props class reference](help/Prop.md)                      | 
+| [Prop class reference](help/Prop.md)                      | 
 | [PropData class reference](help/PropData.md)              |
 | [PropAction class reference](help/PropAction.md)          | 
 | [ArduinoProps library examples](EXAMPLES.md)                | 
@@ -67,14 +67,14 @@ Since 2016, *ArduinoProps library* is used extensively in many escape rooms with
 ### Inbox/oubox messaging  
 Instead of usual MQTT topic structure which sends every data value in a different topic for every variable, *ArduinoProps library* sends data via a unique outbox topic. 
 
-Props receives commands in its inbox MQTT topic.
+Prop receives commands in its inbox MQTT topic.
 
-Props can subscribe to any other MQTT topic to receive othe information, for example the escape game scenario (English/French/Kids) or the game clock countdown.
+Prop can subscribe to any other MQTT topic to receive othe information, for example the escape game scenario (English/French/Kids) or the game clock countdown.
 
 #### Escape room structured MQTT topics
 If you're running our Escape Room control software *Room 2.0* to supervise the escape room in real-time you have to respect its syntax for inbox/outbnox MQTT topics: 
 ```csharp
-Room/[escape room name]/Props/[propsname]/inbox|outbox
+Room/[escape room name]/Props/[props name]/inbox|outbox
 
 example:
     Room/Demoniak/Props/Arduino Contrôleur/inbox
@@ -138,11 +138,11 @@ We have defined a simple human-readable text protocol. Messages are encoded in U
 
 Messages are sent/received thru outbox/inbox MQTT topics:
 ```csharp
-    Room/[escape room name]/Props/[propsname]/inbox
-    Room/[escape room name]/Props/[propsname]/outbox
+    Room/[escape room name]/Props/[props name]/inbox
+    Room/[escape room name]/Props/[props name]/outbox
 ```
 
-Props connection state is handled in the outbox topic:
+Prop connection state is handled in the outbox topic:
 * with a `DISCONNECTED` **Will** when MQTT server connection is broken
 * with a `CONNECTED` **retained message** when MQTT server connection is established.
 
