@@ -62,22 +62,22 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)src\ArduinoProps.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="D:\GitHub\fauresystems\ArduinoProps\src\BridgeProp.cpp">
+    <ClCompile Include="$(MSBuildThisFileDirectory)src\BridgeProp.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="D:\GitHub\fauresystems\ArduinoProps\src\EthernetProp.cpp">
+    <ClCompile Include="$(MSBuildThisFileDirectory)src\EthernetProp.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="D:\GitHub\fauresystems\ArduinoProps\src\Prop.cpp">
+    <ClCompile Include="$(MSBuildThisFileDirectory)src\Prop.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="D:\GitHub\fauresystems\ArduinoProps\src\PropAction.cpp">
+    <ClCompile Include="$(MSBuildThisFileDirectory)src\PropAction.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="D:\GitHub\fauresystems\ArduinoProps\src\PropData.cpp">
+    <ClCompile Include="$(MSBuildThisFileDirectory)src\PropData.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="D:\GitHub\fauresystems\ArduinoProps\src\WifiProp.cpp">
+    <ClCompile Include="$(MSBuildThisFileDirectory)src\WifiProp.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -85,22 +85,22 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)src\ArduinoProps.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="D:\GitHub\fauresystems\ArduinoProps\src\BridgeProp.h">
+    <ClInclude Include="$(MSBuildThisFileDirectory)src\BridgeProp.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="D:\GitHub\fauresystems\ArduinoProps\src\EthernetProp.h">
+    <ClInclude Include="$(MSBuildThisFileDirectory)src\EthernetProp.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="D:\GitHub\fauresystems\ArduinoProps\src\Prop.h">
+    <ClInclude Include="$(MSBuildThisFileDirectory)src\Prop.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="D:\GitHub\fauresystems\ArduinoProps\src\PropAction.h">
+    <ClInclude Include="$(MSBuildThisFileDirectory)src\PropAction.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="D:\GitHub\fauresystems\ArduinoProps\src\PropData.h">
+    <ClInclude Include="$(MSBuildThisFileDirectory)src\PropData.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="D:\GitHub\fauresystems\ArduinoProps\src\WifiProp.h">
+    <ClInclude Include="$(MSBuildThisFileDirectory)src\WifiProp.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
