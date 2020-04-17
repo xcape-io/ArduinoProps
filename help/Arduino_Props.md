@@ -1,4 +1,14 @@
-# Arduino Props for Escape Room 2.0
+﻿# Introduction to Arduino Props
+
+* [Arduino Props for Escape Room 2.0](#arduino-props-for-escape-room-20)
+* [Escape room 2.0 constraints on prop](#escape-room-20-constraints-on-prop)
+* [ArduinoProps library for escape room 2.0](#arduinoprops-library-for-escape-room-20)
+* [Arduino YUN and YUN shields](#arduino-yun-and-yun-shields)
+* [Arduino Ethernet and Wifi](#arduino-ethernet-and-wifi)
+* [Compatible hardware](#compatible-hardware)
+
+
+## Arduino Props for Escape Room 2.0
 
 The *ArduinoProps library* for Arduino has been designed to build *escape room 2.0 prop*.
 
@@ -15,7 +25,7 @@ Benefits and specificities of the *ArduinoProps library*
 - constant sustaining of Arduino code (YUN)
 - real-time notification, monitoring and control (human scale)
 
-# Escape room 2.0 constraints on prop
+## Escape room 2.0 constraints on prop
 Escape game are opened 7 days a week and particularly booked during weekends and usually until midnight. Therefore their uptime must be close to 100% and incidents must be worked-around immediately by the game master (manual commands).
 
 Escape Room Props operation and performance impact directly escape game customer experience. Therefore notifications must be processed in human-scale real-time, automatically or manually by a non-technological user (the game master).
@@ -27,7 +37,7 @@ Escape Room Props TCO (Total Cost of Ownership) must be affordable by escape gam
 IT professional 24/7 support must be avoided for cost reasons. Therefore prop code must be the most reliable.
 
 
-# *ArduinoProps library* for escape room 2.0
+## *ArduinoProps library* for escape room 2.0
 [MQTT](http://mqtt.org/) is a machine-to-machine (M2M)/"Internet of Things" connectivity protocol. It was designed as an extremely lightweight publish/subscribe messaging transport.
 
 *ArduinoProps library* relies on *[Nick O'Leary PubSubClient](https://github.com/knolleary/pubsubclient)*, a simple publish/subscribe messaging Arduino library. [PubSubClient](https://github.com/knolleary/pubsubclient) is a MQTT client with a few limitations:
@@ -48,7 +58,7 @@ How does *ArduinoProps library* use MQTT efficiently in escape rooms:
 
 *ArduinoProps library* wraps [PubSubClient](https://github.com/knolleary/pubsubclient) to make Arduino code the most simple and readable for better sustainability.
 
-# Arduino YUN and YUN shields
+## Arduino YUN and YUN shields
 Arduino YUN is a Arduino with Leonardo MCU/GPIO and Linux SoC.
 
 Arduino YUN shield and Dragino YUN shield are YUN Linux SoC to be plugged onto Arduino Uno, Mega or Due.
@@ -70,11 +80,11 @@ Therefore, **Arduino YUN or YUN shield is the preferred solution for prop with A
 - **Arduino Due + Dragino Yún Shield**
 
 
-# Arduino Ethernet and Wifi
+## Arduino Ethernet and Wifi
 Arduino with Ethernet or Wifi shield is suitable to build an Escape Room Props, however the sketch must be uploaded with an USB cable, so it is not convenient for prop design and worse for prop in production, which can lead to an unexpected significant increase in TCO.
 
 
-# Compatible hardware
+## Compatible hardware
 *ArduinoProps library* supported harware:
  - Arduino Yún and Arduino Yún Rev 2
  - Any Arduino + Dragino Yún Shield (tested with Elegoo Mega 2560 R3)
