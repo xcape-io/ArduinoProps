@@ -1,5 +1,6 @@
 # *PropData* reference
 See also:
+* <a href="PropAction.md" target="_blank">PropAction</a> class reference
 * <a href="Prop.md" target="_blank">Prop</a> class reference
 * <a href="PropAction.md" target="_blank">PropAction</a> class reference
 
