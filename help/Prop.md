@@ -12,7 +12,7 @@
     * Defining a *WifiProp*
 2. [Setup the *Prop*](#2-setup-the-prop)
     * Change timings
-3. [Call in sketch *loop()*](#3-call-in-sketch-loop)
+3. [Call in *loop()*](#3-call-in-loop)
 4. [Implement `InboxMessage::run()` callback](#4-implement-inboxmessagerun-callback)
 5. [Update broker address from SSH (*BridgeProp*)](#5-update-broker-address-from-ssh-bridgeprop)
 6. [[Examples](#6-examples)]
@@ -229,7 +229,7 @@ Timings can be changed anywhere in the code with `resetIntervals()`:
 ```
 
 
-## 3. Call in sketch *loop()*
+## 3. Call in *loop()*
 ```csharp
 void loop()
 {
