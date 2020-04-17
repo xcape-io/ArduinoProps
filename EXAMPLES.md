@@ -1,10 +1,10 @@
-# ArduinoProps library examples
+﻿# ArduinoProps library examples
 An adaptation of the internal led Blink example (https://www.arduino.cc/en/tutorial/blink) as a simple MQTT prop. 
 
-1. **BlinkOnBridgeProp**: the Blink example on a Yun prop with *ArduinoProps library*
-2. **BlinkOnEthernetProp**: the Blink example on an Ethernet prop with *ArduinoProps library*
-3. **BlinkOnWifiProp**: the Blink example on a Wifi prop with *ArduinoProps library*
-4. **BlinkOnBridgePubSub**: the Blink example on prop using *PubSubClient* directly
+1. [**BlinkOnBridgeProp**](#1-blinkonbridgeprop-the-blink-example-on-a-yun-prop-with-arduinoprops-library): the Blink example on a Yun prop with *ArduinoProps library*
+2. [**BlinkOnEthernetProp**](#2-blinkonethernetprop-the-blink-example-on-an-ethernet-prop-with-arduinoprops-library): the Blink example on an Ethernet prop with *ArduinoProps library*
+3. [**BlinkOnWifiProp**](#3-blinkonwifiprop-the-blink-example-on-a-wifi-prop-with-arduinoprops-library): the Blink example on a Wifi prop with *ArduinoProps library*
+4. [**BlinkOnBridgePubSub**](#4-blinkonbridgepubsub-the-blink-example-on-prop-using-pubsubclient-directly): the Blink example on prop using *PubSubClient* directly
 
 MQTT messages are received asynchronously therefore to keep the sketch responsive to MQTT commands, calls to delay() should be avoided (except short ones, say < 100 milliseconds).
 
