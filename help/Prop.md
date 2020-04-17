@@ -6,16 +6,20 @@
 * ***WifiProp*** for WiFiNINA boards
 
 ## Constructors
-* `PropDataDecimal(const char *, uint8_t digits = 2, double precision = 0.1, double initial = 0)`
-* `PropDataInteger(const char *, double precision = 0.1, long initial = 0)`
-* `PropDataLogical(const char *, const char *trueval = NULL, const char *falseval = NULL, bool initial = false)`
-* `PropDataText(const char *)`
+* `BridgeProp(const char*, const char*, const char*, const char*, const int)`
+* `EthernetProp(const char*, const char*, const char*, const char*, const int)`
+* `WifiProp(const char*, const char*, const char*, const char*, const int)`
 
-By default for *PropDataLogical*, `trueval` is `"1"` band `falseval` is `"0"`.
+Each constructor implement the ***Prop*** interface:
+* `Props(const char* client_id, const char* in_box, const char* out_box, const char* broker, const int port)`
+```csharp
+BridgeProp prop(u8"Arduino Blink", // as MQTT client id, should be unique per client for given broker
+                  u8"Room/My room/Props/Arduino Blink/inbox",
+                  u8"Room/My room/Props/Arduino Blink/outbox",
+                  "192.168.1.53", // your MQTT server IP address
+                  1883); // your MQTT server port;
+```
 
-For *PropDataDecimal*, `digits` is the number of decimal digits in the display string.
-
-For *PropDataDecimal* and *PropDataInteger*, `precision` is the percentage threshold for deciding whether a change has occurred or not.
 
 ## Interface
 * `String fetch()`
