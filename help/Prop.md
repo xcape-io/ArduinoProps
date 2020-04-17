@@ -15,7 +15,7 @@
 3. [Call in *loop()*](#3-call-in-loop)
 4. [Implement `InboxMessage::run()` callback](#4-implement-inboxmessagerun-callback)
 5. [Update broker address from SSH (*BridgeProp*)](#5-update-broker-address-from-ssh-bridgeprop)
-6. [[Examples](#6-examples)]
+6. [Examples](#6-examples)
 7. [Compatible](#7-compatible-hardware) hardware
 
 
