@@ -1,6 +1,6 @@
 # *Prop* class reference
 
-*Prop* is a base class for 3 connected prop, depending on their network interface:
+*Prop* is a base class for 3 connected prop flavors, depending on their network interface:
 * ***BridgeProp*** for Yun board and Yun shield
 * ***EthernetProp*** for Ethernet shield
 * ***WifiProp*** for WiFiNINA boards
