@@ -9,9 +9,15 @@
 8. [Limitations due to *PubSubClient*](#8-limitations-due-to-pubsubclient)
 9. [Examples](#9-examples)
 
+##### Help
+* [Introduction to Arduino Props](./help/Arduino_Props.md)
+* [*Prop* class reference](./help/Prop.md)
+* [*PropAction* class reference](./help/PropAction.md)
+* [*PropData* class reference](./help/PropData.md)
+* [WiFiNINA firmware update](./help/WifiNinaFirmware.md)
+
 
 ## 1. Installation and usage
-
 ### Prepare Arduino IDE
 Download [ArduinoProps.zip](https://github.com/fauresystems/ArduinoProps/raw/master/ArduinoProps.zip) from GitHub and use **Sketch > Include Library > Add .ZIP Library...** 
 
