@@ -1,13 +1,13 @@
 ﻿# ArduinoProps library
-1. Installation and usage
-2. Escape room 2.0 prop with Arduino
-3. *ArduinoProps library* value for escape room 2.0
-4. Application protocol for escape room 2.0 prop
-5. Compatible hardware
-6. Advantages of Arduino Yun and Dragino Yun shield
-7. Advantages of the *ArduinoProps library*
-8. Limitations due to *PubSubClient*
-9. Examples
+1. [Installation and usage](#1-installation-and-usage)
+2. [Escape room 2.0 prop with Arduino](#2-escape-room-20-prop-with-arduino)
+3. [*ArduinoProps library* value for escape room 2.0](#3-arduinoprops-library-value-for-escape-room-20)
+4. [Application protocol for escape room 2.0 prop](#4-application-protocol-for-escape-room-20-prop)
+5. [Compatible hardware](#5-compatible-hardware)
+6. [Advantages of Arduino Yun and Dragino Yun shield](#6-advantages-of-arduino-yun-and-dragino-yun-shield)
+7. [Advantages of the *ArduinoProps library*](#7-advantages-of-the-arduinoprops-library)
+8. [Limitations due to *PubSubClient*](#8-limitations-due-to-pubsubclient)
+9. [Examples](#9-examples)
 
 
 ## 1. Installation and usage
