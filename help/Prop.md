@@ -1,4 +1,7 @@
 # *Prop* class reference
+See also:
+* <a href="PropData.md" target="_blank">PropData</a>
+* <a href="PropAction.md" target="_blank">PropAction</a>
 
 *Prop* (see <a href="https://github.com/xcape-io/ArduinoProps/blob/master/src/Prop.h" target="_blank">`Prop.h`</a>) is an interface (base class) implemented by 3 classes:
 * ***BridgeProp*** for Yun board and Yun shield
