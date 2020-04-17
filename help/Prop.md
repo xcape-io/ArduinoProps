@@ -42,49 +42,19 @@ BridgeProp prop(u8"Arduino Blink", // as MQTT client id, should be unique per cl
 * `void sendRequ(String request)`
 * `void sendRequ(String topic, char*)`
 
+The pure virtual `begin()` sets the network client.
+
+The `addData()` registers a <a href="PropData.md" target="_blank">PropData</a> instance to be treated by `sendAllData()` and `sendDataChanges()` methods.
+
+The `loop()` is the method to be called in the sketch *loop()*.
+
+The `resetMcu()` restarts the sketch (like the reset button).
+
+The `sendAllData()` sends the `DATA` message for all registered data.
+
+The `sendDataChanges()` sends the `DATA` message for all registered data that value has changed since last call.
+
 For `send----()` methods see *<a href="https://github.com/xcape-io/ArduinoProps#4-application-protocol-for-escape-room-20-prop" target="_blank">Application protocol for escape room 2.0 prop</a>*
-    
-*fetch()* always returns the `"var=value "` string ready to be sent in a `DATA` protocol message and update the `_previous` value.
-
-*fetchChange()* checks whether a change has occurred or not. If a change occured, returns the `"var=value "` string ready to be sent in a `DATA` protocol message and update the `_previous` value. If no change occured, returns and empty string.
-
-## Public properties
-* `const char *clientId`
-* `const char *inbox`
-* `const char *outbox`
-
-Accessors and Mutators are typed according to *PropData* type.
-
-## Usage
-
-### Create a *PropData* instance
-```csharp
-PropDataLogical clignoter(u8"clignote", u8"oui", u8"non", true);
-```
-
-### Add the *PropData* instance to managed data of the *Props*
-```csharp
-void setup()
-{
-  ...
-
-  Props::addManagedLogicalData(&clignoter);
-
-  ...
-}
-```
-
-### Use the *PropData* instance anywhere
-```csharp
-clignoter.setValue(true);
-
-...
-
-if (clignoter.value()) {
-    digitalWrite(LED_BUILTIN, !digitalRead(LED_BUILTIN));
-    led.setValue(digitalRead(LED_BUILTIN));
-}
-```
 
 
 ## Author
