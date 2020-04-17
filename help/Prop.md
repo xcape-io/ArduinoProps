@@ -25,16 +25,32 @@ BridgeProp prop(u8"Arduino Blink", // as MQTT client id, should be unique per cl
 
 
 ## Interface
-* `String fetch()`
-* `String fetchChange()`
-
+* `virtual void begin(void(*)(String) = NULL) = 0`
+* `void addData(PropData*)`
+* `void loop()`
+* `void resetIntervals(const int changes, const int silent)`
+* `void resetMcu()`
+* `void sendAllData()`
+* `void sendDataChanges()`
+* `void sendData(String)`
+* `void sendDone(String)`
+* `void sendMesg(String)`
+* `void sendMesg(String, char*)`
+* `void sendOmit(String)`
+* `void sendOver(String)`
+* `void sendProg(String)`
+* `void sendRequ(String)`
+* `void sendRequ(String, char*)`
+    
+    
 *fetch()* always returns the `"var=value "` string ready to be sent in a `DATA` protocol message and update the `_previous` value.
 
 *fetchChange()* checks whether a change has occurred or not. If a change occured, returns the `"var=value "` string ready to be sent in a `DATA` protocol message and update the `_previous` value. If no change occured, returns and empty string.
 
-## Accessors and Mutators
-* `void setValue(const double|long|bool|String)`
-* `double|long|bool|String value() const`
+## Public properties
+* `const char *clientId`
+* `const char *inbox`
+* `const char *outbox`
 
 Accessors and Mutators are typed according to *PropData* type.
 
