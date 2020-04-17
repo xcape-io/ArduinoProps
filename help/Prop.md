@@ -42,7 +42,7 @@ BridgeProp prop(u8"Arduino Blink", // as MQTT client id, should be unique per cl
 * `void sendRequ(String request)`
 * `void sendRequ(String topic, char*)`
 
-For `send----()` methods see <a href="../../ArduinoProps#4-application-protocol-for-escape-room-20-prop" target="_blank">Application protocol for escape room 2.0 prop</a>
+For `send----()` methods see *<a href="https://github.com/xcape-io/ArduinoProps#4-application-protocol-for-escape-room-20-prop" target="_blank">Application protocol for escape room 2.0 prop</a>*
     
 *fetch()* always returns the `"var=value "` string ready to be sent in a `DATA` protocol message and update the `_previous` value.
 
