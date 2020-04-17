@@ -1,6 +1,6 @@
 # *Prop* class reference
 
-*Prop* is an interface (base class) implemented by 3 classes:
+*Prop* (see <a href="https://github.com/xcape-io/ArduinoProps/blob/master/src/Prop.h" target="_blank">`Prop.h`</a>) is an interface (base class) implemented by 3 classes:
 * ***BridgeProp*** for Yun board and Yun shield
 * ***EthernetProp*** for Ethernet shield
 * ***WifiProp*** for WiFiNINA boards
@@ -14,10 +14,10 @@ Each constructor implement the ***Prop*** interface:
 * `Props(const char* client_id, const char* in_box, const char* out_box, const char* broker, const int port)`
 ```csharp
 BridgeProp prop(u8"Arduino Blink", // as MQTT client id, should be unique per client for given broker
-                  u8"Room/My room/Props/Arduino Blink/inbox",
-                  u8"Room/My room/Props/Arduino Blink/outbox",
-                  "192.168.1.53", // your MQTT server IP address
-                  1883); // your MQTT server port;
+                u8"Room/My room/Props/Arduino Blink/inbox",
+                u8"Room/My room/Props/Arduino Blink/outbox",
+                "192.168.1.53", // your MQTT server IP address
+                1883); // your MQTT server port;
 ```
 
 

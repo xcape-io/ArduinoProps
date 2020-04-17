@@ -1,6 +1,6 @@
 # *PropAction* class reference
 
-*PropAction* brings asynchronous-like behavior to sketch `loop()`.
+*PropAction* (see <a href="https://github.com/xcape-io/ArduinoProps/blob/master/src/PropAction.h" target="_blank">`PropAction.h`</a>) brings asynchronous-like behavior to sketch `loop()`.
 
 
 ## Constructors
