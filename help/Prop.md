@@ -6,17 +6,17 @@
 * ***WifiProp*** for WiFiNINA boards
 
 *Prop* class reference:
-1. Define the *Prop*
+1. [Define the *Prop*](#1-defines-the-prop)
     * Defining a *BridgeProp*
     * Defining an *EthernetProp*
     * Defining a *WifiProp*
-2. Setup the *Prop*
+2. [Setup the *Prop*](#2-setup-the-prop)
     * Change timings
-3. Call in sketch *loop()*
-4. Implement `InboxMessage::run()` callback
-5. Update broker address from SSH (*BridgeProp*)
-6. Examples
-7. Compatible hardware
+3. [Call in sketch *loop()*](#3-call-in-sketch-loop)
+4. [Implement `InboxMessage::run()` callback](#4-implement-inboxmessagerun-callback)
+5. [Update broker address from SSH (*BridgeProp*)](#5-update-broker-address-from-ssh-bridgeprop)
+6. [[Examples](#6-examples)]
+7. [Compatible](#7-compatible-hardware) hardware
 
 
 ## 1. Defines the *Prop*
