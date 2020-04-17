@@ -10,6 +10,7 @@
 
    Requirements:
    - install ArduinoProps.zip library and dependencies (https://github.com/fauresystems/ArduinoProps)
+   - help: https://github.com/xcape-io/ArduinoProps/blob/master/help/ArduinoProps_sketch.md
 */
 #include <Bridge.h>
 #include "ArduinoProps.h"
