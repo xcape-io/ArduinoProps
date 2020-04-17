@@ -26,6 +26,8 @@ BridgeProp prop(u8"Arduino Blink", // as MQTT client id, should be unique per cl
 
 
 ## Interface
+The *Prop* class interface is consistent with the <a href="https://github.com/xcape-io/PyProps/blob/master/help/Prop.md" target="_blank">Prop class</a> from the <a href="https://github.com/xcape-io/PyProps" target="_blank">PyProps library</a>.
+
 * `virtual void begin(void(*)(String) = NULL) = 0`
 * `void addData(PropData*)`
 * `void loop()`
