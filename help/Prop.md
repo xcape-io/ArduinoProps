@@ -29,33 +29,36 @@ BridgeProp prop(u8"Arduino Blink", // as MQTT client id, should be unique per cl
 The *Prop* class interface is consistent with the <a href="https://github.com/xcape-io/PyProps/blob/master/help/Prop.md" target="_blank">Prop class</a> of the <a href="https://github.com/xcape-io/PyProps#pyprops-library" target="_blank">PyProps library</a> for Raspberry boards.
 
 * `virtual void begin(void(*)(String) = NULL) = 0`
+    - the pure virtual `begin()` sets the network client
 * `void addData(PropData*)`
+    -  registers a <a href="PropData.md" target="_blank">PropData</a> instance to be treated by `sendAllData()` and `sendDataChanges()` methods
 * `void loop()`
+    - is the method to be called in the sketch *loop()*
 * `void resetIntervals(const int changes, const int silent)`
 * `void resetMcu()`
+    - restarts the sketch (like the reset button)
 * `void sendAllData()`
+    - sends the `DATA` message for all registered data
 * `void sendDataChanges()`
+    - sends the `DATA` message for all registered data that value has changed since last call
 * `void sendData(String variables)`
+    - send the `data` string in a `DATA` message 
 * `void sendDone(String action)`
+    - send the `action` string in a `DONE` message  
 * `void sendMesg(String message)`
+    - send the `message` string in a `MESG` message to the *outbox* 
 * `void sendMesg(String topic, char* message)`
+    - send the `message` string in a `MESG` message to the `topic` parameter
 * `void sendOmit(String action)`
+    - send the `action` string in a `OMIT` message  
 * `void sendOver(String challenge)`
+    - send the `challenge` string in a `OVER` message  
 * `void sendProg(String program)`
+    - send the `program` string in a `PROG` message  
 * `void sendRequ(String request)`
+    - send the `request` string in a `REQU` message to the *outbox*
 * `void sendRequ(String topic, char*)`
-
-The pure virtual `begin()` sets the network client.
-
-The `addData()` registers a <a href="PropData.md" target="_blank">PropData</a> instance to be treated by `sendAllData()` and `sendDataChanges()` methods.
-
-The `loop()` is the method to be called in the sketch *loop()*.
-
-The `resetMcu()` restarts the sketch (like the reset button).
-
-The `sendAllData()` sends the `DATA` message for all registered data.
-
-The `sendDataChanges()` sends the `DATA` message for all registered data that value has changed since last call.
+    - send the `request` string in a `REQU` message to the `topic` parameter
 
 For `send----()` methods see *<a href="https://github.com/xcape-io/ArduinoProps#4-application-protocol-for-escape-room-20-prop" target="_blank">Application protocol for escape room 2.0 prop</a>*
 
