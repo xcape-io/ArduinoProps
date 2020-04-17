@@ -1,6 +1,6 @@
 # *PropAction* class reference
 See also:
-* <a href="PropAction.md" target="_blank">PropAction</a> class reference
+* <a href="https://github.com/xcape-io/ArduinoProps/blob/master/help/ArduinoProps_sketch.md#arduinoprops-sketch" target="_blank">ArduinoProps sketch</a>
 * <a href="Prop.md" target="_blank">Prop</a> class reference
 * <a href="PropData.md" target="_blank">PropData</a> class reference
 
