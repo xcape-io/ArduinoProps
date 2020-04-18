@@ -248,7 +248,7 @@ See [EXAMPLES.md](EXAMPLES.md) for an adaptation of the Blink example (https://w
 
 ## Author
 
-**Marie FAURE** (Oct 18th, 2019)
+**Marie FAURE** (Apr 18th, 2020)
 * company: FAURE SYSTEMS SAS
 * mail: *dev at faure dot systems*
 * github: <a href="https://github.com/fauresystems?tab=repositories" target="_blank">fauresystems</a>
