@@ -120,6 +120,8 @@ To unifiy escape room 2.0 development, *ArduinoProps library* provides a simple 
     PROG -> request a control program
 ```
 
+![Prop protocol](help/Prop-Protocol.png)
+
 ### Handling long message seamlessly and efficiently  
 MQTT standard limitations are far above what we need:
 - maximum topic length 65,536 bytes (64k)
