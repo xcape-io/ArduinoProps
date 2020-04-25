@@ -15,6 +15,9 @@
 #include <Bridge.h>
 #include "ArduinoProps.h"
 
+// Uncomment if the board is connected via WiFi
+//#define REPORT_WIFI_RSSI
+
 // If you're running xcape.io Room software you have to respect prop inbox/outbox
 // topicw syntax: Room/[escape room name]/Props/[propsname]/inbox|outbox
 // https://xcape.io/go/room
@@ -22,18 +25,23 @@
 BridgeProp prop(u8"Arduino Blink", // as MQTT client id, should be unique per client for given broker
                   u8"Room/My room/Props/Arduino Blink/inbox",
                   u8"Room/My room/Props/Arduino Blink/outbox",
-                  "192.168.1.53", // your MQTT server IP address
+                  "192.168.1.42", // your MQTT server IP address
                   1883); // your MQTT server port;
 
 PropDataLogical blinking(u8"blink", u8"yes", u8"no", true);
 PropDataLogical led(u8"led");
+
+#if defined(REPORT_WIFI_RSSI) 
 PropDataText rssi(u8"rssi");
+#endif
 
-void clignote(); // forward
-PropAction blinkingAction = PropAction(1000, clignote);
+void blink(); // forward
+PropAction blinkingAction = PropAction(1000, blink);
 
-void lireRssi(); // forward
-PropAction lireRssiAction = PropAction(30000, lireRssi);
+#if defined(REPORT_WIFI_RSSI) 
+void readRssi(); // forward
+PropAction readRssiAction = PropAction(30000, readRssi);
+#endif
 
 void setup()
 {
@@ -42,13 +50,18 @@ void setup()
 
   prop.addData(&blinking);
   prop.addData(&led);
+
+#if defined(REPORT_WIFI_RSSI) 
   prop.addData(&rssi);
+#endif
 
   prop.begin(InboxMessage::run);
 
   pinMode(LED_BUILTIN, OUTPUT); // initialize digital pin LED_BUILTIN as an output
 
-  lireRssi();
+#if defined(REPORT_WIFI_RSSI) 
+  readRssi();
+#endif
 
   // At this point, the broker is not connected yet
 }
@@ -60,10 +73,13 @@ void loop()
   led.setValue(digitalRead(LED_BUILTIN)); // read I/O
 
   blinkingAction.check(); // do your stuff, don't freeze the loop with delay() calls
-  lireRssiAction.check();
+
+#if defined(REPORT_WIFI_RSSI) 
+  readRssiAction.check();
+#endif
 }
 
-void clignote()
+void blink()
 {
   if (blinking.value()) {
     led.setValue(!led.value());
@@ -71,7 +87,8 @@ void clignote()
   }
 }
 
-void lireRssi()
+#if defined(REPORT_WIFI_RSSI) 
+void readRssi()
 {
   Process _process; // a process call takes about 50 milliseconds
   _process.runShellCommand("cat /proc/net/wireless | awk 'NR==3 {print $4}'");
@@ -84,6 +101,7 @@ void lireRssi()
   b.trim();
   rssi.setValue(b + " dBm");
 }
+#endif
 
 void InboxMessage::run(String a) {
 

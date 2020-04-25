@@ -32,12 +32,12 @@ WifiProp prop(u8"Arduino Blink", // as MQTT client id, should be unique per clie
 #undef LED_BUILTIN
 #define LED_BUILTIN 8
 
-PropDataLogical clignoter(u8"clignote", u8"oui", u8"non", true);
+PropDataLogical blinking(u8"blink", u8"yes", u8"no", true);
 PropDataLogical led(u8"led");
 PropDataText rssi(u8"rssi");
 
-void clignote(); // forward
-PropAction clignoteAction = PropAction(1000, clignote);
+void blink(); // forward
+PropAction blinkAction = PropAction(1000, blink);
 
 bool wifiBegun(false);
 
@@ -45,7 +45,7 @@ void setup()
 {
   Serial.begin(9600);
 
-  prop.addData(&clignoter);
+  prop.addData(&blinking);
   prop.addData(&led);
   prop.addData(&rssi);
   
@@ -93,12 +93,12 @@ void loop()
 
   led.setValue(digitalRead(LED_BUILTIN)); // read I/O
 
-  clignoteAction.check(); // do your stuff, don't freeze the loop with delay() calls
+  blinkAction.check(); // do your stuff, don't freeze the loop with delay() calls
 }
 
-void clignote()
+void blink()
 {
-  if (clignoter.value()) {
+  if (blinking.value()) {
     led.setValue(!led.value());
     digitalWrite(LED_BUILTIN, led.value() ? HIGH : LOW);
   }
@@ -115,16 +115,16 @@ void InboxMessage::run(String a) {
   {
     prop.resetMcu();
   }
-  else if (a == "clignoter:1")
+  else if (a == "blink:1")
   {
-    clignoter.setValue(true);
+    blinking.setValue(true);
 
     prop.sendAllData(); // all data change, we don't have to be selctive then
     prop.sendDone(a); // acknowledge prop command action
   }
-  else if (a == "clignoter:0")
+  else if (a == "blink:0")
   {
-    clignoter.setValue(false);
+    blinking.setValue(false);
 
     prop.sendAllData(); // all data change, we don't have to be selctive then
     prop.sendDone(a); // acknowledge prop command action
