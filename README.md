@@ -12,9 +12,9 @@
 ##### Help
 * [Introduction to Arduino Props](./help/Arduino_Props.md)
 * [Arduino Prop sketch](help/ArduinoProp_sketch.md)   
-* [*Prop* class reference](./help/Prop.md)
-* [*PropAction* class reference](./help/PropAction.md)
-* [*PropData* class reference](./help/PropData.md)
+* [`Prop` class reference](./help/Prop.md)
+* [`PropAction` class reference](./help/PropAction.md)
+* [`PropData` class reference](./help/PropData.md)
 * [WiFiNINA firmware update](./help/WifiNinaFirmware.md)
 
 
@@ -42,12 +42,12 @@ Reading [EXAMPLES.md](EXAMPLES.md) will be helpful.
 |ArduinoProps library documentation                           |
 |-------------------------------------------------------------|
 | [This README file](README.md)                               | 
-| [Arduino Prop sketch](help/ArduinoProp_sketch.md)          | 
-| [Prop class reference](help/Prop.md)                        | 
-| [PropData class reference](help/PropData.md)                |
-| [PropAction class reference](help/PropAction.md)            | 
+| [Introduction to Arduino Props](help/Arduino_Props.md)      | 
+| [Arduino Prop sketch](help/ArduinoProp_sketch.md)           | 
+| [`Prop` class reference](help/Prop.md)                        | 
+| [`PropData` class reference](help/PropData.md)                |
+| [`PropAction` class reference](help/PropAction.md)            | 
 | [ArduinoProps library examples](EXAMPLES.md)                | 
-| [Arduino Props for Escape Room 2.0](help/Arduino_Props.md)  | 
 | [WiFiNINA firmware update](help/WifiNinaFirmware.md)        | 
 
 
