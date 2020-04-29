@@ -1,7 +1,7 @@
-# *ArduinoProps* sketch
+# *Arduino Prop* sketch
 *A look at the Arduino Prop code.*
 
-#### Arduino props classes
+#### Arduino prop classes
 * *Prop* is a base class for 3 connected prop, depending on their network interface:
     - ***BridgeProp*** for Yun board and Yun shield
     - ***EthernetProp*** for Ethernet shield
@@ -12,7 +12,7 @@
     - [PropAction class](PropAction.md)
     - [PropData class](PropData.md)
 
-#### Arduino props program
+#### Arduino prop program
 1. [Define the *Prop*](#1-defines-the-prop)
     * Defining a *BridgeProp*
     * Defining an *EthernetProp*
@@ -35,7 +35,7 @@ Defining a Bridge (Yun), Ethernet or Wifi *Prop* is slighlty different.
 #include "ArduinoProps.h"
 
 // If you're running our Escape Room control software (Room 2.0) you have to respect
-// prpos inbox/outbox syntax Room/[escape room name]/Props/[propsname]/inbox|outbox
+// prpos inbox/outbox syntax Room/[escape room name]/Props/[prop name]/inbox|outbox
 // https://live-escape.net/go/room
 
 BridgeProp prop(u8"Arduino Contrôleur", // as MQTT client id, should be unique per client for given broker
@@ -50,7 +50,7 @@ PropDataLogical led(u8"led");
 void clignote(); // forward
 PropAction clignoteAction = PropAction(1000, clignote);
 ```
-Create *BridgeProp* instance with MQTT parameters, then create *PropData* instances and  *PropsActions*.
+Create *BridgeProp* instance with MQTT parameters, then create *PropData* and *PropAction* instances.
 
 The *Bridge* instance is created by `#include <Bridge.h>`.
 
@@ -68,7 +68,7 @@ String ip = "192.168.1.19"; //<<< ENTER YOUR IP ADDRESS HERE ("" for DHCP)
 #define LED_BUILTIN 8
 
 // If you're running our Escape Room control software (Room 2.0) you have to respect
-// prpos inbox/outbox syntax Room/[escape room name]/Props/[propsname]/inbox|outbox
+// prpos inbox/outbox syntax Room/[escape room name]/Props/[prop name]/inbox|outbox
 // https://live-escape.net/go/room
 
 EthernetProp prop(u8"Arduino Contrôleur", // as MQTT client id, should be unique per client for given broker
@@ -85,7 +85,7 @@ PropAction clignoteAction = PropAction(1000, clignote);
 ```
 Create MAC address (which must be unique, it's the hardware ID in the netwprk).
 
-Create *EthernetProp* instance with MQTT parameters, then create *PropData* instances and  *PropsActions*.
+Create *EthernetProp* instance with MQTT parameters, then create *PropData* and *PropAction* instances.
 
 The *Ethernet* instance is created by `#include <Ethernet.h>`.
 
@@ -102,7 +102,7 @@ const char *passphrase = "";
 #define LED_BUILTIN 8
 
 // If you're running our Escape Room control software (Room 2.0) you have to respect
-// prpos inbox/outbox syntax Room/[escape room name]/Props/[propsname]/inbox|outbox
+// prpos inbox/outbox syntax Room/[escape room name]/Props/[prop name]/inbox|outbox
 // https://live-escape.net/go/room
 
 WifiProp prop(u8"Arduino Contrôleur", // as MQTT client id, should be unique per client for given broker
@@ -121,7 +121,7 @@ The *AduinoProps* library uses **<a href="https://github.com/arduino-libraries/W
 
 Please update the WiFiNINA firmware: [WiFiNINA firmware update](WifiNinaFirmware.md).
 
-Create *WifiProp* instance with MQTT parameters, then create *PropData* instances and  *PropsActions*.
+Create *WifiProp* instance with MQTT parameters, then create *PropData* and *PropAction* instances.
 
 #### MQTT topics
 The prop listens to the *inbox* topic for command messages and send data and messages into the *outbox* topic. 
