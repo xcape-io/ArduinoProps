@@ -11,6 +11,7 @@
 
 ##### Help
 * [Introduction to Arduino Props](./help/Arduino_Props.md)
+* [Arduino Prop sketch](help/ArduinoProp_sketch.md)   
 * [*Prop* class reference](./help/Prop.md)
 * [*PropAction* class reference](./help/PropAction.md)
 * [*PropData* class reference](./help/PropData.md)
@@ -41,7 +42,7 @@ Reading [EXAMPLES.md](EXAMPLES.md) will be helpful.
 |ArduinoProps library documentation                           |
 |-------------------------------------------------------------|
 | [This README file](README.md)                               | 
-| [ArduinoProps sketch](help/ArduinoProps_sketch.md)          | 
+| [Arduino Prop sketch](help/ArduinoProp_sketch.md)          | 
 | [Prop class reference](help/Prop.md)                        | 
 | [PropData class reference](help/PropData.md)                |
 | [PropAction class reference](help/PropAction.md)            | 
