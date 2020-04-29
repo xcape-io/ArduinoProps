@@ -41,9 +41,10 @@ Reading [EXAMPLES.md](EXAMPLES.md) will be helpful.
 |ArduinoProps library documentation                           |
 |-------------------------------------------------------------|
 | [This README file](README.md)                               | 
-| [Prop class reference](help/Prop.md)                      | 
-| [PropData class reference](help/PropData.md)              |
-| [PropAction class reference](help/PropAction.md)          | 
+| [ArduinoProps sketch](help/ArduinoProps_sketch.md)          | 
+| [Prop class reference](help/Prop.md)                        | 
+| [PropData class reference](help/PropData.md)                |
+| [PropAction class reference](help/PropAction.md)            | 
 | [ArduinoProps library examples](EXAMPLES.md)                | 
 | [Arduino Props for Escape Room 2.0](help/Arduino_Props.md)  | 
 | [WiFiNINA firmware update](help/WifiNinaFirmware.md)        | 
