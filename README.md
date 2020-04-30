@@ -40,6 +40,7 @@ If you are using Arduino Mega 2560 with Dragino Yun shield, add http://www.dragi
 
 See <a href="https://wiki.dragino.com/index.php?title=Getting_Start_with_Arduino_Yun#Automatically_Add_Board_Profile_in_Arduino_IDE" target="_blank">Automatically Add Board Profile in Arduino IDE</a> in <a href="https://wiki.dragino.com/index.php?title=Yun_Shield" target="_blank">Dragino Wiki</a>.
 
+![](help/dragino.png)
 
 ### Start coding your own prop
 Add `#include "ArduinoProps.h"` on top of your sketch and start coding.
