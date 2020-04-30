@@ -31,7 +31,14 @@ Download library dependencies for Library Manager:
 ![](help/dependencies-shot.png)
 
 If you are using Arduino Mega 2560 with Dragino Yun shield:
-* <a href="https://wiki.dragino.com/index.php?title=Getting_Start_with_Arduino_Yun#Automatically_Add_Board_Profile_in_Arduino_IDE" target="_blank">add Dragino Yuno + Mega 2560 board to Arduino IDE</a> 
+* see <a href="https://wiki.dragino.com/index.php?title=Getting_Start_with_Arduino_Yun#Automatically_Add_Board_Profile_in_Arduino_IDE" target="_blank">add Dragino Yuno + Mega 2560 board to Arduino IDE</a> in Dragino Wiki
+
+Add http://www.dragino.com/downloads/downloads/YunShield/package_dragino_yun_test_index.json in **Additional Boards Manager URLs** in **Preferences**:
+
+![](help/arduino-ide-additional-boards.png)
+
+See https://wiki.dragino.com/index.php?title=Yun_Shield#Connect_to_Arduino_Boards
+
 
 ### Start coding your own prop
 Add `#include "ArduinoProps.h"` on top of your sketch and start coding.
