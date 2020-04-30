@@ -9,7 +9,6 @@
 8. [Limitations due to *PubSubClient*](#8-limitations-due-to-pubsubclient)
 9. [Examples](#9-examples)
 
-#### Help
 |ArduinoProps library documentation                           |
 |-------------------------------------------------------------|
 | [This README file](README.md)                               | 
@@ -34,15 +33,12 @@ Download library dependencies for Library Manager:
 
 ![](help/dependencies-shot.png)
 
-#### Add Dragino Yun + Mega 2560 board to Arduino IDE boards manager
-If you are using Arduino Mega 2560 with Dragino Yun shield:
-* see <a href="https://wiki.dragino.com/index.php?title=Getting_Start_with_Arduino_Yun#Automatically_Add_Board_Profile_in_Arduino_IDE" target="_blank">add Dragino Yun + Mega 2560 board to Arduino IDE</a> in <a href="https://wiki.dragino.com/index.php?title=Yun_Shield" target="_blank">Dragino Wiki</a>
-
-Add http://www.dragino.com/downloads/downloads/YunShield/package_dragino_yun_test_index.json to **Additional Boards Manager URLs** in **Preferences**:
+#### Add *Dragino Yun + Mega 2560* board to Arduino IDE boards manager
+If you are using Arduino Mega 2560 with Dragino Yun shield, add http://www.dragino.com/downloads/downloads/YunShield/package_dragino_yun_test_index.json to **Additional Boards Manager URLs** in **Preferences**:
 
 ![](help/arduino-ide-additional-boards.png)
 
-See https://wiki.dragino.com/index.php?title=Yun_Shield#Connect_to_Arduino_Boards
+See <a href="https://wiki.dragino.com/index.php?title=Getting_Start_with_Arduino_Yun#Automatically_Add_Board_Profile_in_Arduino_IDE" target="_blank">Automatically Add Board Profile in Arduino IDE</a> in <a href="https://wiki.dragino.com/index.php?title=Yun_Shield" target="_blank">Dragino Wiki</a>.
 
 
 ### Start coding your own prop
