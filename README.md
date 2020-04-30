@@ -45,7 +45,7 @@ Then install *Dragino Yun* in **Boards Manager**:
 ![](help/arduino-ide-boards-manager.png)
 
 
-See <a href="https://wiki.dragino.com/index.php?title=Getting_Start_with_Arduino_Yun#Automatically_Add_Board_Profile_in_Arduino_IDE" target="_blank">Automatically Add Board Profile in Arduino IDE</a> in <a href="https://wiki.dragino.com/index.php?title=Yun_Shield" target="_blank">Dragino Wiki</a>.
+Learn more at <a href="https://wiki.dragino.com/index.php?title=Getting_Start_with_Arduino_Yun#Automatically_Add_Board_Profile_in_Arduino_IDE" target="_blank">Automatically Add Board Profile in Arduino IDE</a> in <a href="https://wiki.dragino.com/index.php?title=Yun_Shield" target="_blank">Dragino Wiki</a>.
 
 ![](help/dragino.png)
 
