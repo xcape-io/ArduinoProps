@@ -33,7 +33,7 @@ Download library dependencies for Library Manager:
 
 ![](help/dependencies-shot.png)
 
-#### Add *Dragino Yun + Mega 2560* board to Arduino IDE boards manager
+### Add *Dragino Yun + Mega 2560* board to Arduino IDE boards manager
 If you are using Arduino Mega 2560 with Dragino Yun shield, add `package_dragino_yun_test_index.json` to **Additional Boards Manager URLs** in **Preferences**:
 
 ![](help/arduino-ide-additional-boards.png)
