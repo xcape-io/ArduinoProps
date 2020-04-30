@@ -40,6 +40,11 @@ If you are using Arduino Mega 2560 with Dragino Yun shield, add `package_dragino
 
 URL to add: `http://www.dragino.com/downloads/downloads/YunShield/package_dragino_yun_test_index.json`
 
+Then install *Dragino Yun* in **Boards Manager**:
+
+![](help/arduino-ide-boards-manager.png)
+
+
 See <a href="https://wiki.dragino.com/index.php?title=Getting_Start_with_Arduino_Yun#Automatically_Add_Board_Profile_in_Arduino_IDE" target="_blank">Automatically Add Board Profile in Arduino IDE</a> in <a href="https://wiki.dragino.com/index.php?title=Yun_Shield" target="_blank">Dragino Wiki</a>.
 
 ![](help/dragino.png)
@@ -52,8 +57,6 @@ A fork of one the examples is the fastest way to create your own prop.
 ### Find help in the documentation
 
 Reading [EXAMPLES.md](EXAMPLES.md) will be helpful.
-
-
 
 
 ## 2. Escape room 2.0 prop with Arduino
