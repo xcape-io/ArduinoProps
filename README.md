@@ -30,6 +30,9 @@ Download library dependencies for Library Manager:
 
 ![](help/dependencies-shot.png)
 
+If you are using Arduino Mega 2560 with Dragino Yun shield:
+* <a href="https://wiki.dragino.com/index.php?title=Getting_Start_with_Arduino_Yun#Automatically_Add_Board_Profile_in_Arduino_IDE" target="_blank">add Dragino Yuno + Mega 2560 board to Arduino IDE</a> 
+
 ### Start coding your own prop
 Add `#include "ArduinoProps.h"` on top of your sketch and start coding.
 
@@ -212,6 +215,8 @@ In escape room 2.0, prop are usually powered by Arduino Yun or Arduino Mega 2560
 ***The advantage of Yun versus Ethernet/Wifi shields is that you can upload sketches remotely to the micro-controller during the whole prop lifetime*** (no need to open boxes and break walls to plug an USB cable when a sketch modification is required).
 
 Arduino Mega 2560 + Dragino Yun shield offers much more memory and many more pins thann an Arduino Yun for same price.
+
+See <a href="https://wiki.dragino.com/index.php?title=Yun_Shield" target="_blank">Dragino Yun Shield Wiki</a>.
 
 
 ## 7. Advantages of the *ArduinoProps library*
