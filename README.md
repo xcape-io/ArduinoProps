@@ -9,13 +9,17 @@
 8. [Limitations due to *PubSubClient*](#8-limitations-due-to-pubsubclient)
 9. [Examples](#9-examples)
 
-##### Help
-* [Introduction to Arduino Props](./help/Arduino_Props.md)
-* [Arduino Prop sketch](help/ArduinoProp_sketch.md)   
-* [`Prop` class reference](./help/Prop.md)
-* [`PropAction` class reference](./help/PropAction.md)
-* [`PropData` class reference](./help/PropData.md)
-* [WiFiNINA firmware update](./help/WifiNinaFirmware.md)
+#### Help
+|ArduinoProps library documentation                           |
+|-------------------------------------------------------------|
+| [This README file](README.md)                               | 
+| [Introduction to Arduino Props](help/Arduino_Props.md)      | 
+| [Arduino Prop sketch](help/ArduinoProp_sketch.md)           | 
+| [`Prop` class reference](help/Prop.md)                      | 
+| [`PropData` class reference](help/PropData.md)              |
+| [`PropAction` class reference](help/PropAction.md)          | 
+| [ArduinoProps library examples](EXAMPLES.md)                | 
+| [WiFiNINA firmware update](help/WifiNinaFirmware.md)        | 
 
 
 ## 1. Installation and usage
@@ -50,16 +54,7 @@ A fork of one the examples is the fastest way to create your own prop.
 
 Reading [EXAMPLES.md](EXAMPLES.md) will be helpful.
 
-|ArduinoProps library documentation                           |
-|-------------------------------------------------------------|
-| [This README file](README.md)                               | 
-| [Introduction to Arduino Props](help/Arduino_Props.md)      | 
-| [Arduino Prop sketch](help/ArduinoProp_sketch.md)           | 
-| [`Prop` class reference](help/Prop.md)                        | 
-| [`PropData` class reference](help/PropData.md)                |
-| [`PropAction` class reference](help/PropAction.md)            | 
-| [ArduinoProps library examples](EXAMPLES.md)                | 
-| [WiFiNINA firmware update](help/WifiNinaFirmware.md)        | 
+
 
 
 ## 2. Escape room 2.0 prop with Arduino
