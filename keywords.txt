@@ -6,7 +6,7 @@
 # Datatypes (KEYWORD1)
 #######################################
 
-Props				KEYWORD1
+Prop				KEYWORD1
 BridgeProp			KEYWORD1
 EthernetProp		KEYWORD1
 WifiProp			KEYWORD1
@@ -16,8 +16,8 @@ PropDataDecimal	KEYWORD1
 PropDataInteger	KEYWORD1
 PropDataLogical	KEYWORD1
 PropDataText		KEYWORD1
-PropsCallback			KEYWORD1
-PropsMessageReceived	KEYWORD1
+PropCallback			KEYWORD1
+PropMessageReceived	KEYWORD1
 InboxMessage			KEYWORD1
 
 #######################################

@@ -1,11 +1,10 @@
 /*
   Name:    WifiProp.cpp
-  Created: 29/10/2019 09:20:31
   Author:  Marie Faure <dev at faure dot systems>
   Editor:  https://github.com/fauresystems
   License: MIT License (c) Marie Faure <dev at faure dot systems>
 
-  Class Props for Arduino with WiFiNINA.
+  Prop for Arduino with WiFiNINA.
 */
 
 #include "WifiProp.h"
@@ -15,7 +14,7 @@
 
 
 WifiProp::WifiProp(const char* client_id, const char* in_box, const char* out_box, const char* broker, const int port)
-  : Props(client_id, in_box, out_box, broker, port)
+  : Prop(client_id, in_box, out_box, broker, port)
 {
     _client.setClient(_wifiClient);
 }

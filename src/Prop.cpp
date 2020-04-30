@@ -1,6 +1,5 @@
 /*
-  Name:    Props.cpp
-  Created: 29/10/2019 09:20:31
+  Name:    Prop.cpp
   Author:  Marie Faure <dev at faure dot systems>
   Editor:  https://github.com/fauresystems
   License: MIT License (c) Marie Faure <dev at faure dot systems>
@@ -14,7 +13,7 @@
 #include <avr/wdt.h>
 #endif
 
-void PropsCallback::run(char* topic, byte* payload, unsigned int len)
+void PropCallback::run(char* topic, byte* payload, unsigned int len)
 {
   if (len)
   {
@@ -24,17 +23,17 @@ void PropsCallback::run(char* topic, byte* payload, unsigned int len)
     if (String(p) == "@PING")
       client->publish(outbox, "PONG");
     else
-      Props::onInboxMessageReceived(p);
+      Prop::onInboxMessageReceived(p);
     free(p);
   }
 }
 
-void PropsMessageReceived::run(String a)
+void PropMessageReceived::run(String a)
 {
   client->publish(outbox, String("OMIT " + a).c_str());
 }
 
-Props::Props(const char* client_id, const char* in_box, const char* out_box, const char* broker, const int port)
+Prop::Prop(const char* client_id, const char* in_box, const char* out_box, const char* broker, const int port)
 {
   clientId = client_id;
   inbox = in_box;
@@ -43,27 +42,27 @@ Props::Props(const char* client_id, const char* in_box, const char* out_box, con
   _nextReconAttempt = 0;
   _dataSentCount = 0;
   _maximumSilentPeriod = 30; // 30 seconds
-  _payloadMax = MQTT_MAX_PACKET_SIZE - (1 + 2 + strlen(Props::outbox));
+  _payloadMax = MQTT_MAX_PACKET_SIZE - (1 + 2 + strlen(Prop::outbox));
 
   _brokerIpAddress.fromString(broker);
   _client.setServer(_brokerIpAddress, port);
 
-  PropsCallback::client = &_client;
-  PropsCallback::outbox = outbox;
-  _client.setCallback(PropsCallback::run);
+  PropCallback::client = &_client;
+  PropCallback::outbox = outbox;
+  _client.setCallback(PropCallback::run);
 
-  PropsMessageReceived::client = &_client;
-  PropsMessageReceived::outbox = outbox;
+  PropMessageReceived::client = &_client;
+  PropMessageReceived::outbox = outbox;
 
   _sendDataAction.reset(400); // check data changes every 400 milliseconds
 }
 
-void Props::addData(PropData* d)
+void Prop::addData(PropData* d)
 {
   _dataTable.Add(d);
 }
 
-void Props::loop()
+void Prop::loop()
 {
   if (_client.connected())
   {
@@ -84,7 +83,7 @@ void Props::loop()
   if (_sendDataAction.tick()) checkDataChanges(); // send data changes if any
 }
 
-void Props::checkDataChanges()
+void Prop::checkDataChanges()
 {
   if (_dataSentCount) {
     sendDataChanges();
@@ -98,7 +97,7 @@ void Props::checkDataChanges()
   if (_dataSentCount > (_maximumSilentPeriod * 1000 / _sendDataAction.getInterval())) _dataSentCount = 0;
 }
 
-void Props::resetMcu()
+void Prop::resetMcu()
 {
 #if defined(ARDUINO_ARCH_SAMD)
     NVIC_SystemReset();
@@ -108,7 +107,7 @@ void Props::resetMcu()
 #endif
 }
 
-void Props::sendAllData()
+void Prop::sendAllData()
 {
   String data("DATA "), str;
   for (int i = 0; i < _dataTable.Count(); i++) {
@@ -121,7 +120,7 @@ void Props::sendAllData()
   }
 }
 
-void Props::sendDataChanges()
+void Prop::sendDataChanges()
 {
   String data("DATA "), str;
   for (int i = 0; i < _dataTable.Count(); i++) {
@@ -134,7 +133,7 @@ void Props::sendDataChanges()
   }
 }
 
-void Props::send(String* d, String* s)
+void Prop::send(String* d, String* s)
 {
   if (d->length() + s->length() <= _payloadMax) {
     *d += *s;
@@ -146,49 +145,49 @@ void Props::send(String* d, String* s)
   }
 }
 
-void Props::sendData(String data) {
+void Prop::sendData(String data) {
   if (data.length() > 5) {
     _client.publish(outbox, String("DATA " + data).c_str());
   }
 }
 
-void Props::sendDone(String action) {
+void Prop::sendDone(String action) {
   _client.publish(outbox, String("DONE " + action).c_str());
 }
 
-void Props::sendMesg(String mesg) {
+void Prop::sendMesg(String mesg) {
   if (mesg.length() > 5) {
     _client.publish(outbox, String("MESG " + mesg).c_str());
   }
 }
 
-void Props::sendMesg(String mesg, char *topic) {
+void Prop::sendMesg(String mesg, char *topic) {
   if (mesg.length() > 5) {
     _client.publish(topic, String("MESG " + mesg).c_str());
   }
 }
 
-void Props::sendOmit(String action) {
+void Prop::sendOmit(String action) {
   _client.publish(outbox, String("OMIT " + action).c_str());
 }
 
-void Props::sendOver(String challenge) {
+void Prop::sendOver(String challenge) {
   _client.publish(outbox, String("OVER " + challenge).c_str());
 }
 
-void Props::sendProg(String program) {
+void Prop::sendProg(String program) {
   _client.publish(outbox, String("PROG " + program).c_str());
 }
 
-void Props::sendRequ(String request) {
+void Prop::sendRequ(String request) {
   _client.publish(outbox, String("REQU " + request).c_str());
 }
 
-void Props::sendRequ(String action, char* topic) {
+void Prop::sendRequ(String action, char* topic) {
   _client.publish(topic, String("REQU " + action).c_str());
 }
 
-void Props::resetIntervals(const int changes, const int silent)
+void Prop::resetIntervals(const int changes, const int silent)
 {
     _nextReconAttempt = 0;
     _dataSentCount = 0;
@@ -197,8 +196,8 @@ void Props::resetIntervals(const int changes, const int silent)
 }
 
 
-PubSubClient *PropsCallback::client;
-const char *PropsCallback::outbox;
-PubSubClient *PropsMessageReceived::client;
-const char *PropsMessageReceived::outbox;
-void (*Props::onInboxMessageReceived)(String) = PropsMessageReceived::run;
+PubSubClient *PropCallback::client;
+const char *PropCallback::outbox;
+PubSubClient *PropMessageReceived::client;
+const char *PropMessageReceived::outbox;
+void (*Prop::onInboxMessageReceived)(String) = PropMessageReceived::run;

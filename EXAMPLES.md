@@ -224,7 +224,6 @@ However, this can help in special cases.
 ```csharp
 /*
  Name:		BlinkOnBridgePubSub.ino
- Created:	29/10/2019 16:51:55
  Author:	Marie Faure <dev at faure dot systems>
  Editor:	https://github.com/fauresystems
  License:	MIT License (c) Marie Faure <dev at faure dot systems>

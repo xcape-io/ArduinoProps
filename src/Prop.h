@@ -1,6 +1,5 @@
 /*
   Name:    Prop.h
-  Created: 29/10/2019 09:20:31
   Author:  Marie Faure <dev at faure dot systems>
   Editor:  https://github.com/fauresystems
   License: MIT License (c) Marie Faure <dev at faure dot systems>
@@ -26,7 +25,7 @@
 #define MQTT_MAX_PACKET_SIZE 128 // Bridge tranfer stuff (see PubSubClient)
 #endif
 
-class PropsCallback
+class PropCallback
 {
   public:
     static PubSubClient *client;
@@ -34,7 +33,7 @@ class PropsCallback
     static void run(char* topic, byte* payload, unsigned int len);
 };
 
-class PropsMessageReceived
+class PropMessageReceived
 {
   public:
     static PubSubClient *client;
@@ -42,16 +41,16 @@ class PropsMessageReceived
     static void run(String);
 };
 
-class InboxMessage : public PropsMessageReceived
+class InboxMessage : public PropMessageReceived
 {
   public:
     static void run(String); // to be implemented in .ino sketch
 };
 
-class Props
+class Prop
 {
   public:
-    Props(const char*, const char*, const char*, const char*, const int=1883);
+    Prop(const char*, const char*, const char*, const char*, const int=1883);
     virtual void begin(void(*)(String) = NULL) = 0;
     void addData(PropData*);
     void loop();
