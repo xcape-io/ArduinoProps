@@ -16,8 +16,6 @@
 #include "WProgram.h"
 #endif
 
-class Prop;
-
 class PropAction {
 
   public:
