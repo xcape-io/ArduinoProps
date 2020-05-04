@@ -1,4 +1,4 @@
-# *Arduino Prop* sketch
+﻿# *Arduino Prop* sketch
 *A look at the Arduino Prop code.*
 
 #### Arduino prop classes
@@ -54,6 +54,8 @@ Create *BridgeProp* instance with MQTT parameters, then create *PropData* and *P
 
 The *Bridge* instance is created by `#include <Bridge.h>`.
 
+> D0 (RxD) and D1 (TxD) are used by the Arduino Bridge connection, other I/O pins are available.
+
 ### Defining an *EthernetProp*
 ```csharp
 #include <Ethernet.h>
@@ -89,6 +91,8 @@ Create *EthernetProp* instance with MQTT parameters, then create *PropData* and 
 
 The *Ethernet* instance is created by `#include <Ethernet.h>`.
 
+> All I/O pins are available, the Ethernet shield is connected to Arduino with SPI port.
+
 ### Defining a *WifiProp*
 ```csharp
 #include "ArduinoProps.h"
@@ -123,7 +127,9 @@ Please update the WiFiNINA firmware: [WiFiNINA firmware update](WifiNinaFirmware
 
 Create *WifiProp* instance with MQTT parameters, then create *PropData* and *PropAction* instances.
 
-#### MQTT topics
+> All I/O pins are available, the WiFi shield is connected to Arduino with SPI port.
+
+### MQTT topics
 The prop listens to the *inbox* topic for command messages and send data and messages into the *outbox* topic. 
 
 If you're running Live Escape Room 2.0 control software, you have to respect *inbox*/*outbox* syntax:
@@ -140,12 +146,12 @@ example: u8"Room/Demoniak/Props/Arduino Contrôleur/outbox"
 ```
 See [README.md](../README.md): **4. Application protocol for escape room 2.0 prop**.
 
-#### *PropData* instances
+### *PropData* instances
 *PropData* provides a facility to monitor data sent into MQTT outbox.
 
 See [PropData.md](PropData.md) for *PropData* reference.
 
-#### *PropAction* instances
+### *PropAction* instances
 To maintain a non-blocking asynchronous behavior of your prop, use *PropAction* objects to trigger action periodically.
 
 Reading I/O and simple computing (arithmetics) can be done at every sketch loop but long computing have to run periodically.
