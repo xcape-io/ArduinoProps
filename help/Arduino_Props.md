@@ -79,9 +79,13 @@ Therefore, **Arduino YUN or YUN shield is the preferred solution for prop with A
 - **Arduino Uno R3 + Dragino Yún Shield**
 - **Arduino Due + Dragino Yún Shield**
 
+> D0 (RxD) and D1 (TxD) are used by the Arduino Bridge connection.
+
 
 ## Arduino Ethernet and Wifi
 Arduino with Ethernet or Wifi shield is suitable to build an Escape Room Props, however the sketch must be uploaded with an USB cable, so it is not convenient for prop design and worse for prop in production, which can lead to an unexpected significant increase in TCO.
+
+> Ethernet and WiFi shield are connected to Arduino with SPI port.
 
 
 ## Compatible hardware
