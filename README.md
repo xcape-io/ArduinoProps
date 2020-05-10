@@ -34,11 +34,11 @@ Download library dependencies for Library Manager:
 ![](help/dependencies-shot.png)
 
 ### Add *Dragino Yún + Mega 2560* board to Arduino IDE boards manager
-If you are using Arduino Mega 2560 with Dragino Yún shield, add `package_dragino_Yun_test_index.json` to **Additional Boards Manager URLs** in **Preferences**:
+If you are using Arduino Mega 2560 with Dragino Yún shield, add `package_dragino_yun_test_index.json` to **Additional Boards Manager URLs** in **Preferences**:
 
 ![](help/arduino-ide-additional-boards.png)
 
-URL to add: `http://www.dragino.com/downloads/downloads/YunShield/package_dragino_Yun_test_index.json`
+URL to add: `http://www.dragino.com/downloads/downloads/YunShield/package_dragino_yun_test_index.json`
 
 Then install *Dragino Yún* in **Boards Manager**:
 
@@ -56,7 +56,7 @@ A fork of one the examples is the fastest way to create your own prop.
 
 #### Arduino Yún an Dragino Yún shield setup
 If you are not familiar with Yún (a Linux SoC bridged to the MCU), you will find help:
-* <a href="https://medium.com/@monajalal/arduino-Yun-boad-setup-and-demo-e1161b60e068" target="_blank">Arduino Yún Board Setup and Demo</a> at Medium
+* <a href="https://medium.com/@monajalal/arduino-yun-boad-setup-and-demo-e1161b60e068" target="_blank">Arduino Yún Board Setup and Demo</a> at Medium
 * Getting Started with the Arduino Yún azr arduino.cc
 
 ### Find help in the documentation
@@ -219,7 +219,7 @@ To use other WiFi hardware compatible with any *<a href="https://github.com/knol
  - ESP32
 
 
-## 6. Advantages of Arduino Yún and Dragino Yún shield
+## 6. Advantages of Arduino Yún and Dragino Yún shield 
 In escape room 2.0, prop are usually powered by Arduino Yún or Arduino Mega 2560 + Dragino Yún shield (or Raspberry Pi) because they are cheap and appropriate for DIY projects. 
 
 ***The advantage of Yún versus Ethernet/Wifi shields is that you can upload sketches remotely to the micro-controller during the whole prop lifetime*** (no need to open boxes and break walls to plug an USB cable when a sketch modification is required).
