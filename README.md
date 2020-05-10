@@ -57,7 +57,8 @@ A fork of one the examples is the fastest way to create your own prop.
 #### Arduino Yún an Dragino Yún shield setup
 If you are not familiar with Yún (a Linux SoC bridged to the MCU), you will find help:
 * <a href="https://medium.com/@monajalal/arduino-yun-boad-setup-and-demo-e1161b60e068" target="_blank">Arduino Yún Board Setup and Demo</a> at Medium
-* Getting Started with the Arduino Yún azr arduino.cc
+* <a href="https://www.arduino.cc/en/Guide/ArduinoYun" target="_blank">Getting Started with the Arduino Yún</a> at arduino.cc
+* <a href="https://www.youtube.com/watch?v=9-hPhWHWnvs" target="_blank">Getting Started With Arduino Yú</a>n - Video tutorial on YouTube
 
 ### Find help in the documentation
 
