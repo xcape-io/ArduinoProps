@@ -4,7 +4,7 @@
 3. [*ArduinoProps library* value for escape room 2.0](#3-arduinoprops-library-value-for-escape-room-20)
 4. [Application protocol for escape room 2.0 prop](#4-application-protocol-for-escape-room-20-prop)
 5. [Compatible hardware](#5-compatible-hardware)
-6. [Advantages of Arduino Yun and Dragino Yun shield](#6-advantages-of-arduino-yun-and-dragino-yun-shield)
+6. [Advantages of Arduino Yún and Dragino Yún shield](#6-advantages-of-arduino-Yún-and-dragino-Yún-shield)
 7. [Advantages of the *ArduinoProps library*](#7-advantages-of-the-arduinoprops-library)
 8. [Limitations due to *PubSubClient*](#8-limitations-due-to-pubsubclient)
 9. [Examples](#9-examples)
@@ -33,14 +33,14 @@ Download library dependencies for Library Manager:
 
 ![](help/dependencies-shot.png)
 
-### Add *Dragino Yun + Mega 2560* board to Arduino IDE boards manager
-If you are using Arduino Mega 2560 with Dragino Yun shield, add `package_dragino_yun_test_index.json` to **Additional Boards Manager URLs** in **Preferences**:
+### Add *Dragino Yún + Mega 2560* board to Arduino IDE boards manager
+If you are using Arduino Mega 2560 with Dragino Yún shield, add `package_dragino_Yún_test_index.json` to **Additional Boards Manager URLs** in **Preferences**:
 
 ![](help/arduino-ide-additional-boards.png)
 
-URL to add: `http://www.dragino.com/downloads/downloads/YunShield/package_dragino_yun_test_index.json`
+URL to add: `http://www.dragino.com/downloads/downloads/YunShield/package_dragino_Yun_test_index.json`
 
-Then install *Dragino Yun* in **Boards Manager**:
+Then install *Dragino Yún* in **Boards Manager**:
 
 ![](help/arduino-ide-boards-manager.png)
 
@@ -54,6 +54,11 @@ Add `#include "ArduinoProps.h"` on top of your sketch and start coding.
 
 A fork of one the examples is the fastest way to create your own prop. 
 
+#### Arduino Yún an Dragino Yún shield setup
+If you are not familiar with Yún (a Linux SoC bridged to the MCU), you will find help:
+* <a href="https://medium.com/@monajalal/arduino-Yun-boad-setup-and-demo-e1161b60e068" target="_blank">Arduino Yún Board Setup and Demo</a> at Medium
+* Getting Started with the Arduino Yún azr arduino.cc
+
 ### Find help in the documentation
 
 Reading [EXAMPLES.md](EXAMPLES.md) will be helpful.
@@ -61,7 +66,7 @@ Reading [EXAMPLES.md](EXAMPLES.md) will be helpful.
 
 ## 2. Escape room 2.0 prop with Arduino
 
-The *ArduinoProps library* allows to build *escape room 2.0 prop* easily with Arduino and particularly with Arduino Yun or Arduino Mega 2560 + Dragino Yun shield however it works with Ethernet and Wifi shields too.
+The *ArduinoProps library* allows to build *escape room 2.0 prop* easily with Arduino and particularly with Arduino Yún or Arduino Mega 2560 + Dragino Yún shield however it works with Ethernet and Wifi shields too.
 
 The *ArduinoProps library* relies on *<a href="https://github.com/knolleary/pubsubclient" target="_blank">Nick O'Leary PubSubClient</a>* library for MQTT. MQTT is a lightweight
 ![](help/install-shot.png)
@@ -114,7 +119,7 @@ Some analog data can change at every loop but not significantly, for example U=2
 ### Maintaining MQTT server connection  
 MQTT connection state must be checked at erevy sketch loop as well as incoming MQTT messages. *ArduinoProps library* does all in one code line.
 
-And on Yun this same code line can switch MQTT server IP address (can be helpful in a fallback plan).
+And on Yún this same code line can switch MQTT server IP address (can be helpful in a fallback plan).
 
 ### Simple human-readable text protocol  
 An escape room 2.0 is typically centrally controlled from a Windows PC which provides the Game Master with monitoring and control information as well as some automation.
@@ -139,7 +144,7 @@ MQTT standard limitations are far above what we need:
 
 However, on Arduino the limit is for the addition of topic length + message length:
 - Wifi shield limit is 80 bytes
-- Yun limit (due to Bridge) is 120 bytes
+- Yún limit (due to Bridge) is 120 bytes
 
 DATA messages when many I/O like on Arduino Mega 2560 and MESG information messages can go very long, and crash the sketch without notice at run-time.
 
@@ -214,14 +219,14 @@ To use other WiFi hardware compatible with any *<a href="https://github.com/knol
  - ESP32
 
 
-## 6. Advantages of Arduino Yun and Dragino Yun shield
-In escape room 2.0, prop are usually powered by Arduino Yun or Arduino Mega 2560 + Dragino Yun shield (or Raspberry Pi) because they are cheap and appropriate for DIY projects. 
+## 6. Advantages of Arduino Yún and Dragino Yún shield
+In escape room 2.0, prop are usually powered by Arduino Yún or Arduino Mega 2560 + Dragino Yún shield (or Raspberry Pi) because they are cheap and appropriate for DIY projects. 
 
-***The advantage of Yun versus Ethernet/Wifi shields is that you can upload sketches remotely to the micro-controller during the whole prop lifetime*** (no need to open boxes and break walls to plug an USB cable when a sketch modification is required).
+***The advantage of Yún versus Ethernet/Wifi shields is that you can upload sketches remotely to the micro-controller during the whole prop lifetime*** (no need to open boxes and break walls to plug an USB cable when a sketch modification is required).
 
-Arduino Mega 2560 + Dragino Yun shield offers much more memory and many more pins thann an Arduino Yun for same price.
+Arduino Mega 2560 + Dragino Yún shield offers much more memory and many more pins thann an Arduino Yún for same price.
 
-See <a href="https://wiki.dragino.com/index.php?title=Yun_Shield" target="_blank">Dragino Yun Shield Wiki</a>.
+See <a href="https://wiki.dragino.com/index.php?title=Yun_Shield" target="_blank">Dragino Yún Shield Wiki</a>.
 
 
 ## 7. Advantages of the *ArduinoProps library*
@@ -231,7 +236,7 @@ With *ArduinoProps library*:
 - create connected prop quickly thanks to the application protocol and examples
 - targetted for escape room prop, *ArduinoProps library* can be used for any IoT project
 - re-use your code when creating new escape rooms
-- rely on *ArduinoProps library* robustness: for example, ***the library handles the Arduino Yun Bridge transfer size limitation by smartly splitting large messages (only) when necessary***.
+- rely on *ArduinoProps library* robustness: for example, ***the library handles the Arduino Yún Bridge transfer size limitation by smartly splitting large messages (only) when necessary***.
 
 **Note:** sending too large messages to Arduino Bridge breaks the Arduino sketch. *ArduinoProps library* prevents this crash case.
 
@@ -254,7 +259,7 @@ The library comes with a number of example sketches. See **File > Examples > Ard
 
 See [EXAMPLES.md](EXAMPLES.md) for an adaptation of the Blink example (https://www.arduino.cc/en/tutorial/blink) as a simple MQTT prop:
 
-1. **BlinkOnBridgeProp**: the Blink example on a Yun prop with *ArduinoProps library*
+1. **BlinkOnBridgeProp**: the Blink example on a Yún prop with *ArduinoProps library*
 2. **BlinkOnEthernetProp**: the Blink example on an Ethernet prop with *ArduinoProps library*
 3. **BlinkOnWifiProp**: the Blink example on a Wifi prop with *ArduinoProps library*
 4. **BlinkOnBridgePubSub**: the Blink example on prop using *PubSubClient* directly
