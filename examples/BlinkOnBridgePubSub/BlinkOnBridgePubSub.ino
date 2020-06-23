@@ -1,5 +1,5 @@
 /* BlinkOnBridgePubSub.ino
-   MIT License (c) Marie Faure <dev at faure dot systems>
+   MIT License (c) Faure Systems <dev at faure dot systems>
 
    Adapt the Blink example (https://www.arduino.cc/en/tutorial/blink) as a
    simple MQTT prop with PubSubClient.

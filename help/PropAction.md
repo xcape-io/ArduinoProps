@@ -54,7 +54,7 @@ void loop()
 
 ## Author
 
-**Marie FAURE** (Oct 18th, 2019)
+**Faure Systems** (Oct 18th, 2019)
 * company: FAURE SYSTEMS SAS
 * mail: *dev at faure dot systems*
 * github: <a href="https://github.com/fauresystems?tab=repositories" target="_blank">fauresystems</a>

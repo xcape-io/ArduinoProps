@@ -23,7 +23,7 @@ The library comes with a number of example sketches. See **File > Examples > Ard
 
 ```csharp
 /* BlinkOnBridgeProp.ino
-   MIT License (c) Marie Faure <dev at faure dot systems>
+   MIT License (c) Faure Systems <dev at faure dot systems>
 
    Adapt the Blink example (https://www.arduino.cc/en/tutorial/blink) as a
    simple MQTT prop. Avoid delay() calls (except short ones) in loop() to
@@ -224,9 +224,9 @@ However, this can help in special cases.
 ```csharp
 /*
  Name:		BlinkOnBridgePubSub.ino
- Author:	Marie Faure <dev at faure dot systems>
+ Author:	Faure Systems <dev at faure dot systems>
  Editor:	https://github.com/fauresystems
- License:	MIT License (c) Marie Faure <dev at faure dot systems>
+ License:	MIT License (c) Faure Systems <dev at faure dot systems>
 
  Adapt the Blink example (https://www.arduino.cc/en/tutorial/blink) as a
  simple MQTT prop with PubSubClient.
@@ -458,7 +458,7 @@ Global variables use 1013 bytes (39%) of dynamic memory, which leaves 1547 bytes
 
 ## Author
 
-**Marie FAURE** (Nov 15th, 2019)
+**Faure Systems** (Nov 15th, 2019)
 * company: FAURE SYSTEMS SAS
 * mail: *dev at faure dot systems*
 * github: <a href="https://github.com/fauresystems?tab=repositories" target="_blank">fauresystems</a>

@@ -51,7 +51,7 @@ Update process will take about a minute then you're done:
 
 ## Author
 
-**Marie FAURE** (Nov 13th, 2019)
+**Faure Systems** (Nov 13th, 2019)
 * company: FAURE SYSTEMS SAS
 * mail: *dev at faure dot systems*
 * github: <a href="https://github.com/fauresystems?tab=repositories" target="_blank">fauresystems</a>

@@ -1,8 +1,8 @@
 /*
   Name:    PropAction.h
-  Author:  Marie Faure <dev at faure dot systems>
+  Author:  Faure Systems <dev at faure dot systems>
   Editor:  https://github.com/fauresystems
-  License: MIT License (c) Marie Faure <dev at faure dot systems>
+  License: MIT License (c) Faure Systems <dev at faure dot systems>
 
   Provide an easy way of triggering functions at a set _interval.
 */
