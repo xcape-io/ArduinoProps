@@ -98,7 +98,6 @@ void InboxMessage::run(String a) {
   }
   else if (a == u8"reset-mcu")
   {
-    prop.sendDone(a);
     prop.resetMcu();
   }
   else if (a == "blink:1")
