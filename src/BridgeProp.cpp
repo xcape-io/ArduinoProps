@@ -9,6 +9,10 @@
 
 #include "BridgeProp.h"
 
+#if defined(ARDUINO_ARCH_STM32)
+// Don't compile Arduino Bridge library when compiling for STM32 ARCH
+#else
+
 BridgeProp::BridgeProp(const char* client_id, const char* in_box, const char* out_box, const char* broker, const int port)
     : Prop(client_id, in_box, out_box, broker, port)
 {
@@ -26,3 +30,4 @@ void BridgeProp::setBrokerIpAddress(IPAddress ip, uint16_t port)
     _client.setServer(_brokerIpAddress, port);
 }
 
+#endif

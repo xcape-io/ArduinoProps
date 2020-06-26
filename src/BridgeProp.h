@@ -9,6 +9,10 @@
 #ifndef BRIDGEPROP_H
 #define BRIDGEPROP_H
 
+#if defined(ARDUINO_ARCH_STM32)
+// Don't compile Arduino Bridge library when compiling for STM32 ARCH
+#else
+
 #include <BridgeClient.h>
 #include <IPAddress.h>
 #include "Prop.h"
@@ -24,4 +28,5 @@ class BridgeProp : public Prop
     BridgeClient _bridgeClient;
 };
 
+#endif
 #endif

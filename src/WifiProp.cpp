@@ -9,6 +9,10 @@
 
 #include "WifiProp.h"
 
+#if defined(ARDUINO_ARCH_STM32)
+// Don't compile Arduino WiFi libraries when compiling for STM32 ARCH
+#else
+
 
 #if defined(ARDUINO_AVR_UNO_WIFI_REV2) || defined(ARDUINO_SAMD_MKRWIFI1010)  || defined(ARDUINO_SAMD_NANO_33_IOT)  || defined(ARDUINO_SAMD_MKRVIDOR4000)
 
@@ -25,4 +29,5 @@ void WifiProp::begin(void(*on_message)(String))
 }
 
 
+#endif
 #endif

@@ -6,11 +6,11 @@
 
   Implement millis() missing in STM32duino.
 */
-#if defined(STM32F4xx) || defined(STM32F7xx)
+#if defined(ARDUINO_ARCH_STM32)
 
 #include "Stm32Millis.h"
 
 unsigned long Stm32MillisClass::milliseconds = 0;
 Stm32MillisClass Stm32Millis;
 
-#endif // STM32F4xx|STM32F7xx
+#endif

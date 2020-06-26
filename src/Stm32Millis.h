@@ -11,7 +11,7 @@
 #ifndef STM32MILLIS_H
 #define STM32MILLIS_H
 
-#if defined(STM32F4xx) || defined(STM32F7xx)
+#if defined(ARDUINO_ARCH_STM32)
 
 #include <Arduino.h>
 
@@ -44,5 +44,5 @@ class Stm32MillisClass {
 
 extern Stm32MillisClass Stm32Millis;
 
-#endif // STM32F4xx|STM32F7xx
+#endif // STM32
 #endif

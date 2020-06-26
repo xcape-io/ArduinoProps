@@ -9,6 +9,9 @@
 #ifndef ETHERNETPROP_H
 #define ETHERNETPROP_H
 
+#if defined(ARDUINO_ARCH_STM32)
+// Don't compile Arduino Ethernet library when compiling for STM32 ARCH
+#else
 
 #include <SPI.h>
 #include <Ethernet.h>
@@ -25,4 +28,5 @@ class EthernetProp : public Prop
       EthernetClient _ethernetClient;
 };
 
+#endif
 #endif

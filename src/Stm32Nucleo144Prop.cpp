@@ -6,6 +6,7 @@
 
   Prop for Arduino with Ethernet shield.
 */
+#if defined(ARDUINO_ARCH_STM32)
 
 #include "Stm32Nucleo144Prop.h"
 
@@ -19,3 +20,5 @@ void Stm32Nucleo144Prop::begin(void(*on_message)(String))
 {
     if (on_message) onInboxMessageReceived = on_message;
 }
+
+#endif

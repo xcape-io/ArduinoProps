@@ -9,6 +9,10 @@
 
 #include "EthernetProp.h"
 
+#if defined(ARDUINO_ARCH_STM32)
+// Don't compile Arduino Ethernet library when compiling for STM32 ARCH
+#else
+
 EthernetProp::EthernetProp(const char* client_id, const char* in_box, const char* out_box, const char* broker, const int port)
     : Prop(client_id, in_box, out_box, broker, port)
 {
@@ -19,3 +23,5 @@ void EthernetProp::begin(void(*on_message)(String))
 {
     if (on_message) onInboxMessageReceived = on_message;
 }
+
+#endif

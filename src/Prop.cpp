@@ -8,7 +8,6 @@
 */
 
 #include "Prop.h"
-//#include <Process.h>
 #if defined(__AVR__)
 #include <avr/wdt.h>
 #endif
@@ -99,7 +98,7 @@ void Prop::checkDataChanges()
 
 void Prop::resetMcu()
 {
-#if defined(ARDUINO_ARCH_SAMD) || defined(STM32F4xx) || defined(STM32F7xx)
+#if defined(ARDUINO_ARCH_SAMD) || defined(ARDUINO_ARCH_STM32F0) || defined(ARDUINO_ARCH_STM32F1) || defined(ARDUINO_ARCH_STM32F3) || defined(ARDUINO_ARCH_STM32F4) || defined(ARDUINO_ARCH_STM32L4) || defined(ARDUINO_ARCH_STM32F7)
     NVIC_SystemReset();
 #elif defined(ARDUINO_ARCH_AVR) || defined(__AVR__)
     wdt_enable(WDTO_15MS);

@@ -9,8 +9,19 @@
 
 #include "PropAction.h"
 
-#if defined(STM32F4xx) || defined(STM32F7xx)
+#if defined(ARDUINO_ARCH_STM32)
+// tested with STM32F767ZI
+#include <Arduino.h>
 #include "Stm32Millis.h"
+
+#else
+
+#if defined(ARDUINO) && ARDUINO >= 100
+#include "arduino.h"
+#else
+#include "WProgram.h"
+#endif
+
 #endif
 
 PropAction::PropAction() 
