@@ -459,7 +459,7 @@ Global variables use 1013 bytes (39%) of dynamic memory, which leaves 1547 bytes
 
 ## 5. *BlinkOnStm32Nucleo144Prop*: the Blink example on an STM32 Nucleo-144 prop with *ArduinoProps library*
 
-Sketch with *BlinkOnStm32Nucleo144Prop* has been derived *EthernetProp*.
+*BlinkOnStm32Nucleo144Prop* sketch has been derived *BlinkOnEthernetProp*.
 
 Includes for STM32 are different:
 ```c
@@ -469,6 +469,12 @@ Includes for STM32 are different:
 #include "ArduinoProps.h"
 #include "Stm32Millis.h"
 extern Stm32MillisClass Stm32Millis;
+```
+
+`millis()` is missing in STM323duino library, you must start **Stm32Millis** in `setup()`:
+```c
+  // millis() missing in STM32duino
+  Stm32Millis.begin();
 ```
 
 Ethernet connection start is slightly different:
@@ -484,11 +490,6 @@ Ethernet connection start is slightly different:
   }
 ```
 
-`millis()` is missing in STM323duino library, you must start **Stm32Millis** in `setup()`:
-```c
-  // millis() missing in STM32duino
-  Stm32Millis.begin();
-```
 
 #### Pay atention to the board MAC address:
 MAC adresses are hardware identifiers on the network so they must be unique.
