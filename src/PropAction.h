@@ -10,12 +10,6 @@
 #ifndef PROPACTION_H
 #define PROPACTION_H
 
-#if defined(ARDUINO) && ARDUINO >= 100
-#include "arduino.h"
-#else
-#include "WProgram.h"
-#endif
-
 class PropAction {
 
   public:

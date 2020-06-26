@@ -10,6 +10,8 @@ Prop				KEYWORD1
 BridgeProp			KEYWORD1
 EthernetProp		KEYWORD1
 WifiProp			KEYWORD1
+Stm32Nucleo144Prop	KEYWORD1
+Stm32Millis			KEYWORD1
 PropAction			KEYWORD1
 PropData			KEYWORD1
 PropDataDecimal	KEYWORD1
@@ -56,6 +58,7 @@ setBrokerIpAddress	KEYWORD2
 checkDataChanges	KEYWORD2
 resetIntervals		KEYWORD2
 send	KEYWORD2
+update	KEYWORD2
 
 
 #######################################

@@ -9,12 +9,6 @@
 #ifndef PROPDATA_H
 #define PROPDATA_H
 
-#if defined(ARDUINO) && ARDUINO >= 100
-#include "arduino.h"
-#else
-#include "WProgram.h"
-#endif
-
 #include <inttypes.h>
 #include <WString.h>
 
@@ -59,7 +53,7 @@ class PropDataInteger : public PropData
 class PropDataLogical : public PropData
 {
   public:
-    PropDataLogical(const char *, const char *trueval = NULL, const char *falseval = NULL, bool initial = false);
+    PropDataLogical(const char *, const char *trueval = 0, const char *falseval = 0, bool initial = false);
     String fetch();
     String fetchChange();
     void setValue(const bool);

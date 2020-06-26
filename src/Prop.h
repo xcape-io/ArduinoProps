@@ -9,6 +9,8 @@
 #ifndef PROP_H
 #define PROP_H
 
+#if !defined(STM32F4xx) && !defined(STM32F7xx) // tested with STM32F767
+
 #if defined(ARDUINO) && ARDUINO >= 100
 #include "arduino.h"
 #else
@@ -16,6 +18,9 @@
 #endif
 
 #include <BridgeClient.h>
+
+#endif // !STM32F4xx && !STM32F7xx
+
 #include <PubSubClient.h>
 #include <ListLib.h>
 #include "PropAction.h"

@@ -5,6 +5,7 @@ An adaptation of the internal led Blink example (https://www.arduino.cc/en/tutor
 2. [**BlinkOnEthernetProp**](#2-blinkonethernetprop-the-blink-example-on-an-ethernet-prop-with-arduinoprops-library): the Blink example on an Ethernet prop with *ArduinoProps library*
 3. [**BlinkOnWifiProp**](#3-blinkonwifiprop-the-blink-example-on-a-wifi-prop-with-arduinoprops-library): the Blink example on a Wifi prop with *ArduinoProps library*
 4. [**BlinkOnBridgePubSub**](#4-blinkonbridgepubsub-the-blink-example-on-prop-using-pubsubclient-directly): the Blink example on prop using *PubSubClient* directly
+5. [**BlinkOnStm32Nucleo144Prop**](#5-blinkonstm32nucelo144prop-the-blink-example-on-an-stm32-nucelo-144-prop-with-arduinoprops-library): the Blink example on an STM32 Nucleo-144 prop with *ArduinoProps library*
 
 MQTT messages are received asynchronously therefore to keep the sketch responsive to MQTT commands, calls to delay() should be avoided (except short ones, say < 100 milliseconds).
 
@@ -456,9 +457,55 @@ Global variables use 1013 bytes (39%) of dynamic memory, which leaves 1547 bytes
 ```
 
 
+## 5. *BlinkOnStm32Nucleo144Prop*: the Blink example on an STM32 Nucleo-144 prop with *ArduinoProps library*
+
+Sketch with *BlinkOnStm32Nucleo144Prop* has been derived *EthernetProp*.
+
+Includes for STM32 are different:
+```c
+#include <LwIP.h>
+#include <STM32Ethernet.h>
+#include "Stm32Nucleo144Prop.h"
+#include "ArduinoProps.h"
+#include "Stm32Millis.h"
+extern Stm32MillisClass Stm32Millis;
+```
+
+Ethernet connection start is slightly different:
+```c
+  if (ip == IPAddress(0,0,0,0)) {
+    if (!Ethernet.begin(mac)) {
+      // if DHCP fails, start with a hard-coded address:
+      Ethernet.begin(mac, IPAddress(10, 90, 90, 239));
+    }
+  }
+  else {
+    Ethernet.begin(mac, ip);
+  }
+```
+
+`millis()` is missing in STM323duino library, you must start **Stm32Millis** in `setup()`:
+```c
+  // millis() missing in STM32duino
+  Stm32Millis.begin();
+```
+
+#### Pay atention to the board MAC address:
+MAC adresses are hardware identifiers on the network so they must be unique.
+
+A good practice is to increment only the byte at the very right (`0x03`) when adding a new Arduino Ethernet on your network.
+
+```csharp
+byte mac[] = { 0x46, 0x4F, 0xEA, 0x10, 0x20, 0x03 }; //<<< MAKE SURE IT'S UNIQUE IN YOUR NETWORK!!! and not a reserved MAC
+
+```
+
+
+
+
 ## Author
 
-**Faure Systems** (Nov 15th, 2019)
+**Faure Systems** (Jun 25th, 2019)
 * company: FAURE SYSTEMS SAS
 * mail: *dev at faure dot systems*
 * github: <a href="https://github.com/fauresystems?tab=repositories" target="_blank">fauresystems</a>

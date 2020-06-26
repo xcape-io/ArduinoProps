@@ -42,6 +42,8 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)src\Prop.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)src\PropAction.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)src\PropData.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)src\Stm32Millis.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)src\Stm32Nucleo144Prop.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)src\WifiProp.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -51,6 +53,8 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)src\Prop.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)src\PropAction.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)src\PropData.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)src\Stm32Millis.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)src\Stm32Nucleo144Prop.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)src\WifiProp.h" />
   </ItemGroup>
   <ItemGroup>

@@ -1,4 +1,4 @@
-﻿# ArduinoProps library
+# ArduinoProps library
 1. [Installation and usage](#1-installation-and-usage)
 2. [Escape room 2.0 prop with Arduino](#2-escape-room-20-prop-with-arduino)
 3. [*ArduinoProps library* value for escape room 2.0](#3-arduinoprops-library-value-for-escape-room-20)
@@ -48,6 +48,28 @@ Then install *Dragino Yún* in **Boards Manager**:
 Learn more at <a href="https://wiki.dragino.com/index.php?title=Getting_Start_with_Arduino_Yun#Automatically_Add_Board_Profile_in_Arduino_IDE" target="_blank">Automatically Add Board Profile in Arduino IDE</a> in <a href="https://wiki.dragino.com/index.php?title=Yun_Shield" target="_blank">Dragino Wiki</a>.
 
 ![](help/dragino.png)
+
+### Add the STM32 boards to the *Boards Manager*:
+Open **Preferences**, in **Settings** tab, complete the *Additionnal Boards Manager URLs* with:
+```bash
+https://github.com/stm32duino/BoardManagerFiles/raw/master/STM32/package_stm_index.json
+```
+
+![](help/preferences-board-manager.png)
+
+Then open the **Boards Manager** in **Tools**:
+
+![](help/open-board-manager.png)
+
+Find **STM32 Cores** by **STMicroelectronics**, **Select versio**n (latest) and **Install**:
+
+![](help/board-manager-1.png)
+
+In **Library Manager**, find STM32 libraries and install what you need:
+* **STM32duino Examples**
+* **STM32duino LwIP**
+* **STM32duino STM32Ethernet**
+
 
 ### Start coding your own prop
 Add `#include "ArduinoProps.h"` on top of your sketch and start coding.
@@ -207,6 +229,9 @@ More MQTT topics can be use for anything (room scenario, etc.).
  - Arduino MKR WiFi 1010
  - Arduino MKR VIDOR 4000
  - Any Arduino  + Ethernet Shield
+ - Any STM32 Nucleo-144 (tested with STM32-F767ZI)
+    * Nucleo-144 boards have on-board Ethernet RJ45
+    * STM32-H7xx not supported (STM32duino/STM32Ethernet limitation)
  
 For WiFi prop, please update the WiFiNINA firmware: [WiFiNINA firmware update](help/WifiNinaFirmware.md).
 
@@ -268,7 +293,7 @@ See [EXAMPLES.md](EXAMPLES.md) for an adaptation of the Blink example (https://w
 
 ## Author
 
-**Faure Systems** (Apr 18th, 2020)
+**Faure Systems** (Jun 26th, 2020)
 * company: FAURE SYSTEMS SAS
 * mail: *dev at faure dot systems*
 * github: <a href="https://github.com/fauresystems?tab=repositories" target="_blank">fauresystems</a>

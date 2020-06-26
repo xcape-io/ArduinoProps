@@ -1,5 +1,5 @@
 /*
-  Name:    PropAction.h
+  Name:    PropAction.cpp
   Author:  Faure Systems <dev at faure dot systems>
   Editor:  https://github.com/fauresystems
   License: MIT License (c) Faure Systems <dev at faure dot systems>
@@ -8,6 +8,10 @@
 */
 
 #include "PropAction.h"
+
+#if defined(STM32F4xx) || defined(STM32F7xx)
+#include "Stm32Millis.h"
+#endif
 
 PropAction::PropAction() 
 {
