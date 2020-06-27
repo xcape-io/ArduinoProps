@@ -17,7 +17,6 @@
 #if defined(ARDUINO_ARCH_STM32)
 #include <LwIP.h>
 #include <STM32Ethernet.h>
-//#include "Stm32Nucleo144Prop.h"
 #include "ArduinoProps.h"
 #include "Stm32Millis.h"
 extern Stm32MillisClass Stm32Millis;
