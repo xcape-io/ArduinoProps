@@ -57,6 +57,9 @@
     <None Include="$(MSBuildThisFileDirectory)examples\BlinkOnWifiProp\BlinkOnWifiProp.ino">
       <Filter>Examples</Filter>
     </None>
+    <None Include="$(MSBuildThisFileDirectory)examples\BlinkOnStm32Nucleo144Prop\BlinkOnStm32Nucleo144Prop.ino">
+      <Filter>Examples</Filter>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="$(MSBuildThisFileDirectory)src\ArduinoProps.cpp">

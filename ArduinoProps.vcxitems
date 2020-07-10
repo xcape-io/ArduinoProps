@@ -25,6 +25,7 @@
     <None Include="$(MSBuildThisFileDirectory)examples\BlinkOnBridgeProp\BlinkOnBridgeProp.ino" />
     <None Include="$(MSBuildThisFileDirectory)examples\BlinkOnBridgePubSub\BlinkOnBridgePubSub.ino" />
     <None Include="$(MSBuildThisFileDirectory)examples\BlinkOnEthernetProp\BlinkOnEthernetProp.ino" />
+    <None Include="$(MSBuildThisFileDirectory)examples\BlinkOnStm32Nucleo144Prop\BlinkOnStm32Nucleo144Prop.ino" />
     <None Include="$(MSBuildThisFileDirectory)examples\BlinkOnWifiProp\BlinkOnWifiProp.ino" />
     <None Include="$(MSBuildThisFileDirectory)help\Arduino_Props.md" />
     <None Include="$(MSBuildThisFileDirectory)help\Props.md" />
